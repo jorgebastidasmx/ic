@@ -1,0 +1,17 @@
+﻿#!/bin/bash
+
+export PENTAHO_BASE_DIR=/opt/pentaho/pdi-ce-5.0.1-stable
+export KETTLE_JNDI_ROOT=$PENTAHO_BASE_DIR/simple-jndi 
+
+dia=`date +%EY%m%d%H%M|awk {'print $1'}`
+DIRBINPTHO=/opt/pentaho/pdi-ce-5.0.1-stable
+DIRJOB_GENERAR_SCORE=/opt/tools/Pentaho/EPM/LOAD_SCORE/JOB
+DIRLOG=/opt/tools/Pentaho/EPM/LOAD_SCORE/JOB/log
+PATH_FILES=/opt/tools/Pentaho/EPM/LOAD_SCORE/JOB/
+
+PARAMS="-param:COD_PAIS=1 -param:FILE=/home/pentaho5/PENTAHO_JOBS/EPM/ -param:SCHEMA_EPM=EPM_MSG -param:KTR-LOAD=CREATE-FILES.ktr -param:KTR-SBS=SBS.ktr -param:KTR-SCORE=SCORE-1.ktr -param:KTR-SICOM=SICOM.ktr -param:KTR-RISK-PREDICTOR=SCORE-RISK-PREDICTOR.ktr -param:PATH=$PATH_FILES" 
+
+#echo $PARAMS
+echo "Inicio proceso carga Scores `date`" >> $DIRLOG/Process_LoadScore_$dia.log
+
+$DIRBINPTHO/kitchen.sh -file=$DIRJOB_GENERAR_SCORE/LOAD-SCORES-FROM-DATABASE.kjb $PARAMS -Level:Basic >> $DIRLOG/Process_LoadScore_$dia.log
