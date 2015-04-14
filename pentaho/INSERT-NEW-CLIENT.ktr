@@ -153,6 +153,8 @@
   <hop> <from>Constants</from><to>Switch Tipo documento</to><enabled>Y</enabled> </hop>
   <hop> <from>Insert CLIENTE_SUJETO</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
   <hop> <from>Insert CLIENTE_SUJETO 2</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>REST ICI NAT</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>REST ICI JUR</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Constants</name>
@@ -205,7 +207,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>254</xloc>
+      <xloc>191</xloc>
       <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
@@ -234,7 +236,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>828</xloc>
+      <xloc>765</xloc>
       <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
@@ -263,7 +265,7 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>816</xloc>
+      <xloc>753</xloc>
       <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
@@ -313,7 +315,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1430</xloc>
+      <xloc>1367</xloc>
       <yloc>114</yloc>
       <draw>Y</draw>
       </GUI>
@@ -363,7 +365,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1428</xloc>
+      <xloc>1365</xloc>
       <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
@@ -433,7 +435,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1093</xloc>
+      <xloc>1030</xloc>
       <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
@@ -523,7 +525,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1080</xloc>
+      <xloc>1017</xloc>
       <yloc>365</yloc>
       <draw>Y</draw>
       </GUI>
@@ -559,7 +561,7 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>386</xloc>
+      <xloc>323</xloc>
       <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
@@ -595,7 +597,7 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>382</xloc>
+      <xloc>319</xloc>
       <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
@@ -638,7 +640,7 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>535</xloc>
+      <xloc>472</xloc>
       <yloc>366</yloc>
       <draw>Y</draw>
       </GUI>
@@ -681,7 +683,7 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>530</xloc>
+      <xloc>467</xloc>
       <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
@@ -710,7 +712,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1236</xloc>
+      <xloc>1173</xloc>
       <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
@@ -739,7 +741,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1234</xloc>
+      <xloc>1171</xloc>
       <yloc>364</yloc>
       <draw>Y</draw>
       </GUI>
@@ -768,7 +770,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>967</xloc>
+      <xloc>904</xloc>
       <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
@@ -797,7 +799,7 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>960</xloc>
+      <xloc>897</xloc>
       <yloc>363</yloc>
       <draw>Y</draw>
       </GUI>
@@ -829,7 +831,7 @@
 <target_step>Mod URL Juridico</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>383</xloc>
+      <xloc>320</xloc>
       <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
@@ -839,7 +841,7 @@
     <name>json get values</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -930,7 +932,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>676</xloc>
+      <xloc>613</xloc>
       <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1096,7 +1098,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>684</xloc>
+      <xloc>621</xloc>
       <yloc>363</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1136,7 +1138,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>120</xloc>
+      <xloc>57</xloc>
       <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1155,13 +1157,61 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1432</xloc>
+      <xloc>1369</xloc>
       <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>REST ICI JUR</source_step>
+        <target_step>Mapping output specification</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>REST ICI NAT</source_step>
+        <target_step>Mapping output specification</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>json get values</source_step>
+        <target_step/>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>json get values 2</source_step>
+        <target_step/>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
