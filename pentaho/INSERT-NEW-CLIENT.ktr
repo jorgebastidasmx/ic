@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>CLIE</name>
-            <default_value>result.txt</default_value>
+            <default_value>load-sujetos-segm.csv</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -26,7 +26,7 @@
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value>E&#x3a;&#x2f;EPM&#x2f;Fase2&#x2f;Desarrollo&#x2f;</default_value>
+            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;files&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -133,57 +133,27 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>COD_SUJE is null</from><to>Switch Tipo documento</to><enabled>Y</enabled> </hop>
   <hop> <from>Mod URL Natural</from><to>REST ICI NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>Switch Tipo documento</from><to>Mod URL Natural</to><enabled>Y</enabled> </hop>
   <hop> <from>Switch Tipo documento</from><to>Mod URL Juridico</to><enabled>Y</enabled> </hop>
   <hop> <from>Mod URL Juridico</from><to>REST ICI JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI NAT</from><to>json get values</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constants</from><to>Lookup Sujeto</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ SUJETO</from><to>Insert SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Insert SUJETO 2</from><to>SEQ CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
-  <hop> <from>Sujeto Cliente</from><to>Constants</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI JUR</from><to>json get values 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ SUJETO 2</from><to>Insert SUJETO 2 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Insert SUJETO 2 2</from><to>SEQ CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO</from><to>Insert CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO 2</from><to>Insert CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup Sujeto</from><to>Get Cod Cliente 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get Cod Cliente 3</from><to>COD_SUJE is null</to><enabled>Y</enabled> </hop>
   <hop> <from>json get values 2</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>json get values</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows 2</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
+  <hop> <from>INIT MAPPING</from><to>Constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Constants</from><to>Switch Tipo documento</to><enabled>Y</enabled> </hop>
+  <hop> <from>Insert CLIENTE_SUJETO</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>Insert CLIENTE_SUJETO 2</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
   </order>
-  <step>
-    <name>COD_SUJE is null</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to/>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>COD_SUJE</leftvalue>
- <function>IS NULL</function>
- <rightvalue/>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>551</xloc>
-      <yloc>212</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step>
     <name>Constants</name>
     <type>Constant</type>
@@ -235,8 +205,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>191</xloc>
-      <yloc>209</yloc>
+      <xloc>254</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -264,8 +234,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1137</xloc>
-      <yloc>344</yloc>
+      <xloc>828</xloc>
+      <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,44 +263,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1125</xloc>
-      <yloc>100</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Get Cod Cliente 3</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var COD_CLIE &#x3d; getVariable&#x28;&#x22;COD_CLIE&#x22;,0&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>CC</name>
-        <rename>CC</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>COD_CLIE</name>
-        <rename>COD_CLIE</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>446</xloc>
-      <yloc>210</yloc>
+      <xloc>816</xloc>
+      <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -379,8 +313,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1739</xloc>
-      <yloc>96</yloc>
+      <xloc>1430</xloc>
+      <yloc>114</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -429,8 +363,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1737</xloc>
-      <yloc>344</yloc>
+      <xloc>1428</xloc>
+      <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -499,8 +433,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1402</xloc>
-      <yloc>99</yloc>
+      <xloc>1093</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -589,56 +523,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1389</xloc>
-      <yloc>347</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup Sujeto</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <table>EPMC_SUJE</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>TIP_TIPO_DOCU</name>
-        <field>TIP_TIPO_DOCU</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>NUM_NUME_DOCU</name>
-        <field>NUM_NUME_DOCU</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_SUJE</name>
-        <rename>COD_SUJE</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>304</xloc>
-      <yloc>209</yloc>
+      <xloc>1080</xloc>
+      <yloc>365</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -673,8 +559,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>695</xloc>
-      <yloc>344</yloc>
+      <xloc>386</xloc>
+      <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -709,8 +595,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>691</xloc>
-      <yloc>100</yloc>
+      <xloc>382</xloc>
+      <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -752,8 +638,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>844</xloc>
-      <yloc>348</yloc>
+      <xloc>535</xloc>
+      <yloc>366</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -795,8 +681,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>839</xloc>
-      <yloc>98</yloc>
+      <xloc>530</xloc>
+      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -824,8 +710,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1545</xloc>
-      <yloc>99</yloc>
+      <xloc>1236</xloc>
+      <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -853,8 +739,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1543</xloc>
-      <yloc>346</yloc>
+      <xloc>1234</xloc>
+      <yloc>364</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -882,8 +768,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1276</xloc>
-      <yloc>103</yloc>
+      <xloc>967</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -911,64 +797,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1269</xloc>
-      <yloc>345</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sujeto Cliente</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <filename>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;CLIE&#x7d;</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding/>
-    <fields>
-      <field>
-        <name>TIP_TIPO_DOCU</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>1</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-      </field>
-      <field>
-        <name>NUM_NUME_DOCU</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>20</length>
-        <precision>-1</precision>
-        <trim_type>both</trim_type>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>74</xloc>
-      <yloc>209</yloc>
+      <xloc>960</xloc>
+      <yloc>363</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -999,8 +829,8 @@
 <target_step>Mod URL Juridico</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>692</xloc>
-      <yloc>208</yloc>
+      <xloc>383</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1100,8 +930,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>985</xloc>
-      <yloc>100</yloc>
+      <xloc>676</xloc>
+      <yloc>118</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1266,25 +1096,72 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>993</xloc>
-      <yloc>345</yloc>
+      <xloc>684</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>INIT MAPPING</name>
+    <type>MappingInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+        <select_unspecified>N</select_unspecified>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>120</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Mapping output specification</name>
+    <type>MappingOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1432</xloc>
+      <yloc>241</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
-      <error>
-        <source_step>Lookup Sujeto</source_step>
-        <target_step/>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
