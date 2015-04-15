@@ -454,7 +454,7 @@
         </field>
         <field>
           <column_name>TXT_NOMB_COMP</column_name>
-          <stream_name>TXT_NOMB</stream_name>
+          <stream_name>TXT_NOMB_COMP</stream_name>
         </field>
         <field>
           <column_name>TXT_ICI</column_name>
@@ -471,6 +471,14 @@
         <field>
           <column_name>TXT_PROV</column_name>
           <stream_name>TXT_PROV</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_NOMB</column_name>
+          <stream_name>TXT_NOMB</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_APEL</column_name>
+          <stream_name>TXT_APEL</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -938,7 +946,7 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>TXT_NOMB</name>
+        <name>TXT_NOMB_COMP</name>
         <path>&#x24;..nombreCompleto</path>
         <type>String</type>
         <format/>
@@ -967,6 +975,32 @@
         <name>COUNT_PERSONAS</name>
         <path>&#x24;..countPersonas</path>
         <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>TXT_NOMB</name>
+        <path>&#x24;..nombres</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>TXT_APEL</name>
+        <path>&#x24;..apellidos</path>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
