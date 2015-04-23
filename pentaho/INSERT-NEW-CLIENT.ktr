@@ -30,16 +30,6 @@
             <description/>
         </parameter>
         <parameter>
-            <name>JURIDICO_SERVICE</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>NATURAL_SERVICE</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
             <name>SCHEMA_EPM</name>
             <default_value>EPM_MSG</default_value>
             <description/>
@@ -274,8 +264,8 @@
     </step>
 
   <step>
-    <name>INIT MAPPING</name>
-    <type>MappingInput</type>
+    <name>FILTER RESULT</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -284,44 +274,27 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>COD_CLIE</name>
-        <type>String</type>
-        <length>0</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>NUM_NUME_DOCU</name>
-        <type>String</type>
-        <length>0</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>TIP_TIPO_DOCU</name>
-        <type>String</type>
-        <length>0</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>TIPDOC</name>
-        <type>String</type>
-        <length>0</length>
-        <precision>0</precision>
-      </field>
-        <select_unspecified>N</select_unspecified>
-    </fields>
+<send_true_to/>
+<send_false_to>GET DATOS SUJETO</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>status</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>57</xloc>
-      <yloc>226</yloc>
+      <xloc>517</xloc>
+      <yloc>119</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>INSERT CLIENTE_SUJETO NAT</name>
-    <type>TableOutput</type>
+    <name>FILTER RESULT 1</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -330,584 +303,20 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>EPM_MSG</schema>
-    <table>EPMC_CLIE_SUJE</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>COD_CLIE_SUJE</column_name>
-          <stream_name>COD_CLIE_SUJE_SEQ</stream_name>
-        </field>
-        <field>
-          <column_name>COD_CLIE</column_name>
-          <stream_name>COD_CLIE</stream_name>
-        </field>
-        <field>
-          <column_name>COD_SUJE</column_name>
-          <stream_name>COD_SUJE_SEQ</stream_name>
-        </field>
-    </fields>
+<send_true_to/>
+<send_false_to>GET DATOS SUJETO 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>status</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1367</xloc>
-      <yloc>114</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>INSERT CLIENTE_SUJETO JUR</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>EPMC_CLIE_SUJE</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>COD_CLIE_SUJE</column_name>
-          <stream_name>COD_CLIE_SUJE_SEQ</stream_name>
-        </field>
-        <field>
-          <column_name>COD_CLIE</column_name>
-          <stream_name>COD_CLIE</stream_name>
-        </field>
-        <field>
-          <column_name>COD_SUJE</column_name>
-          <stream_name>COD_SUJE_SEQ</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1365</xloc>
-      <yloc>362</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>INSERT NAT</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>EPMC_SUJE</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>COD_SUJE</column_name>
-          <stream_name>COD_SUJE_SEQ</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_DOCU</column_name>
-          <stream_name>TIPDOC</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_NUME_DOCU</column_name>
-          <stream_name>NUM_NUME_DOCU</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_NOMB_COMP</column_name>
-          <stream_name>TXT_NOMB_COMP</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_ICI</column_name>
-          <stream_name>TXT_ICI</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_SUJE</column_name>
-          <stream_name>NAT</stream_name>
-        </field>
-        <field>
-          <column_name>COD_PAIS</column_name>
-          <stream_name>COD_PAIS</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_PROV</column_name>
-          <stream_name>TXT_PROV</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_NOMB</column_name>
-          <stream_name>TXT_NOMB</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_APEL</column_name>
-          <stream_name>TXT_APEL</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1028</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>INSERT JUR</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>EPMC_SUJE</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>N</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>COD_SUJE</column_name>
-          <stream_name>COD_SUJE_SEQ</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_DOCU</column_name>
-          <stream_name>TIPDOC</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_NUME_DOCU</column_name>
-          <stream_name>NUM_NUME_DOCU</stream_name>
-        </field>
-        <field>
-          <column_name>DES_DESC</column_name>
-          <stream_name>DES_DESC</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_ICI</column_name>
-          <stream_name>TXT_ICI</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_SUJE</column_name>
-          <stream_name>JUR</stream_name>
-        </field>
-        <field>
-          <column_name>COD_PAIS</column_name>
-          <stream_name>COD_PAIS</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_PROV</column_name>
-          <stream_name>TXT_PROV</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_DENO</column_name>
-          <stream_name>TXT_DENO</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_SITU_DENO</column_name>
-          <stream_name>TXT_SITU_DENO</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_DENO</column_name>
-          <stream_name>TIP_TIPO_DENO</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_DIRE</column_name>
-          <stream_name>TIP_TIPO_DIRE</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_SITU_DIRE</column_name>
-          <stream_name>TXT_SITU_DIRE</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>365</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Mapping output specification</name>
-    <type>MappingOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1369</xloc>
-      <yloc>241</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>MOD URL JUR</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_J &#x3d; getVariable&#x28;&#x22;JURIDICO_SERVICE&#x22;,0&#x29;&#x3b;&#xd;&#xa;var URL_J &#x3d; &#x22;&#x22;&#x3b;&#xd;&#xa;URL_J &#x3d; PARAM_J &#x2b; &#x22;ruc&#x3d;&#x22;&#x2b; NUM_NUME_DOCU &#x2b; &#x22;&#x2f;idMercantil&#x3d;null&#x2f;&#x22;&#x3b;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM_J</name>
-        <rename>PARAM_J</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>URL_J</name>
-        <rename>URL_J</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>323</xloc>
-      <yloc>362</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>MOD URL NAT</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM &#x3d; getVariable&#x28;&#x22;NATURAL_SERVICE&#x22;,0&#x29;&#x3b;&#xd;&#xa;var URL &#x3d; &#x22;&#x22;&#x3b;&#xd;&#xa;URL &#x3d; PARAM &#x2b; NUM_NUME_DOCU&#x2b;&#x22;&#x2f;null&#x2f;&#x22;&#x2b; NAT &#x2b;&#x22;&#x2f;&#x22;&#x3b;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM</name>
-        <rename>PARAM</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>URL</name>
-        <rename>URL</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>319</xloc>
-      <yloc>118</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>REST ICI JUR</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <applicationType>JSON</applicationType>
-    <method>GET</method>
-    <url/>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>URL_J</urlField>
-    <bodyField>PARAM_N</bodyField>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <result>
-      <name>result</name>
-      <code>status</code>
-      <response_time/>
-      </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>418</xloc>
-      <yloc>366</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>REST ICI NAT</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <applicationType>JSON</applicationType>
-    <method>GET</method>
-    <url>&#x24;&#x7b;NATURAL_SERVICE&#x7d;PARAM&#x2f;null&#x2f;1&#x2f;</url>
-    <urlInField>Y</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField>URL</urlField>
-    <bodyField>PARAM_N</bodyField>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <result>
-      <name>result</name>
-      <code>status</code>
-      <response_time/>
-      </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>413</xloc>
-      <yloc>116</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SEQ CLIENTE_SUJETO</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>COD_CLIE_SUJE_SEQ</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPMC_CLIE_SUJE_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1173</xloc>
-      <yloc>117</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SEQ CLIENTE_SUJETO 2</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>COD_CLIE_SUJE_SEQ</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPMC_CLIE_SUJE_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1171</xloc>
-      <yloc>364</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SEQ SUJETO</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>COD_SUJE_SEQ</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPMC_SUJE_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>904</xloc>
-      <yloc>121</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SEQ SUJETO 2</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>COD_SUJE_SEQ</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPMC_SUJE_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>897</xloc>
+      <xloc>527</xloc>
       <yloc>363</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>VALIDATE TIPO DOC</name>
-    <type>SwitchCase</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<fieldname>TIPDOC</fieldname>
-<use_contains>N</use_contains>
-<case_value_type>String</case_value_type>
-<case_value_format/>
-<case_value_decimal/>
-<case_value_group/>
-<default_target_step/>
-<cases><case><value>1</value>
-<target_step>MOD URL NAT</target_step>
-</case><case><value>3</value>
-<target_step>MOD URL NAT</target_step>
-</case><case><value>2</value>
-<target_step>MOD URL JUR</target_step>
-</case></cases>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1206,8 +615,8 @@
     </step>
 
   <step>
-    <name>FILTER RESULT</name>
-    <type>FilterRows</type>
+    <name>INIT MAPPING</name>
+    <type>MappingInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1216,27 +625,44 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to/>
-<send_false_to>GET DATOS SUJETO</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>status</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        <type>String</type>
+        <length>0</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        <type>String</type>
+        <length>0</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        <type>String</type>
+        <length>0</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>TIPDOC</name>
+        <type>String</type>
+        <length>0</length>
+        <precision>0</precision>
+      </field>
+        <select_unspecified>N</select_unspecified>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>517</xloc>
-      <yloc>119</yloc>
+      <xloc>57</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>FILTER RESULT 1</name>
-    <type>FilterRows</type>
+    <name>INSERT CLIENTE_SUJETO JUR</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1245,49 +671,589 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to/>
-<send_false_to>GET DATOS SUJETO 2</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>status</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
+    <connection>EPM_MSG</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPMC_CLIE_SUJE</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_CLIE_SUJE</column_name>
+          <stream_name>COD_CLIE_SUJE_SEQ</stream_name>
+        </field>
+        <field>
+          <column_name>COD_CLIE</column_name>
+          <stream_name>COD_CLIE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE_SEQ</stream_name>
+        </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>527</xloc>
+      <xloc>1365</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>INSERT CLIENTE_SUJETO NAT</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <schema>EPM_MSG</schema>
+    <table>EPMC_CLIE_SUJE</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_CLIE_SUJE</column_name>
+          <stream_name>COD_CLIE_SUJE_SEQ</stream_name>
+        </field>
+        <field>
+          <column_name>COD_CLIE</column_name>
+          <stream_name>COD_CLIE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE_SEQ</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1367</xloc>
+      <yloc>114</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>INSERT JUR</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPMC_SUJE</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE_SEQ</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_DOCU</column_name>
+          <stream_name>TIPDOC</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_NUME_DOCU</column_name>
+          <stream_name>NUM_NUME_DOCU</stream_name>
+        </field>
+        <field>
+          <column_name>DES_DESC</column_name>
+          <stream_name>DES_DESC</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_ICI</column_name>
+          <stream_name>TXT_ICI</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_SUJE</column_name>
+          <stream_name>JUR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_PAIS</column_name>
+          <stream_name>COD_PAIS</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_PROV</column_name>
+          <stream_name>TXT_PROV</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_DENO</column_name>
+          <stream_name>TXT_DENO</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_SITU_DENO</column_name>
+          <stream_name>TXT_SITU_DENO</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_DENO</column_name>
+          <stream_name>TIP_TIPO_DENO</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_DIRE</column_name>
+          <stream_name>TIP_TIPO_DIRE</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_SITU_DIRE</column_name>
+          <stream_name>TXT_SITU_DIRE</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1017</xloc>
+      <yloc>365</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>INSERT NAT</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPMC_SUJE</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE_SEQ</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_DOCU</column_name>
+          <stream_name>TIPDOC</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_NUME_DOCU</column_name>
+          <stream_name>NUM_NUME_DOCU</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_NOMB_COMP</column_name>
+          <stream_name>TXT_NOMB_COMP</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_ICI</column_name>
+          <stream_name>TXT_ICI</stream_name>
+        </field>
+        <field>
+          <column_name>TIP_TIPO_SUJE</column_name>
+          <stream_name>NAT</stream_name>
+        </field>
+        <field>
+          <column_name>COD_PAIS</column_name>
+          <stream_name>COD_PAIS</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_PROV</column_name>
+          <stream_name>TXT_PROV</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_NOMB</column_name>
+          <stream_name>TXT_NOMB</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_APEL</column_name>
+          <stream_name>TXT_APEL</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1028</xloc>
+      <yloc>117</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>MOD URL JUR</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_J &#x3d; getVariable&#x28;&#x22;JURIDICA_SERVICE_CC&#x22;,0&#x29;&#x3b;&#xd;&#xa;var URL_J &#x3d; &#x22;&#x22;&#x3b;&#xd;&#xa;URL_J &#x3d; PARAM_J &#x2b; &#x22;ruc&#x3d;&#x22;&#x2b; NUM_NUME_DOCU &#x2b; &#x22;&#x2f;idMercantil&#x3d;null&#x2f;&#x22;&#x3b;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM_J</name>
+        <rename>PARAM_J</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>URL_J</name>
+        <rename>URL_J</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>323</xloc>
+      <yloc>362</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>MOD URL NAT</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM &#x3d; getVariable&#x28;&#x22;NATURAL_SERVICE_CC&#x22;,0&#x29;&#x3b;&#xd;&#xa;var URL &#x3d; &#x22;&#x22;&#x3b;&#xd;&#xa;URL &#x3d; PARAM &#x2b; NUM_NUME_DOCU&#x2b;&#x22;&#x2f;null&#x2f;&#x22;&#x2b; NAT &#x2b;&#x22;&#x2f;&#x22;&#x3b;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM</name>
+        <rename>PARAM</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>URL</name>
+        <rename>URL</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>319</xloc>
+      <yloc>118</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Mapping output specification</name>
+    <type>MappingOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1369</xloc>
+      <yloc>241</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>REST ICI JUR</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <applicationType>JSON</applicationType>
+    <method>GET</method>
+    <url/>
+    <urlInField>Y</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>URL_J</urlField>
+    <bodyField>PARAM_N</bodyField>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <preemptive>N</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      </headers>
+    <parameters>
+      </parameters>
+    <result>
+      <name>result</name>
+      <code>status</code>
+      <response_time/>
+      </result>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>418</xloc>
+      <yloc>366</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>REST ICI NAT</name>
+    <type>Rest</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <applicationType>JSON</applicationType>
+    <method>GET</method>
+    <url>&#x24;&#x7b;NATURAL_SERVICE&#x7d;PARAM&#x2f;null&#x2f;1&#x2f;</url>
+    <urlInField>Y</urlInField>
+    <dynamicMethod>N</dynamicMethod>
+    <methodFieldName/>
+    <urlField>URL</urlField>
+    <bodyField>PARAM_N</bodyField>
+    <httpLogin/>
+    <httpPassword>Encrypted </httpPassword>
+    <proxyHost/>
+    <proxyPort/>
+    <preemptive>N</preemptive>
+    <trustStoreFile/>
+    <trustStorePassword>Encrypted </trustStorePassword>
+    <headers>
+      </headers>
+    <parameters>
+      </parameters>
+    <result>
+      <name>result</name>
+      <code>status</code>
+      <response_time/>
+      </result>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>413</xloc>
+      <yloc>116</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQ CLIENTE_SUJETO</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>COD_CLIE_SUJE_SEQ</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPMC_CLIE_SUJE_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1173</xloc>
+      <yloc>117</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQ CLIENTE_SUJETO 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>COD_CLIE_SUJE_SEQ</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPMC_CLIE_SUJE_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1171</xloc>
+      <yloc>364</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQ SUJETO</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>COD_SUJE_SEQ</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPMC_SUJE_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>904</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQ SUJETO 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>COD_SUJE_SEQ</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPMC_SUJE_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>897</xloc>
       <yloc>363</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
+  <step>
+    <name>VALIDATE TIPO DOC</name>
+    <type>SwitchCase</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<fieldname>TIPDOC</fieldname>
+<use_contains>N</use_contains>
+<case_value_type>String</case_value_type>
+<case_value_format/>
+<case_value_decimal/>
+<case_value_group/>
+<default_target_step/>
+<cases><case><value>1</value>
+<target_step>MOD URL NAT</target_step>
+</case><case><value>3</value>
+<target_step>MOD URL NAT</target_step>
+</case><case><value>2</value>
+<target_step>MOD URL JUR</target_step>
+</case></cases>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>320</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
-      <error>
-        <source_step>REST ICI JUR</source_step>
-        <target_step>Mapping output specification</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>REST ICI NAT</source_step>
-        <target_step>Mapping output specification</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
       <error>
         <source_step>GET DATOS SUJETO</source_step>
         <target_step>Mapping output specification</target_step>
@@ -1302,6 +1268,30 @@
       </error>
       <error>
         <source_step>GET DATOS SUJETO 2</source_step>
+        <target_step>Mapping output specification</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>REST ICI JUR</source_step>
+        <target_step>Mapping output specification</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>REST ICI NAT</source_step>
         <target_step>Mapping output specification</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
