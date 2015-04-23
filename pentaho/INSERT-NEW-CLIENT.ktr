@@ -133,31 +133,33 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Mod URL Natural</from><to>REST ICI NAT</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch Tipo documento</from><to>Mod URL Natural</to><enabled>Y</enabled> </hop>
-  <hop> <from>Switch Tipo documento</from><to>Mod URL Juridico</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mod URL Juridico</from><to>REST ICI JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>REST ICI NAT</from><to>json get values</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ SUJETO</from><to>Insert SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Insert SUJETO 2</from><to>SEQ CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
-  <hop> <from>REST ICI JUR</from><to>json get values 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ SUJETO 2</from><to>Insert SUJETO 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Insert SUJETO 2 2</from><to>SEQ CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ CLIENTE_SUJETO</from><to>Insert CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ CLIENTE_SUJETO 2</from><to>Insert CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>json get values 2</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>json get values</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
-  <hop> <from>INIT MAPPING</from><to>Constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constants</from><to>Switch Tipo documento</to><enabled>Y</enabled> </hop>
-  <hop> <from>Insert CLIENTE_SUJETO</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
-  <hop> <from>Insert CLIENTE_SUJETO 2</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>MOD URL NAT</from><to>REST ICI NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL JUR</to><enabled>Y</enabled> </hop>
+  <hop> <from>MOD URL JUR</from><to>REST ICI JUR</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT NAT</from><to>SEQ CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ SUJETO 2</from><to>INSERT JUR</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT JUR</from><to>SEQ CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ CLIENTE_SUJETO</from><to>INSERT CLIENTE_SUJETO NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ CLIENTE_SUJETO 2</from><to>INSERT CLIENTE_SUJETO JUR</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET DATOS SUJETO 2</from><to>FILTER COUNT JUR</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER COUNT JUR</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET DATOS SUJETO</from><to>FILTER COUNT NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER COUNT NAT</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
+  <hop> <from>INIT MAPPING</from><to>CONSTANTES</to><enabled>Y</enabled> </hop>
+  <hop> <from>CONSTANTES</from><to>VALIDATE TIPO DOC</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT CLIENTE_SUJETO NAT</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT CLIENTE_SUJETO JUR</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI NAT</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI JUR</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
+  <hop> <from>REST ICI NAT</from><to>FILTER RESULT</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER RESULT</from><to>GET DATOS SUJETO</to><enabled>Y</enabled> </hop>
+  <hop> <from>REST ICI JUR</from><to>FILTER RESULT 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER RESULT 1</from><to>GET DATOS SUJETO 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Constants</name>
+    <name>CONSTANTES</name>
     <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
@@ -214,7 +216,7 @@
     </step>
 
   <step>
-    <name>Filter rows</name>
+    <name>FILTER COUNT JUR</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -236,14 +238,14 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>765</xloc>
+      <xloc>775</xloc>
       <yloc>362</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Filter rows 2</name>
+    <name>FILTER COUNT NAT</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -286,20 +288,26 @@
       <field>
         <name>COD_CLIE</name>
         <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>0</length>
+        <precision>0</precision>
       </field>
       <field>
         <name>NUM_NUME_DOCU</name>
         <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>0</length>
+        <precision>0</precision>
       </field>
       <field>
         <name>TIP_TIPO_DOCU</name>
         <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
+        <length>0</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <name>TIPDOC</name>
+        <type>String</type>
+        <length>0</length>
+        <precision>0</precision>
       </field>
         <select_unspecified>N</select_unspecified>
     </fields>
@@ -312,7 +320,7 @@
     </step>
 
   <step>
-    <name>Insert CLIENTE_SUJETO</name>
+    <name>INSERT CLIENTE_SUJETO NAT</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -362,7 +370,7 @@
     </step>
 
   <step>
-    <name>Insert CLIENTE_SUJETO 2</name>
+    <name>INSERT CLIENTE_SUJETO JUR</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -412,7 +420,7 @@
     </step>
 
   <step>
-    <name>Insert SUJETO 2</name>
+    <name>INSERT NAT</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -446,7 +454,7 @@
         </field>
         <field>
           <column_name>TIP_TIPO_DOCU</column_name>
-          <stream_name>TIP_TIPO_DOCU</stream_name>
+          <stream_name>TIPDOC</stream_name>
         </field>
         <field>
           <column_name>NUM_NUME_DOCU</column_name>
@@ -483,14 +491,14 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1030</xloc>
+      <xloc>1028</xloc>
       <yloc>117</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Insert SUJETO 2 2</name>
+    <name>INSERT JUR</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -524,7 +532,7 @@
         </field>
         <field>
           <column_name>TIP_TIPO_DOCU</column_name>
-          <stream_name>TIP_TIPO_DOCU</stream_name>
+          <stream_name>TIPDOC</stream_name>
         </field>
         <field>
           <column_name>NUM_NUME_DOCU</column_name>
@@ -599,7 +607,7 @@
     </step>
 
   <step>
-    <name>Mod URL Juridico</name>
+    <name>MOD URL JUR</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>N</distribute>
@@ -635,7 +643,7 @@
     </step>
 
   <step>
-    <name>Mod URL Natural</name>
+    <name>MOD URL NAT</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>N</distribute>
@@ -702,12 +710,12 @@
       </parameters>
     <result>
       <name>result</name>
-      <code/>
+      <code>status</code>
       <response_time/>
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>472</xloc>
+      <xloc>418</xloc>
       <yloc>366</yloc>
       <draw>Y</draw>
       </GUI>
@@ -717,7 +725,7 @@
     <name>REST ICI NAT</name>
     <type>Rest</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -745,12 +753,12 @@
       </parameters>
     <result>
       <name>result</name>
-      <code/>
+      <code>status</code>
       <response_time/>
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>467</xloc>
+      <xloc>413</xloc>
       <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
@@ -873,7 +881,7 @@
     </step>
 
   <step>
-    <name>Switch Tipo documento</name>
+    <name>VALIDATE TIPO DOC</name>
     <type>SwitchCase</type>
     <description/>
     <distribute>Y</distribute>
@@ -883,19 +891,19 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<fieldname>TIP_TIPO_DOCU</fieldname>
+<fieldname>TIPDOC</fieldname>
 <use_contains>N</use_contains>
-<case_value_type>Integer</case_value_type>
+<case_value_type>String</case_value_type>
 <case_value_format/>
 <case_value_decimal/>
 <case_value_group/>
 <default_target_step/>
 <cases><case><value>1</value>
-<target_step>Mod URL Natural</target_step>
+<target_step>MOD URL NAT</target_step>
 </case><case><value>3</value>
-<target_step>Mod URL Natural</target_step>
+<target_step>MOD URL NAT</target_step>
 </case><case><value>2</value>
-<target_step>Mod URL Juridico</target_step>
+<target_step>MOD URL JUR</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>320</xloc>
@@ -905,7 +913,7 @@
     </step>
 
   <step>
-    <name>json get values</name>
+    <name>GET DATOS SUJETO</name>
     <type>JsonInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1025,17 +1033,17 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>613</xloc>
-      <yloc>118</yloc>
+      <xloc>637</xloc>
+      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>json get values 2</name>
+    <name>GET DATOS SUJETO 2</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1191,7 +1199,65 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>621</xloc>
+      <xloc>653</xloc>
+      <yloc>363</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>FILTER RESULT</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to>GET DATOS SUJETO</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>status</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>517</xloc>
+      <yloc>119</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>FILTER RESULT 1</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to/>
+<send_false_to>GET DATOS SUJETO 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>status</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>404</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>527</xloc>
       <yloc>363</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1223,8 +1289,8 @@
         <min_pct_rows/>
       </error>
       <error>
-        <source_step>json get values</source_step>
-        <target_step/>
+        <source_step>GET DATOS SUJETO</source_step>
+        <target_step>Mapping output specification</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -1235,8 +1301,8 @@
         <min_pct_rows/>
       </error>
       <error>
-        <source_step>json get values 2</source_step>
-        <target_step/>
+        <source_step>GET DATOS SUJETO 2</source_step>
+        <target_step>Mapping output specification</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
