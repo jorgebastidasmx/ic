@@ -11,17 +11,17 @@
     <parameters>
         <parameter>
             <name>JURIDICA_SERVICE_CC</name>
-            <default_value/>
+            <default_value>http&#x3a;&#x2f;&#x2f;192.168.0.15&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL_SERVICE_CC</name>
-            <default_value/>
+            <default_value>http&#x3a;&#x2f;&#x2f;192.168.0.15&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>PATH_FILES</name>
-            <default_value>D&#x3a;&#x5c;dev&#x5c;git&#x5c;ic&#x5c;pentaho</default_value>
+            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;pentaho&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>

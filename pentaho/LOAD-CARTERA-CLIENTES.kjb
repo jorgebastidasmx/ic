@@ -17,6 +17,11 @@
             <description/>
         </parameter>
         <parameter>
+            <name>PATH_FILES</name>
+            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;pentaho&#x2f;</default_value>
+            <description/>
+        </parameter>
+        <parameter>
             <name>SCHEMA_EPM</name>
             <default_value/>
             <description/>
@@ -70,7 +75,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename/>
+      <filename>&#x24;&#x7b;PATH_FILES&#x7d;&#x2f;LOAD-CARTERA-CLIENTES.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -90,7 +95,8 @@
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
-      <parallel>N</parallel>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>351</xloc>
