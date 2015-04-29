@@ -11,12 +11,12 @@
     <parameters>
         <parameter>
             <name>JURIDICA_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;192.168.0.15&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
+            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;192.168.0.15&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
+            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -381,10 +381,10 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>NUEVOID</leftvalue>
+ <leftvalue>COD_SUJE</leftvalue>
  <function>IS NULL</function>
  <rightvalue/>
- </condition>
+ <value><name>constant</name><type>String</type><text>error</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -467,6 +467,10 @@
     <main_path>Y</main_path>
     <rename_on_output>Y</rename_on_output>
     <description/>
+       <connector><parent>COD_CLIE</parent><child>COD_CLIE</child></connector>
+       <connector><parent>NUM_NUME_DOCU</parent><child>NUM_NUME_DOCU</child></connector>
+       <connector><parent>TIP_TIPO_DOCU</parent><child>TIP_TIPO_DOCU</child></connector>
+       <connector><parent>TIPDOC</parent><child>TIPDOC</child></connector>
     </mapping>      </input>
       <output>
     <mapping>    <input_step>Mapping output specification</input_step>
@@ -476,6 +480,8 @@
     <description/>
        <connector><parent>COD_SUJE_SEQ</parent><child>NUEVOID</child></connector>
        <connector><parent>COD_CLIE_SUJE_SEQ</parent><child>NUEVO_COD_CLIE_SUJE_SEQ</child></connector>
+       <connector><parent>result</parent><child>result</child></connector>
+       <connector><parent>status</parent><child>status</child></connector>
     </mapping>      </output>
           <parameters>    <inherit_all_vars>Y</inherit_all_vars>
     </parameters>
@@ -702,14 +708,6 @@
         <field>
           <column_name>ID_CARGA</column_name>
           <stream_name>ID_CARGA</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_NUME_DOCU</column_name>
-          <stream_name>NUM_NUME_DOCU</stream_name>
-        </field>
-        <field>
-          <column_name>TIP_TIPO_DOCU</column_name>
-          <stream_name>TIP_TIPO_DOCU</stream_name>
         </field>
         <field>
           <column_name>MSG_ERROR</column_name>
