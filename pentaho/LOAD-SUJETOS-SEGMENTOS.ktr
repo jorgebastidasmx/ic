@@ -128,7 +128,6 @@
   <hop> <from>INSERT SUJETO_SEGM_CLIENTE 2</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Update</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER PJ</from><to>SAVE_CONSTANTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>PROCESS CSV FILES</from><to>VAL_TIPO_DOCUMENTO</to><enabled>Y</enabled> </hop>
   <hop> <from>VAL_TIPO_DOCUMENTO</from><to>PROCESS FILE NAME</to><enabled>Y</enabled> </hop>
   <hop> <from>WRITE RESULT NUEVOS</from><to>INSERT-NEW-SUJETOS</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT-NEW-SUJETOS</from><to>FILTER PN</to><enabled>Y</enabled> </hop>
@@ -140,6 +139,8 @@
   <hop> <from>SAVE_CONSTANTES</from><to>GET_ID_BITACORA_LOG</to><enabled>Y</enabled> </hop>
   <hop> <from>GET_ID_BITACORA_LOG</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
   <hop> <from>Modified Java Script Value</from><to>SAVE ERROR</to><enabled>Y</enabled> </hop>
+  <hop> <from>PROCESS CSV FILES</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish</from><to>VAL_TIPO_DOCUMENTO</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -170,39 +171,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1665</xloc>
       <yloc>243</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SAVE_CONSTANTES</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>MSG</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>Usuario no encontrado</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1046</xloc>
-      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -304,6 +272,39 @@
     </step>
 
   <step>
+    <name>Constantes</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>FINALRESULT</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>I</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>369</xloc>
+      <yloc>111</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>DELETE SUJETOS SEGMENTO</name>
     <type>ExecSQL</type>
     <description/>
@@ -366,6 +367,35 @@
     </step>
 
   <step>
+    <name>FILTER PN</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>SAVE_CONSTANTES</send_true_to>
+<send_false_to>SEQ FOR INSERT 3</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>FINALRESULT</leftvalue>
+ <function>CONTAINS</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text>I</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1295</xloc>
+      <yloc>662</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Filter rows 2</name>
     <type>FilterRows</type>
     <description/>
@@ -390,6 +420,35 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1021</xloc>
       <yloc>132</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>GET_ID_BITACORA_LOG</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>ID_BITACORALOG</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPTD_CARGA_BIT_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1041</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -595,6 +654,100 @@
     </step>
 
   <step>
+    <name>INSERT-NEW-SUJETOS</name>
+    <type>Mapping</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>filename</specification_method>
+    <trans_object_id/>
+    <trans_name/>
+    <filename>&#x24;&#x7b;PATH_FILES&#x7d;&#x2f;INSERT-NEW-CLIENT.ktr</filename>
+    <directory_path/>
+    <mappings>
+      <input>
+    <mapping>    <input_step/>
+    <output_step>INIT MAPPING</output_step>
+    <main_path>Y</main_path>
+    <rename_on_output>Y</rename_on_output>
+    <description/>
+       <connector><parent>COD_CLIE</parent><child>COD_CLIE</child></connector>
+       <connector><parent>NUM_NUME_DOCU</parent><child>NUM_NUME_DOCU</child></connector>
+       <connector><parent>TIP_TIPO_DOCU</parent><child>TIP_TIPO_DOCU</child></connector>
+       <connector><parent>TIPDOC</parent><child>TIPDOC</child></connector>
+       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
+    </mapping>      </input>
+      <output>
+    <mapping>    <input_step>OUTPUT PERSONA NATURAL</input_step>
+    <output_step>FILTER PN</output_step>
+    <main_path>N</main_path>
+    <rename_on_output>N</rename_on_output>
+    <description/>
+       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
+       <connector><parent>COD_CLIE_SUJE_SEQ</parent><child>NUEVO_CLIE_SUJE</child></connector>
+    </mapping>    <mapping>    <input_step>OUTPUT PERSONA JURIDICA</input_step>
+    <output_step>FILTER PJ</output_step>
+    <main_path>N</main_path>
+    <rename_on_output>N</rename_on_output>
+    <description/>
+       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
+       <connector><parent>COD_CLIE_SUJE_SEQ</parent><child>NUEVO_CLIE_SUJE</child></connector>
+    </mapping>      </output>
+          <parameters>    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    </mappings>
+    <allow_multiple_input>Y</allow_multiple_input>
+    <allow_multiple_output>Y</allow_multiple_output>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1065</xloc>
+      <yloc>403</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Modified Java Script Value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>msgpersonalizado</name>
+        <rename>msgpersonalizado</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>LNEA</name>
+        <rename>LNEA</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1303</xloc>
+      <yloc>769</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>PROCESS CSV FILES</name>
     <type>CsvInput</type>
     <description/>
@@ -704,6 +857,93 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>118</xloc>
       <yloc>85</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SAVE ERROR</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <schema>EPM_MSG</schema>
+    <table>EPTD_CARGA_LOG</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>ID_CARGA</column_name>
+          <stream_name>ID_CARGA</stream_name>
+        </field>
+        <field>
+          <column_name>MSG_ERROR</column_name>
+          <stream_name>msgpersonalizado</stream_name>
+        </field>
+        <field>
+          <column_name>ID_INT</column_name>
+          <stream_name>ID_BITACORALOG</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_LNEA</column_name>
+          <stream_name>LNEA</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1520</xloc>
+      <yloc>765</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SAVE_CONSTANTES</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>MSG</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>Usuario no encontrado</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1046</xloc>
+      <yloc>663</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -963,6 +1203,36 @@
     </step>
 
   <step>
+    <name>VAL_TIPO_DOCUMENTO</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var TIPDOC&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;DNI&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 1&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;RUC&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 2&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;CE&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 3&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>TIPDOC</name>
+        <rename>TIPDOC</rename>
+        <type>Integer</type>
+        <length>1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>115</xloc>
+      <yloc>388</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>WRITE RESULT NUEVOS</name>
     <type>TextFileOutput</type>
     <description/>
@@ -1015,8 +1285,8 @@
     </step>
 
   <step>
-    <name>FILTER PN</name>
-    <type>FilterRows</type>
+    <name>Block this step until steps finish</name>
+    <type>BlockUntilStepsFinish</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1025,265 +1295,33 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>SAVE_CONSTANTES</send_true_to>
-<send_false_to>SEQ FOR INSERT 3</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>FINALRESULT</leftvalue>
- <function>CONTAINS</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>I</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
+    <steps>
+      <step>
+        <name>PROCESS CSV FILES</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1295</xloc>
-      <yloc>662</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>VAL_TIPO_DOCUMENTO</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var TIPDOC&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;DNI&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 1&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;RUC&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 2&#x3b;&#xd;&#xa;if&#x28;TIP_TIPO_DOCU&#x3d;&#x3d;&#x27;CE&#x27;&#x29;&#xd;&#xa;TIPDOC &#x3d; 3&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>TIPDOC</name>
-        <rename>TIPDOC</rename>
-        <type>Integer</type>
-        <length>1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>115</xloc>
-      <yloc>388</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>INSERT-NEW-SUJETOS</name>
-    <type>Mapping</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <specification_method>filename</specification_method>
-    <trans_object_id/>
-    <trans_name/>
-    <filename>&#x24;&#x7b;PATH_FILES&#x7d;&#x2f;INSERT-NEW-CLIENT.ktr</filename>
-    <directory_path/>
-    <mappings>
-      <input>
-    <mapping>    <input_step/>
-    <output_step>INIT MAPPING</output_step>
-    <main_path>Y</main_path>
-    <rename_on_output>Y</rename_on_output>
-    <description/>
-       <connector><parent>COD_CLIE</parent><child>COD_CLIE</child></connector>
-       <connector><parent>NUM_NUME_DOCU</parent><child>NUM_NUME_DOCU</child></connector>
-       <connector><parent>TIP_TIPO_DOCU</parent><child>TIP_TIPO_DOCU</child></connector>
-       <connector><parent>TIPDOC</parent><child>TIPDOC</child></connector>
-       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
-    </mapping>      </input>
-      <output>
-    <mapping>    <input_step>OUTPUT PERSONA NATURAL</input_step>
-    <output_step>FILTER PN</output_step>
-    <main_path>N</main_path>
-    <rename_on_output>N</rename_on_output>
-    <description/>
-       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
-       <connector><parent>COD_CLIE_SUJE_SEQ</parent><child>NUEVO_CLIE_SUJE</child></connector>
-    </mapping>    <mapping>    <input_step>OUTPUT PERSONA JURIDICA</input_step>
-    <output_step>FILTER PJ</output_step>
-    <main_path>N</main_path>
-    <rename_on_output>N</rename_on_output>
-    <description/>
-       <connector><parent>FINALRESULT</parent><child>FINALRESULT</child></connector>
-       <connector><parent>COD_CLIE_SUJE_SEQ</parent><child>NUEVO_CLIE_SUJE</child></connector>
-    </mapping>      </output>
-          <parameters>    <inherit_all_vars>Y</inherit_all_vars>
-    </parameters>
-    </mappings>
-    <allow_multiple_input>Y</allow_multiple_input>
-    <allow_multiple_output>Y</allow_multiple_output>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1065</xloc>
-      <yloc>403</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Constantes</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>FINALRESULT</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>I</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>111</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>GET_ID_BITACORA_LOG</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>ID_BITACORALOG</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPTD_CARGA_BIT_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1041</xloc>
-      <yloc>768</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SAVE ERROR</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>EPM_MSG</schema>
-    <table>EPTD_CARGA_LOG</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>ID_CARGA</column_name>
-          <stream_name>ID_CARGA</stream_name>
-        </field>
-        <field>
-          <column_name>MSG_ERROR</column_name>
-          <stream_name>msgpersonalizado</stream_name>
-        </field>
-        <field>
-          <column_name>ID_INT</column_name>
-          <stream_name>ID_BITACORALOG</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_LNEA</column_name>
-          <stream_name>LNEA</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1520</xloc>
-      <yloc>765</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Modified Java Script Value</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>msgpersonalizado</name>
-        <rename>msgpersonalizado</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>LNEA</name>
-        <rename>LNEA</rename>
-        <type>Number</type>
-        <length>16</length>
-        <precision>2</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1303</xloc>
-      <yloc>769</yloc>
+      <xloc>108</xloc>
+      <yloc>313</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>INSERT EPMC_CLIE_SUJE</source_step>
+        <target_step>BUSQUEDA ID INTERNO 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
