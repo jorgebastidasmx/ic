@@ -1,11 +1,11 @@
 #!/bin/bash
 
-export PENTAHO_BASE_DIR=/Applications/pentaho/
+export PENTAHO_BASE_DIR=/opt/pentaho/pdi-ce-5.2.0.0-209
 export KETTLE_JNDI_ROOT=$PENTAHO_BASE_DIR/simple-jndi 
 
 dia=`date +%EY%m%d%H%M|awk {'print $1'}`
 DIRBINPTHO=$PENTAHO_BASE_DIR
-DIRJOB_GENERAR_SCORE=/Users/indiegente/Documents/multiplica/ic/pentaho/
+DIRJOB_GENERAR_SCORE=/opt/tools/PENTAHO_JOBS
 DIRLOG=/tmp/
 PATH_FILES=$DIRJOB_GENERAR_SCORE
 
@@ -18,4 +18,4 @@ echo "Inicio proceso carga de cartera de clientes `date`" >> $DIRLOG/Process_Loa
 
 $DIRBINPTHO/kitchen.sh -file=$DIRJOB_GENERAR_SCORE/LOAD-CARTERA-CLIENTES.kjb $PARAMS2 -Level:Rowlevel >> $DIRLOG/Process_LoadCarteraCliente$dia.log
 $DIRBINPTHO/kitchen.sh -file=$DIRJOB_GENERAR_SCORE/LOAD-SUJETOS-SEGMENTOS.kjb $PARAMS2 -Level:Rowlevel >> $DIRLOG/Process_LoadSujetosSegmentos$dia.log
-#$DIRBINPTHO/kitchen.sh -file=$DIRJOB_GENERAR_SCORE/LOAD-SCORES-FROM-DATABASE.kjb $PARAMS -Level:Basic >> $DIRLOG/Process_LoadScore_$dia.log
+$DIRBINPTHO/kitchen.sh -file=$DIRJOB_GENERAR_SCORE/LOAD-SCORES-FROM-DATABASE.kjb $PARAMS -Level:Basic >> $DIRLOG/Process_LoadScore_$dia.log
