@@ -102,7 +102,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>Native</access>
+    <access>JNDI</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
