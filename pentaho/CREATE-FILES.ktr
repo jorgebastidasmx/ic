@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>COD_PAIS</name>
-            <default_value/>
+            <default_value>1</default_value>
             <description>Codigo del Pais</description>
         </parameter>
         <parameter>
@@ -31,7 +31,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value/>
+            <default_value>EPM_MSG</default_value>
             <description>Schema de EPM</description>
         </parameter>
     </parameters>
