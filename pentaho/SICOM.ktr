@@ -107,7 +107,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -890,7 +890,6 @@
     <urlField>URL</urlField>
     <bodyField/>
     <httpLogin/>
-    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -1122,7 +1121,6 @@
     <urlField>URL</urlField>
     <bodyField/>
     <httpLogin/>
-    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
