@@ -150,6 +150,7 @@
   <hop> <from>SO</from><to>FILTER - N</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N</from><to>log-fallidos</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - S08</from><to>log-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json RP</from><to>log-fallidos 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>FILTER - N</name>
@@ -267,7 +268,7 @@
     <name>Json RP</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -923,6 +924,18 @@
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Json RP</source_step>
+        <target_step>log-fallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>

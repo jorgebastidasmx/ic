@@ -156,6 +156,8 @@
   <hop> <from>Group by - N</from><to>FILTER - N 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>Calculate N</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>sicom-natural-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json J</from><to>sicom-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json N</from><to>sicom-natural-fallidos 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calculate J</name>
@@ -555,7 +557,7 @@
     <name>Json J</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -643,7 +645,7 @@
     <name>Json N</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1790,6 +1792,30 @@
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Json J</source_step>
+        <target_step>sicom-juridica-fallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Json N</source_step>
+        <target_step>sicom-natural-fallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>

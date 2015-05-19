@@ -159,6 +159,8 @@
   <hop> <from>Group by N</from><to>FILTER - N 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>Calculate N</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>log-SBS-Natural-erroreneos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json J</from><to>log-SBS-Juridica-erroreneos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json N</from><to>log-SBS-Natural-erroreneos 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calculate J</name>
@@ -620,8 +622,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>871</xloc>
-      <yloc>563</yloc>
+      <xloc>870</xloc>
+      <yloc>558</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1766,8 +1768,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1142</xloc>
-      <yloc>377</yloc>
+      <xloc>843</xloc>
+      <yloc>453</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1870,13 +1872,37 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1150</xloc>
-      <yloc>657</yloc>
+      <xloc>861</xloc>
+      <yloc>725</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Json J</source_step>
+        <target_step>log-SBS-Juridica-erroreneos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Json N</source_step>
+        <target_step>log-SBS-Natural-erroreneos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
       <error>
         <source_step>REST Natural</source_step>
         <target_step/>
