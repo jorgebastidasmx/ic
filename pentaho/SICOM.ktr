@@ -11,22 +11,22 @@
     <parameters>
         <parameter>
             <name>COD_PAIS</name>
-            <default_value/>
+            <default_value>1</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value/>
+            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>JURIDICA</name>
-            <default_value/>
+            <default_value>juridica.txt</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL</name>
-            <default_value/>
+            <default_value>natural.txt</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -36,7 +36,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value/>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -107,7 +107,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -132,12 +132,10 @@
   <hop> <from>Natural URL</from><to>Natural - SICOM</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica SICOM</from><to>Json J</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural - SICOM</from><to>Json N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group by - J</from><to>Calculate J</to><enabled>Y</enabled> </hop>
   <hop> <from>Json J</from><to>Fix Empty J</to><enabled>Y</enabled> </hop>
   <hop> <from>Fix Empty J</from><to>Group by - J</to><enabled>Y</enabled> </hop>
   <hop> <from>Json N</from><to>Fix Empty N</to><enabled>Y</enabled> </hop>
   <hop> <from>Fix Empty N</from><to>Group by - N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Group by - N</from><to>Calculate N</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural</from><to>SO N</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica</from><to>SO J</to><enabled>Y</enabled> </hop>
   <hop> <from>SO J</from><to>FILTER - J</to><enabled>Y</enabled> </hop>
@@ -150,6 +148,14 @@
   <hop> <from>Calculate J</from><to>Seq J</to><enabled>Y</enabled> </hop>
   <hop> <from>SICOM Juridica URL</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
   <hop> <from>SICOM Natural URL</from><to>Natural URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J</from><to>sicom-juridica-fallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Group by - J</from><to>FILTER - J 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J 2</from><to>Calculate J</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J 2</from><to>sicom-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N</from><to>sicom-natural-fallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Group by - N</from><to>FILTER - N 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N 2</from><to>Calculate N</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N 2</from><to>sicom-natural-fallidos 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calculate J</name>
@@ -193,8 +199,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>831</xloc>
-      <yloc>323</yloc>
+      <xloc>870</xloc>
+      <yloc>249</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -259,7 +265,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>SICOM Juridica URL</send_true_to>
-<send_false_to/>
+<send_false_to>sicom-juridica-fallidos</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -277,6 +283,35 @@
     </step>
 
   <step>
+    <name>FILTER - J 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Calculate J</send_true_to>
+<send_false_to>sicom-juridica-fallidos 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>G_FECHA</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>797</xloc>
+      <yloc>333</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>FILTER - N</name>
     <type>FilterRows</type>
     <description/>
@@ -288,7 +323,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>SICOM Natural URL</send_true_to>
-<send_false_to/>
+<send_false_to>sicom-natural-fallidos</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -301,6 +336,35 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>213</xloc>
       <yloc>463</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>FILTER - N 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Calculate N</send_true_to>
+<send_false_to>sicom-natural-fallidos 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>G_FECHA_REPORTE</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>864</xloc>
+      <yloc>644</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -432,8 +496,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>761</xloc>
-      <yloc>341</yloc>
+      <xloc>752</xloc>
+      <yloc>238</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -701,7 +765,7 @@
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;JURIDICA&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -826,6 +890,7 @@
     <urlField>URL</urlField>
     <bodyField/>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -843,8 +908,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>430</xloc>
-      <yloc>167</yloc>
+      <xloc>431</xloc>
+      <yloc>166</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -917,7 +982,7 @@
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;NATURAL&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;NATURAL&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1057,6 +1122,7 @@
     <urlField>URL</urlField>
     <bodyField/>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -1166,8 +1232,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>969</xloc>
-      <yloc>322</yloc>
+      <xloc>993</xloc>
+      <yloc>312</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1228,8 +1294,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1007</xloc>
-      <yloc>562</yloc>
+      <xloc>1015</xloc>
+      <yloc>547</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1482,8 +1548,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>900</xloc>
-      <yloc>344</yloc>
+      <xloc>912</xloc>
+      <yloc>328</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1511,8 +1577,216 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>947</xloc>
-      <yloc>583</yloc>
+      <xloc>945</xloc>
+      <yloc>548</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sicom-juridica-fallidos</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;sicom-juridica-fallidos.txt</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>193</xloc>
+      <yloc>344</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sicom-juridica-fallidos 2</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;sicom-juridica-fallidos.txt</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>797</xloc>
+      <yloc>423</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sicom-natural-fallidos</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;sicom-natural-fallidos.txt</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>214</xloc>
+      <yloc>602</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sicom-natural-fallidos 2</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;sicom-natural-fallidos.txt</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>867</xloc>
+      <yloc>743</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

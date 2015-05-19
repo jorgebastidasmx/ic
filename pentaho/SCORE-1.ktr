@@ -11,12 +11,12 @@
     <parameters>
         <parameter>
             <name>COD_PAIS</name>
-            <default_value/>
+            <default_value>1</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>COD_TIPO_SCOR_EMPRESA</name>
-            <default_value>2</default_value>
+            <default_value>1</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -26,17 +26,17 @@
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value/>
+            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>JURIDICA</name>
-            <default_value/>
+            <default_value>juridica.txt</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL</name>
-            <default_value/>
+            <default_value>natural.txt</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -56,7 +56,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value/>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -127,7 +127,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -168,6 +168,12 @@
   <hop> <from>Lookup Micro</from><to>Seq Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>S17</from><to>Lookup Emp</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Emp</from><to>Seq Empresas</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J</from><to>score1-juridica-fallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>S17</from><to>score1-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>S18</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N</from><to>score1-naturalfallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json Micro</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json Emp</from><to>score1-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Empresas REST</name>
@@ -189,6 +195,7 @@
     <urlField/>
     <bodyField>PARAM</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -331,8 +338,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to/>
-<send_false_to/>
+<send_true_to>Juridica URL</send_true_to>
+<send_false_to>score1-juridica-fallidos</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -361,7 +368,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Natural URL</send_true_to>
-<send_false_to/>
+<send_false_to>score1-naturalfallidos</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -382,7 +389,7 @@
     <name>Json Emp</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -457,7 +464,7 @@
     <name>Json Micro</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -566,7 +573,7 @@
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;JURIDICA&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -841,6 +848,7 @@
     <urlField/>
     <bodyField>PARAM_N</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -902,7 +910,7 @@
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;NATURAL&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;NATURAL&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1212,7 +1220,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Lookup Emp</send_true_to>
-<send_false_to/>
+<send_false_to>score1-juridica-fallidos 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1241,7 +1249,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Lookup Micro</send_true_to>
-<send_false_to/>
+<send_false_to>score1-naturalfallidos 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1253,7 +1261,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>861</xloc>
-      <yloc>584</yloc>
+      <yloc>583</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1475,7 +1483,239 @@
       </GUI>
     </step>
 
+  <step>
+    <name>score1-juridica-fallidos</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;score1-juridica-fallidos</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>194</xloc>
+      <yloc>280</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>score1-juridica-fallidos 2</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;score1-juridica-fallidos</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>799</xloc>
+      <yloc>466</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>score1-naturalfallidos</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;score1-natural-fallidos</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>235</xloc>
+      <yloc>558</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>score1-naturalfallidos 2</name>
+    <type>TextFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <enclosure_forced>N</enclosure_forced>
+    <enclosure_fix_disabled>N</enclosure_fix_disabled>
+    <header>Y</header>
+    <footer>N</footer>
+    <format>DOS</format>
+    <compression>None</compression>
+    <encoding/>
+    <endedLine/>
+    <fileNameInField>N</fileNameInField>
+    <fileNameField/>
+    <create_parent_folder>Y</create_parent_folder>
+    <file>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;score1-natural-fallidos</name>
+      <is_command>N</is_command>
+      <servlet_output>N</servlet_output>
+      <do_not_open_new_file_init>N</do_not_open_new_file_init>
+      <extention>txt</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <add_to_result_filenames>Y</add_to_result_filenames>
+      <pad>N</pad>
+      <fast_dump>N</fast_dump>
+      <splitevery>0</splitevery>
+    </file>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>806</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
+      <error>
+        <source_step>Json Emp</source_step>
+        <target_step>score1-juridica-fallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Json Micro</source_step>
+        <target_step>score1-naturalfallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>

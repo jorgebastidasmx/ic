@@ -16,17 +16,17 @@
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value/>
+            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>JURIDICA</name>
-            <default_value/>
+            <default_value>juridica.txt</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL</name>
-            <default_value/>
+            <default_value>natural.txt</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -102,7 +102,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -181,7 +181,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;JURIDICA&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
@@ -281,7 +281,7 @@
     <fileNameField/>
     <create_parent_folder>Y</create_parent_folder>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;NATURAL&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;NATURAL&#x7d;</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>N</do_not_open_new_file_init>
@@ -380,7 +380,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <sql>SELECT &#xd;&#xa;s.COD_SUJE, s.TXT_ICI, s.TIP_TIPO_DOCU, s.NUM_NUME_DOCU, s.DES_DESC, s.TXT_NOMB, s.TXT_APEL &#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE s&#xd;&#xa;INNER JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE cs ON s.COD_SUJE &#x3d; cs.COD_SUJE&#xd;&#xa;WHERE s.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;ORDER BY COD_SUJE ASC&#xd;&#xa;</sql>
+    <sql>SELECT &#xd;&#xa;s.COD_SUJE, s.TXT_ICI, s.TIP_TIPO_DOCU, s.NUM_NUME_DOCU, s.DES_DESC, s.TXT_NOMB, s.TXT_APEL &#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE s&#xd;&#xa;INNER JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE cs ON s.COD_SUJE &#x3d; cs.COD_SUJE&#xd;&#xa;WHERE s.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;AND cs.cod_clie&#x3d;24&#xd;&#xa;ORDER BY COD_SUJE ASC&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
