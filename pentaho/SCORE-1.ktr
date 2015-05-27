@@ -51,7 +51,7 @@
         </parameter>
         <parameter>
             <name>POST_PARAM_NATURAL_SC</name>
-            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;N&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x5b;NOMBRE&#x5d;&#x22;,&#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;1&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22; &#x7d; &#x5d;&#x7d;</default_value>
+            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x5b;NOMBRE&#x5d;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;N&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x5b;APPATERNO&#x5d;&#x22;,&#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;1&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22; &#x7d; &#x5d;&#x7d;</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -127,7 +127,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>Native</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -156,18 +156,12 @@
   <hop> <from>Json Micro</from><to>Empty N</to><enabled>Y</enabled> </hop>
   <hop> <from>Empty N</from><to>S18</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural</from><to>SO N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Juridica</from><to>SO J</to><enabled>Y</enabled> </hop>
-  <hop> <from>SO J</from><to>FILTER - J</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>SO N</from><to>FILTER - N</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N</from><to>Natural URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Juridica</from><to>SO J</to><enabled>N</enabled> </hop>
   <hop> <from>Seq Micro</from><to>Output Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Empresas</from><to>Output Empresas</to><enabled>Y</enabled> </hop>
   <hop> <from>S18</from><to>Lookup Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Micro</from><to>Seq Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Emp</from><to>Seq Empresas</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J</from><to>score1-juridica-fallidos</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N</from><to>score1-naturalfallidos</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Micro</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Emp</from><to>score1-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Seq Empresas 2</to><enabled>Y</enabled> </hop>
@@ -178,6 +172,10 @@
   <hop> <from>Seq Micro 2</from><to>Output Micro 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants 2</from><to>Seq Micro 2</to><enabled>Y</enabled> </hop>
   <hop> <from>S18</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SO J</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Empresas REST</from><to>score1-juridica-fallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Micro REST</from><to>score1-naturalfallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>SO N</from><to>Natural URL</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -313,6 +311,7 @@
     <urlField/>
     <bodyField>PARAM</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -330,8 +329,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>476</xloc>
-      <yloc>178</yloc>
+      <xloc>426</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -450,66 +449,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>782</xloc>
+      <xloc>784</xloc>
       <yloc>576</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER - J</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Juridica URL</send_true_to>
-<send_false_to>score1-juridica-fallidos</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>TXT_ICI</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>226</xloc>
-      <yloc>178</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER - N</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Natural URL</send_true_to>
-<send_false_to>score1-naturalfallidos</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>TXT_ICI</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>227</xloc>
-      <yloc>460</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -570,8 +511,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>664</xloc>
-      <yloc>178</yloc>
+      <xloc>617</xloc>
+      <yloc>177</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -632,8 +573,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>642</xloc>
-      <yloc>461</yloc>
+      <xloc>551</xloc>
+      <yloc>462</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -805,7 +746,7 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>365</xloc>
+      <xloc>273</xloc>
       <yloc>178</yloc>
       <draw>Y</draw>
       </GUI>
@@ -951,6 +892,7 @@
     <urlField/>
     <bodyField>PARAM_N</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -968,7 +910,7 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>472</xloc>
+      <xloc>395</xloc>
       <yloc>462</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1147,7 +1089,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_N &#x3d; getVariable&#x28;&#x22;POST_PARAM_NATURAL_SC&#x22;,0&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;DOC&#x5d;&#x22;, NUM_NUME_DOCU&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;NOMBRE&#x5d;&#x22;, TXT_NOMB&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_N &#x3d; getVariable&#x28;&#x22;POST_PARAM_NATURAL_SC&#x22;,0&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;DOC&#x5d;&#x22;, NUM_NUME_DOCU&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;NOMBRE&#x5d;&#x22;, TXT_NOMB&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;APPATERNO&#x5d;&#x22;, TXT_APEL&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM_N</name>
         <rename>PARAM_N</rename>
         <type>String</type>
@@ -1156,8 +1098,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>342</xloc>
-      <yloc>459</yloc>
+      <xloc>258</xloc>
+      <yloc>461</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1378,7 +1320,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1209</xloc>
+      <xloc>1231</xloc>
       <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1756,8 +1698,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1082</xloc>
-      <yloc>491</yloc>
+      <xloc>1090</xloc>
+      <yloc>492</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1837,8 +1779,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>232</xloc>
-      <yloc>289</yloc>
+      <xloc>431</xloc>
+      <yloc>296</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1889,8 +1831,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>664</xloc>
-      <yloc>331</yloc>
+      <xloc>617</xloc>
+      <yloc>301</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1941,8 +1883,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>235</xloc>
-      <yloc>558</yloc>
+      <xloc>397</xloc>
+      <yloc>595</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1993,13 +1935,25 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>648</xloc>
-      <yloc>607</yloc>
+      <xloc>555</xloc>
+      <yloc>593</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Empresas REST</source_step>
+        <target_step>score1-juridica-fallidos</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
       <error>
         <source_step>Json Emp</source_step>
         <target_step>score1-juridica-fallidos 2</target_step>
@@ -2015,6 +1969,18 @@
       <error>
         <source_step>Json Micro</source_step>
         <target_step>score1-naturalfallidos 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Micro REST</source_step>
+        <target_step>score1-naturalfallidos</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
