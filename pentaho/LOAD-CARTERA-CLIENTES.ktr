@@ -11,22 +11,22 @@
     <parameters>
         <parameter>
             <name>JURIDICA_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
+            <default_value>http&#x3a;&#x2f;&#x2f;172.23.155.101&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>NATURAL_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;localhost&#x3a;8000&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
+            <default_value>http&#x3a;&#x2f;&#x2f;172.23.155.101&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>PATH_FILES</name>
-            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;pentaho&#x2f;</default_value>
+            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG_2</default_value>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -97,7 +97,7 @@
     <name>EPM_MSG</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -715,7 +715,7 @@
         <in_stream_name>NOM_ARCHIVO</in_stream_name>
         <out_stream_name>ARCHIVO</out_stream_name>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;.&#x2a;&#x5c;&#x2f;</replace_string>
+        <replace_string>&#x5e;.&#x2a;&#x5b;&#x5c;&#x2f;&#x7c;&#x5c;&#x5c;&#x5d;</replace_string>
         <replace_by_string/>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -953,7 +953,7 @@
     <connection>EPM_MSG</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
     <lookup>
@@ -992,7 +992,7 @@
     <connection>EPM_MSG</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
-    <use_batch>N</use_batch>
+    <use_batch>Y</use_batch>
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
     <lookup>
@@ -1012,7 +1012,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>430</xloc>
-      <yloc>300</yloc>
+      <yloc>301</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
