@@ -254,7 +254,7 @@
       <yloc>234</yloc>
       </entry>
     <entry>
-      <name>SCORE Microfinanzas y Empresas</name>
+      <name>SCORE Empresas</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
@@ -362,7 +362,7 @@
       <to>SBS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
@@ -371,13 +371,13 @@
       <to>SICOM</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>LOAD</from>
-      <to>SCORE Microfinanzas y Empresas</to>
+      <to>SCORE Empresas</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

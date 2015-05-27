@@ -127,7 +127,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -151,7 +151,6 @@
   <hop> <from>Juridica URL</from><to>Empresas REST</to><enabled>Y</enabled> </hop>
   <hop> <from>Empresas REST</from><to>Json Emp</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Emp</from><to>Empty J</to><enabled>Y</enabled> </hop>
-  <hop> <from>Empty J</from><to>S17</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural URL</from><to>Micro REST</to><enabled>Y</enabled> </hop>
   <hop> <from>Micro REST</from><to>Json Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Micro</from><to>Empty N</to><enabled>Y</enabled> </hop>
@@ -166,15 +165,134 @@
   <hop> <from>Seq Empresas</from><to>Output Empresas</to><enabled>Y</enabled> </hop>
   <hop> <from>S18</from><to>Lookup Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Micro</from><to>Seq Micro</to><enabled>Y</enabled> </hop>
-  <hop> <from>S17</from><to>Lookup Emp</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Emp</from><to>Seq Empresas</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - J</from><to>score1-juridica-fallidos</to><enabled>Y</enabled> </hop>
-  <hop> <from>S17</from><to>score1-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>S18</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N</from><to>score1-naturalfallidos</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Micro</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Emp</from><to>score1-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants</from><to>Seq Empresas 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Seq Empresas 2</from><to>Output Empresas 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Empty J</from><to>S17</to><enabled>Y</enabled> </hop>
+  <hop> <from>S17</from><to>Lookup Emp</to><enabled>Y</enabled> </hop>
+  <hop> <from>S17</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>Seq Micro 2</from><to>Output Micro 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants 2</from><to>Seq Micro 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>S18</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Add constants</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>TXT_CAT_DEFAULT</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>S</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_VAL_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_ORD_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>6</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1013</xloc>
+      <yloc>382</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Add constants 2</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>TXT_CAT_DEFAULT</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>S</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_VAL_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_ORD_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>6</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>962</xloc>
+      <yloc>654</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Empresas REST</name>
     <type>Rest</type>
@@ -233,7 +351,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_J &#x3d; VALOR&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;VALOR&#x29; &#x7b;&#xd;&#xa;	VALOR_J &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_EMPRESAS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var FECHA &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_J &#x3d; 0&#x3b;&#xd;&#xa;var EXISTE_SCORE &#x3d; null&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_EMPRESAS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var now &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;var FECHA &#x3d; new Date&#x28;now.getFullYear&#x28;&#x29;, now.getMonth&#x28;&#x29;, now.getDate&#x28;&#x29;,now.getHours&#x28;&#x29;,now.getMinutes&#x28;&#x29;,0,0&#x29;&#x3b;&#xd;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;&#xd;&#xa;var arreglo &#x3d; JSON.parse&#x28;TRAMA&#x29;&#x3b;&#xd;&#xa;if&#x28;TRAMA&#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;for&#x28;var i&#x3d;0&#x3b; i &#x3c; arreglo.length&#x3b; i &#x2b;&#x2b;&#x29;&#x7b;&#xd;&#xa;	var nombre&#x3d;arreglo&#x5b;i&#x5d;.nombre&#x3b;&#xd;&#xa;	if&#x28;nombre&#x3d;&#x3d;&#x27;s17score&#x27;&#x29;&#x7b;&#xd;&#xa;		VALOR_J&#x3d;arreglo&#x5b;i&#x5d;.valor&#x3b;&#xd;&#xa;		EXISTE_SCORE &#x3d; &#x27;S&#x27;&#x3b;&#xd;&#xa;		break&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>VALOR_J</name>
         <rename>VALOR_J</rename>
         <type>String</type>
@@ -264,10 +382,16 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>EXISTE_SCORE</name>
+        <rename>EXISTE_SCORE</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>774</xloc>
-      <yloc>350</yloc>
+      <xloc>786</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -287,7 +411,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_N &#x3d; VALORN&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;VALORN&#x29; &#x7b;&#xd;&#xa;	VALOR_N &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_MICROFINANZAS&#x22;,3&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var FECHA &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_N &#x3d; 0&#x3b;&#xd;&#xa;var EXISTE_SCORE &#x3d; null&#x3b;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_MICROFINANZAS&#x22;,3&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var now &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;var FECHA &#x3d; new Date&#x28;now.getFullYear&#x28;&#x29;, now.getMonth&#x28;&#x29;, now.getDate&#x28;&#x29;,now.getHours&#x28;&#x29;,now.getMinutes&#x28;&#x29;,0,0&#x29;&#x3b;&#xd;&#xa;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;&#xd;&#xa;if&#x28;TRAMA &#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;var arreglo &#x3d; JSON.parse&#x28;TRAMA&#x29;&#x3b;&#xd;&#xa;for&#x28;var i&#x3d;0&#x3b; i &#x3c; arreglo.length&#x3b; i &#x2b;&#x2b;&#x29;&#x7b;&#xd;&#xa;	var nombre&#x3d;arreglo&#x5b;i&#x5d;.nombre&#x3b;&#xd;&#xa;	if&#x28;nombre&#x3d;&#x3d;&#x27;s18score&#x27;&#x29;&#x7b;&#xd;&#xa;		VALOR_N&#x3d;arreglo&#x5b;i&#x5d;.valor&#x3b;&#xd;&#xa;		EXISTE_SCORE &#x3d; &#x27;S&#x27;&#x3b;&#xd;&#xa;		break&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>VALOR_N</name>
         <rename>VALOR_N</rename>
         <type>String</type>
@@ -318,10 +442,16 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>EXISTE_SCORE</name>
+        <rename>EXISTE_SCORE</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>787</xloc>
-      <yloc>604</yloc>
+      <xloc>782</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -349,8 +479,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>164</xloc>
-      <yloc>176</yloc>
+      <xloc>226</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -378,8 +508,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>233</xloc>
-      <yloc>435</yloc>
+      <xloc>227</xloc>
+      <yloc>460</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -413,21 +543,8 @@
     </file>
     <fields>
       <field>
-        <name>NOMBRE</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.nombre</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>VALOR</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.valor</path>
+        <name>TRAMA</name>
+        <path>&#x24;..tramacuerpo</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -453,8 +570,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>704</xloc>
-      <yloc>318</yloc>
+      <xloc>664</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -488,22 +605,9 @@
     </file>
     <fields>
       <field>
-        <name>NOMBREN</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.nombre</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>VALORN</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.valor</path>
-        <type>String</type>
+        <name>TRAMA</name>
+        <path>&#x24;..tramacuerpo</path>
+        <type>None</type>
         <format/>
         <currency/>
         <decimal/>
@@ -528,8 +632,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>701</xloc>
-      <yloc>592</yloc>
+      <xloc>642</xloc>
+      <yloc>461</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -671,8 +775,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>46</xloc>
-      <yloc>166</yloc>
+      <xloc>28</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -701,8 +805,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>312</xloc>
-      <yloc>176</yloc>
+      <xloc>365</xloc>
+      <yloc>178</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -761,8 +865,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>943</xloc>
-      <yloc>348</yloc>
+      <xloc>997</xloc>
+      <yloc>200</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -821,8 +925,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>944</xloc>
-      <yloc>602</yloc>
+      <xloc>950</xloc>
+      <yloc>491</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -864,8 +968,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>459</xloc>
-      <yloc>439</yloc>
+      <xloc>472</xloc>
+      <yloc>462</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1022,8 +1126,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>113</xloc>
-      <yloc>435</yloc>
+      <xloc>23</xloc>
+      <yloc>461</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1052,8 +1156,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>323</xloc>
-      <yloc>436</yloc>
+      <xloc>342</xloc>
+      <yloc>459</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1126,8 +1230,82 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1105</xloc>
-      <yloc>348</yloc>
+      <xloc>1197</xloc>
+      <yloc>205</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Output Empresas 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_SCOR</table>
+    <commit>500</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_SCOR</column_name>
+          <stream_name>ID_J</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_PAIS</column_name>
+          <stream_name>COD_PAIS</stream_name>
+        </field>
+        <field>
+          <column_name>COD_TIPO_SCOR</column_name>
+          <stream_name>COD_TIPO_SCOR</stream_name>
+        </field>
+        <field>
+          <column_name>FEC_FECH_SCOR</column_name>
+          <stream_name>FECHA</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_VALO</column_name>
+          <stream_name>NUM_VAL_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CATE</column_name>
+          <stream_name>TXT_CAT_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_ORDE</column_name>
+          <stream_name>NUM_ORD_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_PERI</column_name>
+          <stream_name>PERIODO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1239</xloc>
+      <yloc>380</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1200,8 +1378,82 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1111</xloc>
-      <yloc>603</yloc>
+      <xloc>1209</xloc>
+      <yloc>492</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Output Micro 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_SCOR</table>
+    <commit>500</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_PAIS</column_name>
+          <stream_name>COD_PAIS</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SCOR</column_name>
+          <stream_name>ID_N</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_TIPO_SCOR</column_name>
+          <stream_name>COD_TIPO_SCOR</stream_name>
+        </field>
+        <field>
+          <column_name>FEC_FECH_SCOR</column_name>
+          <stream_name>FECHA</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_VALO</column_name>
+          <stream_name>NUM_VAL_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CATE</column_name>
+          <stream_name>TXT_CAT_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_ORDE</column_name>
+          <stream_name>NUM_ORD_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_PERI</column_name>
+          <stream_name>PERIODO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1211</xloc>
+      <yloc>654</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1218,19 +1470,19 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Lookup Emp</send_true_to>
-<send_false_to>score1-juridica-fallidos 2</send_false_to>
+<send_false_to>Add constants</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>NOMBRE</leftvalue>
- <function>&#x3d;</function>
+ <leftvalue>EXISTE_SCORE</leftvalue>
+ <function>IS NOT NULL</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>s17score</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>860</xloc>
-      <yloc>333</yloc>
+      <xloc>909</xloc>
+      <yloc>307</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1247,19 +1499,19 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Lookup Micro</send_true_to>
-<send_false_to>score1-naturalfallidos 2</send_false_to>
+<send_false_to>Add constants 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>NOMBREN</leftvalue>
- <function>&#x3d;</function>
+ <leftvalue>EXISTE_SCORE</leftvalue>
+ <function>IS NOT NULL</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>s18score</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>861</xloc>
-      <yloc>583</yloc>
+      <xloc>895</xloc>
+      <yloc>576</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1331,8 +1583,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>102</xloc>
-      <yloc>201</yloc>
+      <xloc>124</xloc>
+      <yloc>179</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1417,7 +1669,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>169</xloc>
+      <xloc>130</xloc>
       <yloc>460</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1446,8 +1698,37 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1020</xloc>
-      <yloc>326</yloc>
+      <xloc>1099</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Seq Empresas 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>ID_J</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPTD_SCOR_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1116</xloc>
+      <yloc>381</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1475,8 +1756,37 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1025</xloc>
-      <yloc>585</yloc>
+      <xloc>1082</xloc>
+      <yloc>491</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Seq Micro 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>ID_N</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPTD_SCOR_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1091</xloc>
+      <yloc>654</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1500,7 +1810,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>windows-1252</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1527,8 +1837,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>194</xloc>
-      <yloc>280</yloc>
+      <xloc>232</xloc>
+      <yloc>289</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1552,7 +1862,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>windows-1252</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1579,8 +1889,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>799</xloc>
-      <yloc>466</yloc>
+      <xloc>664</xloc>
+      <yloc>331</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1604,7 +1914,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>windows-1252</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1656,7 +1966,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>windows-1252</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1683,8 +1993,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>806</xloc>
-      <yloc>736</yloc>
+      <xloc>648</xloc>
+      <yloc>607</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
