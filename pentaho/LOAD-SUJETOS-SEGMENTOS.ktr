@@ -789,7 +789,7 @@
     <include_filename>Y</include_filename>
     <separator>,</separator>
     <enclosure>&#x22;</enclosure>
-    <header>Y</header>
+    <header>N</header>
     <buffer_size>50000</buffer_size>
     <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
@@ -844,7 +844,7 @@
         <in_stream_name>NOM_ARCHIVO</in_stream_name>
         <out_stream_name>ARCHIVO</out_stream_name>
         <use_regex>yes</use_regex>
-        <replace_string>&#x5e;.&#x2a;&#x5c;&#x2f;</replace_string>
+        <replace_string>&#x5e;.&#x2a;&#x5b;&#x5c;&#x2f;&#x7c;&#x5c;&#x5c;&#x5d;</replace_string>
         <replace_by_string/>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
