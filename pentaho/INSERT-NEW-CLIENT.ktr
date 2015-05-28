@@ -102,7 +102,7 @@
     <name>EPM_MSG</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -239,7 +239,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;files&#x2f;cliente.csv</filename>
+    <filename>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;prueba2.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -266,7 +266,7 @@
       </field>
       <field>
         <name>NUM_NUME_DOCU</name>
-        <type>Integer</type>
+        <type>String</type>
         <format>&#x23;</format>
         <currency>&#x24;</currency>
         <decimal>.</decimal>
@@ -311,8 +311,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>65</xloc>
-      <yloc>112</yloc>
+      <xloc>63</xloc>
+      <yloc>110</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1119,6 +1119,25 @@
     </step>
 
   <step>
+    <name>OUTPUT PERSONA JURIDICA</name>
+    <type>MappingOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>683</xloc>
+      <yloc>251</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>OUTPUT PERSONA NATURAL</name>
     <type>MappingOutput</type>
     <description/>
@@ -1148,7 +1167,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <applicationType>JSON</applicationType>
+    <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
     <url/>
     <urlInField>Y</urlInField>
@@ -1157,6 +1176,7 @@
     <urlField>URL_J</urlField>
     <bodyField>PARAM_N</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -1191,7 +1211,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <applicationType>JSON</applicationType>
+    <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
     <url>&#x24;&#x7b;NATURAL_SERVICE&#x7d;PARAM&#x2f;null&#x2f;1&#x2f;</url>
     <urlInField>Y</urlInField>
@@ -1200,6 +1220,7 @@
     <urlField>URL</urlField>
     <bodyField>PARAM_N</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -1218,7 +1239,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>413</xloc>
-      <yloc>116</yloc>
+      <yloc>115</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1417,25 +1438,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>320</xloc>
       <yloc>226</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>OUTPUT PERSONA JURIDICA</name>
-    <type>MappingOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>683</xloc>
-      <yloc>251</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

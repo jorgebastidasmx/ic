@@ -51,7 +51,7 @@
         </parameter>
         <parameter>
             <name>POST_PARAM_NATURAL_SC</name>
-            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x5b;NOMBRE&#x5d;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;N&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x5b;APPATERNO&#x5d;&#x22;,&#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;1&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22; &#x7d; &#x5d;&#x7d;</default_value>
+            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;N&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x5b;NOMBRECOMPLETO&#x5d;&#x22;,&#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;1&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22; &#x7d; &#x5d;&#x7d;</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -156,7 +156,7 @@
   <hop> <from>Json Micro</from><to>Empty N</to><enabled>Y</enabled> </hop>
   <hop> <from>Empty N</from><to>S18</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural</from><to>SO N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Juridica</from><to>SO J</to><enabled>N</enabled> </hop>
+  <hop> <from>Juridica</from><to>SO J</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Micro</from><to>Output Micro</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Empresas</from><to>Output Empresas</to><enabled>Y</enabled> </hop>
   <hop> <from>S18</from><to>Lookup Micro</to><enabled>Y</enabled> </hop>
@@ -1040,6 +1040,21 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <ifnull/>
+        <position>-1</position>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>both</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <error_ignored>N</error_ignored>
@@ -1089,7 +1104,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_N &#x3d; getVariable&#x28;&#x22;POST_PARAM_NATURAL_SC&#x22;,0&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;DOC&#x5d;&#x22;, NUM_NUME_DOCU&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;NOMBRE&#x5d;&#x22;, TXT_NOMB&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;APPATERNO&#x5d;&#x22;, TXT_APEL&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_N &#x3d; getVariable&#x28;&#x22;POST_PARAM_NATURAL_SC&#x22;,0&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;DOC&#x5d;&#x22;, NUM_NUME_DOCU&#x29;&#x3b;&#xd;&#xa;var nombre&#x3d;&#x27;&#x27;&#x3b;&#xd;&#xa;if&#x28;TXT_NOMB&#x21;&#x3d;null &#x26;&#x26; TXT_APEL&#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;	nombre&#x3d;TXT_APEL &#x2b; &#x27;&#x27; &#x2b; TXT_NOMB&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;if&#x28;TXT_NOMB_COMP&#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;	nombre&#x3d;TXT_NOMB_COMP&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;NOMBRECOMPLETO&#x5d;&#x22;, nombre&#x29;&#x3b;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM_N</name>
         <rename>PARAM_N</rename>
         <type>String</type>

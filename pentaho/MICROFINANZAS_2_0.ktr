@@ -20,13 +20,8 @@
             <description/>
         </parameter>
         <parameter>
-            <name>COD_TIPO_SCOR_MF_PERSONA</name>
-            <default_value>4</default_value>
-            <description/>
-        </parameter>
-        <parameter>
             <name>FILE</name>
-            <default_value>c&#x3a;&#x2f;FILE&#x2f;</default_value>
+            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -46,17 +41,12 @@
         </parameter>
         <parameter>
             <name>POST_PARAM_JURIDICA_MF</name>
-            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;mcampana&#x22;, &#x22;clave&#x22;&#x3a; &#x22;dexmcv02&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.147&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;J&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;6&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22;, &#x22;razonSocial&#x22;&#x3a;&#x22;&#x5b;RAZON_SOCIAL&#x5d;&#x22; &#x7d;&#x5d; &#x7d;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>POST_PARAM_NATURAL_MF</name>
-            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;mcampana&#x22;, &#x22;clave&#x22;&#x3a; &#x22;dexmcv02&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.147&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;N&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;6&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22;, &#x22;razonSocial&#x22;&#x3a;&#x22;&#x5b;RAZON_SOCIAL&#x5d;&#x22; &#x7d;&#x5d; &#x7d;</default_value>
+            <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;J&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;6&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22;, &#x22;razonSocial&#x22;&#x3a;&#x22;&#x5b;RAZON_SOCIAL&#x5d;&#x22; &#x7d;&#x5d; &#x7d;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM</default_value>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -127,7 +117,7 @@
     <name>EPM</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -150,30 +140,18 @@
   <order>
   <hop> <from>Empresas REST</from><to>Json Emp</to><enabled>Y</enabled> </hop>
   <hop> <from>Empty J</from><to>Codigo Empresa</to><enabled>Y</enabled> </hop>
-  <hop> <from>Empty N</from><to>Codigo Persona</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N</from><to>Natural URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Emp</from><to>Empty J</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json Micro</from><to>Empty N</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica</from><to>SO J</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica URL</from><to>Empresas REST</to><enabled>Y</enabled> </hop>
   <hop> <from>Lookup Emp</from><to>Seq Empresas</to><enabled>Y</enabled> </hop>
-  <hop> <from>Lookup Micro</from><to>Seq Micro</to><enabled>Y</enabled> </hop>
-  <hop> <from>Micro REST</from><to>Json Micro</to><enabled>Y</enabled> </hop>
-  <hop> <from>Natural</from><to>SO N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Natural URL</from><to>Micro REST</to><enabled>Y</enabled> </hop>
   <hop> <from>Codigo Empresa</from><to>Lookup Emp</to><enabled>Y</enabled> </hop>
-  <hop> <from>Codigo Persona</from><to>Lookup Micro</to><enabled>Y</enabled> </hop>
-  <hop> <from>SO J</from><to>FILTER - J</to><enabled>Y</enabled> </hop>
-  <hop> <from>SO N</from><to>FILTER - N</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Empresas</from><to>Output Empresas</to><enabled>Y</enabled> </hop>
-  <hop> <from>Seq Micro</from><to>Output Micro</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J</from><to>microfinanzas-juridica-fallidos</to><enabled>Y</enabled> </hop>
   <hop> <from>Json Emp</from><to>microfinanzas-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Codigo Empresa</from><to>microfinanzas-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N</from><to>microfinanzas-naturalfallidos</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json Micro</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Codigo Persona</from><to>score1-naturalfallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SO J</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
+  <hop> <from>Codigo Empresa</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants 2</from><to>Seq Empresas 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Seq Empresas 2</from><to>Output Empresas 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Codigo Empresa</name>
@@ -187,48 +165,19 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Lookup Emp</send_true_to>
-<send_false_to>microfinanzas-juridica-fallidos 2</send_false_to>
+<send_false_to>Add constants 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>NOMBRE</leftvalue>
- <function>&#x3d;</function>
+ <leftvalue>EXISTE_SCORE</leftvalue>
+ <function>IS NOT NULL</function>
  <rightvalue/>
  <value><name>constant</name><type>String</type><text>s18score</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>849</xloc>
-      <yloc>289</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Codigo Persona</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Lookup Micro</send_true_to>
-<send_false_to>score1-naturalfallidos 2</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>NOMBREN</leftvalue>
- <function>&#x3d;</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text>s18score</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>850</xloc>
-      <yloc>540</yloc>
+      <xloc>721</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -253,6 +202,7 @@
     <urlField/>
     <bodyField>PARAM</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -270,8 +220,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>465</xloc>
-      <yloc>134</yloc>
+      <xloc>405</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -291,7 +241,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_J &#x3d; VALOR&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;VALOR&#x29; &#x7b;&#xd;&#xa;	VALOR_J &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_MF_EMPRESA&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var FECHA &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var EXISTE_SCORE &#x3d; null&#x3b;&#xd;&#xa;var VALOR_J &#x3d; 0&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_MF_EMPRESA&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var FECHA &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;&#xd;&#xa;if&#x28;TRAMA &#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;var arreglo &#x3d; JSON.parse&#x28;TRAMA&#x29;&#x3b;&#xd;&#xa;for&#x28;var i&#x3d;0&#x3b; i &#x3c; arreglo.length&#x3b; i &#x2b;&#x2b;&#x29;&#x7b;&#xd;&#xa;	var nombre&#x3d;arreglo&#x5b;i&#x5d;.nombre&#x3b;&#xd;&#xa;	if&#x28;nombre&#x3d;&#x3d;&#x27;s18score&#x27;&#x29;&#x7b;&#xd;&#xa;		VALOR_J&#x3d;arreglo&#x5b;i&#x5d;.valor&#x3b;&#xd;&#xa;		EXISTE_SCORE &#x3d; &#x27;S&#x27;&#x3b;&#xd;&#xa;		break&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>VALOR_J</name>
         <rename>VALOR_J</rename>
         <type>String</type>
@@ -322,122 +272,16 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>763</xloc>
-      <yloc>306</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Empty N</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var VALOR_N &#x3d; VALORN&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;VALORN&#x29; &#x7b;&#xd;&#xa;	VALOR_N &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD PAIS&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; COD TIPO SCOR&#xd;&#xa;var COD_TIPO_SCOR &#x3d; getVariable&#x28;&#x22;COD_TIPO_SCOR_MF_PERSONA&#x22;,3&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; FECHA&#xd;&#xa;var FECHA &#x3d; new Date&#x28;&#x29;&#x3b;&#xa;&#xa;&#x2f;&#x2f; PERIODO&#xa;var PERIODO &#x3d; getVariable&#x28;&#x22;PERIODO&#x22;,&#x22;MENSUAL&#x22;&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>VALOR_N</name>
-        <rename>VALOR_N</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>COD_PAIS</name>
-        <rename>COD_PAIS</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>COD_TIPO_SCOR</name>
-        <rename>COD_TIPO_SCOR</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>FECHA</name>
-        <rename>FECHA</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>PERIODO</name>
-        <rename>PERIODO</rename>
+      </field>      <field>        <name>EXISTE_SCORE</name>
+        <rename>EXISTE_SCORE</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>776</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER - J</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to/>
-<send_false_to>microfinanzas-juridica-fallidos</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>TXT_ICI</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>153</xloc>
-      <yloc>132</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER - N</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>Natural URL</send_true_to>
-<send_false_to>microfinanzas-naturalfallidos</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <leftvalue>TXT_ICI</leftvalue>
- <function>IS NOT NULL</function>
- <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>222</xloc>
-      <yloc>391</yloc>
+      <xloc>720</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -471,21 +315,8 @@
     </file>
     <fields>
       <field>
-        <name>NOMBRE</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.nombre</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>VALOR</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.valor</path>
+        <name>TRAMA</name>
+        <path>&#x24;..tramacuerpo</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -511,83 +342,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>693</xloc>
-      <yloc>274</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Json Micro</name>
-    <type>JsonInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <addresultfile>N</addresultfile>
-    <readurl>N</readurl>
-    <IsIgnoreEmptyFile>Y</IsIgnoreEmptyFile>
-    <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <ignoreMissingPath>Y</ignoreMissingPath>
-    <rownum_field/>
-    <file>
-      <name/>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-    </file>
-    <fields>
-      <field>
-        <name>NOMBREN</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.nombre</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>VALORN</name>
-        <path>&#x24;..tramacuerpo.&#x5b;&#x2a;&#x5d;.valor</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <IsInFields>Y</IsInFields>
-    <IsAFile>N</IsAFile>
-    <valueField>result</valueField>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>690</xloc>
-      <yloc>548</yloc>
+      <xloc>541</xloc>
+      <yloc>123</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -630,7 +386,7 @@
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;JURIDICA&#x7d;</name>
+      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -759,8 +515,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>301</xloc>
-      <yloc>132</yloc>
+      <xloc>249</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -819,299 +575,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>932</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Lookup Micro</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM</connection>
-    <cache>N</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <table>EPMC_RANG_SCOR</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>VALOR_N</name>
-        <field>NUM_RANG_INI</field>
-        <condition>&#x3c;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>VALOR_N</name>
-        <field>NUM_RANG_FIN</field>
-        <condition>&#x3e;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>COD_TIPO_SCOR</name>
-        <field>COD_TIPO_SCOR</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>TXT_CATE</name>
-        <rename>TXT_CATE</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>NUM_ORDE</name>
-        <rename>NUM_ORDE</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>933</xloc>
-      <yloc>558</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Micro REST</name>
-    <type>Rest</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <applicationType>JSON</applicationType>
-    <method>POST</method>
-    <url>&#x24;&#x7b;NATURAL_SERVICE_MF&#x7d;</url>
-    <urlInField>N</urlInField>
-    <dynamicMethod>N</dynamicMethod>
-    <methodFieldName/>
-    <urlField/>
-    <bodyField>PARAM_N</bodyField>
-    <httpLogin/>
-    <httpPassword>Encrypted </httpPassword>
-    <proxyHost/>
-    <proxyPort/>
-    <preemptive>N</preemptive>
-    <trustStoreFile/>
-    <trustStorePassword>Encrypted </trustStorePassword>
-    <headers>
-      </headers>
-    <parameters>
-      </parameters>
-    <result>
-      <name>result</name>
-      <code/>
-      <response_time/>
-      </result>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>448</xloc>
-      <yloc>395</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Natural</name>
-    <type>TextFileInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <accept_filenames>N</accept_filenames>
-    <passing_through_fields>N</passing_through_fields>
-    <accept_field/>
-    <accept_stepname/>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_breaks>N</enclosure_breaks>
-    <escapechar/>
-    <header>Y</header>
-    <nr_headerlines>1</nr_headerlines>
-    <footer>N</footer>
-    <nr_footerlines>1</nr_footerlines>
-    <line_wrapped>N</line_wrapped>
-    <nr_wraps>1</nr_wraps>
-    <layout_paged>N</layout_paged>
-    <nr_lines_per_page>80</nr_lines_per_page>
-    <nr_lines_doc_header>0</nr_lines_doc_header>
-    <noempty>Y</noempty>
-    <include>N</include>
-    <include_field/>
-    <rownum>N</rownum>
-    <rownumByFile>N</rownumByFile>
-    <rownum_field/>
-    <format>DOS</format>
-    <encoding/>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x24;&#x7b;NATURAL&#x7d;</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <type>CSV</type>
-      <compression>None</compression>
-    </file>
-    <filters>
-    </filters>
-    <fields>
-      <field>
-        <name>COD_SUJE</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_ICI</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>NUM_NUME_DOCU</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_NOMB</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_APEL</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <ifnull/>
-        <position>-1</position>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-    </fields>
-    <limit>0</limit>
-    <error_ignored>N</error_ignored>
-    <skip_bad_files>N</skip_bad_files>
-    <file_error_field/>
-    <file_error_message_field/>
-    <error_line_skipped>N</error_line_skipped>
-    <error_count_field/>
-    <error_fields_field/>
-    <error_text_field/>
-    <bad_line_files_destination_directory/>
-    <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
-    <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
-    <line_number_files_extension>line</line_number_files_extension>
-    <date_format_lenient>Y</date_format_lenient>
-    <date_format_locale>es_PE</date_format_locale>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>102</xloc>
-      <yloc>391</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Natural URL</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var PARAM_N &#x3d; getVariable&#x28;&#x22;POST_PARAM_NATURAL_MF&#x22;,0&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;DOC&#x5d;&#x22;, NUM_NUME_DOCU&#x29;&#x3b;&#xd;&#xa;PARAM_N &#x3d; PARAM_N.replace&#x28;&#x22;&#x5b;NOMBRE&#x5d;&#x22;, TXT_NOMB&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>PARAM_N</name>
-        <rename>PARAM_N</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>312</xloc>
-      <yloc>392</yloc>
+      <xloc>875</xloc>
+      <yloc>167</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1185,81 +650,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1094</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Output Micro</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>EPTD_SCOR</table>
-    <commit>500</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>COD_PAIS</column_name>
-          <stream_name>COD_PAIS</stream_name>
-        </field>
-        <field>
-          <column_name>COD_SCOR</column_name>
-          <stream_name>ID_N</stream_name>
-        </field>
-        <field>
-          <column_name>COD_SUJE</column_name>
-          <stream_name>COD_SUJE</stream_name>
-        </field>
-        <field>
-          <column_name>COD_TIPO_SCOR</column_name>
-          <stream_name>COD_TIPO_SCOR</stream_name>
-        </field>
-        <field>
-          <column_name>FEC_FECH_SCOR</column_name>
-          <stream_name>FECHA</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_VALO</column_name>
-          <stream_name>VALOR_N</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_CATE</column_name>
-          <stream_name>TXT_CATE</stream_name>
-        </field>
-        <field>
-          <column_name>NUM_ORDE</column_name>
-          <stream_name>NUM_ORDE</stream_name>
-        </field>
-        <field>
-          <column_name>TXT_PERI</column_name>
-          <stream_name>PERIODO</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1100</xloc>
-      <yloc>559</yloc>
+      <yloc>167</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1331,94 +722,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>91</xloc>
-      <yloc>157</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>SO N</name>
-    <type>StringOperations</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>COD_SUJE</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>TXT_ICI</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>NUM_NUME_DOCU</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>TXT_NOMB</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>TXT_APEL</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>none</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>no</init_cap>
-        <mask_xml>none</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>158</xloc>
-      <yloc>416</yloc>
+      <xloc>113</xloc>
+      <yloc>124</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1446,89 +751,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1009</xloc>
-      <yloc>282</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Seq Micro</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>ID_N</valuename>
-      <use_database>Y</use_database>
-      <connection>EPM</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_EPTD_SCOR_0001</seqname>
-      <use_counter>N</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1014</xloc>
-      <yloc>541</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>microfinanzas-juridica-fallidos</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;microfinanzas-juridica-fallidos</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>239</xloc>
-      <yloc>255</yloc>
+      <xloc>994</xloc>
+      <yloc>168</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1579,15 +803,15 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>775</xloc>
-      <yloc>397</yloc>
+      <xloc>541</xloc>
+      <yloc>255</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>microfinanzas-naturalfallidos</name>
-    <type>TextFileOutput</type>
+    <name>Add constants 2</name>
+    <type>Constant</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1596,50 +820,55 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;microfinanzas-natural-fallidos</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
     <fields>
+      <field>
+        <name>TXT_CAT_DEFAULT</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>S</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_VAL_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>0</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>NUM_ORD_DEFAULT</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>6</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>284</xloc>
-      <yloc>508</yloc>
+      <xloc>873</xloc>
+      <yloc>303</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>score1-naturalfallidos 2</name>
-    <type>TextFileOutput</type>
+    <name>Seq Empresas 2</name>
+    <type>Sequence</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1648,43 +877,94 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;&#x2f;score1-natural-fallidos</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+      <valuename>ID_J</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPTD_SCOR_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>993</xloc>
+      <yloc>302</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Output Empresas 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_SCOR</table>
+    <commit>500</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
+        <field>
+          <column_name>COD_SCOR</column_name>
+          <stream_name>ID_J</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_PAIS</column_name>
+          <stream_name>COD_PAIS</stream_name>
+        </field>
+        <field>
+          <column_name>COD_TIPO_SCOR</column_name>
+          <stream_name>COD_TIPO_SCOR</stream_name>
+        </field>
+        <field>
+          <column_name>FEC_FECH_SCOR</column_name>
+          <stream_name>FECHA</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_VALO</column_name>
+          <stream_name>NUM_VAL_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CATE</column_name>
+          <stream_name>TXT_CAT_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>NUM_ORDE</column_name>
+          <stream_name>NUM_ORD_DEFAULT</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_PERI</column_name>
+          <stream_name>PERIODO</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>805</xloc>
-      <yloc>653</yloc>
+      <xloc>1112</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1693,18 +973,6 @@
       <error>
         <source_step>Json Emp</source_step>
         <target_step>microfinanzas-juridica-fallidos 2</target_step>
-        <is_enabled>Y</is_enabled>
-        <nr_valuename/>
-        <descriptions_valuename/>
-        <fields_valuename/>
-        <codes_valuename/>
-        <max_errors/>
-        <max_pct_errors/>
-        <min_pct_rows/>
-      </error>
-      <error>
-        <source_step>Json Micro</source_step>
-        <target_step>score1-naturalfallidos 2</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
