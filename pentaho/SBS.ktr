@@ -112,7 +112,7 @@
     <name>EPM</name>
     <server>localhost</server>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -155,12 +155,8 @@
   <hop> <from>FILTER - J</from><to>log-SBS-Juridica-erroreneos</to><enabled>Y</enabled> </hop>
   <hop> <from>Group by - J</from><to>FILTER - J 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - J 2</from><to>Calculate J</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J 2</from><to>log-SBS-Juridica-erroreneos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Group by N</from><to>FILTER - N 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>Calculate N</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N 2</from><to>log-SBS-Natural-erroreneos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json J</from><to>log-SBS-Juridica-erroreneos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json N</from><to>log-SBS-Natural-erroreneos 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Seq J 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq J 2</from><to>Output J 2</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - J 2</from><to>Calculate J 2</to><enabled>Y</enabled> </hop>
@@ -169,6 +165,8 @@
   <hop> <from>Calculate J 2 2</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants 2</from><to>Seq N 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq N 2</from><to>Output N 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json N</from><to>Calculate J 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json J</from><to>Calculate J 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -480,8 +478,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>982</xloc>
-      <yloc>315</yloc>
+      <xloc>971</xloc>
+      <yloc>264</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -592,8 +590,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>734</xloc>
-      <yloc>312</yloc>
+      <xloc>725</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -719,8 +717,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>862</xloc>
-      <yloc>312</yloc>
+      <xloc>850</xloc>
+      <yloc>265</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -919,8 +917,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>617</xloc>
-      <yloc>309</yloc>
+      <xloc>623</xloc>
+      <yloc>372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1046,8 +1044,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>620</xloc>
-      <yloc>558</yloc>
+      <xloc>634</xloc>
+      <yloc>682</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1681,6 +1679,7 @@
     <urlField/>
     <bodyField>PARAM</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -1724,6 +1723,7 @@
     <urlField/>
     <bodyField>PARAM</bodyField>
     <httpLogin/>
+    <httpPassword/>
     <httpPassword>Encrypted </httpPassword>
     <proxyHost/>
     <proxyPort/>
@@ -2075,58 +2075,6 @@
     </step>
 
   <step>
-    <name>log-SBS-Juridica-erroreneos 2</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sbs-juridica-fallidos.log</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>843</xloc>
-      <yloc>453</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>log-SBS-Natural-erroreneos</name>
     <type>TextFileOutput</type>
     <description/>
@@ -2178,62 +2126,10 @@
       </GUI>
     </step>
 
-  <step>
-    <name>log-SBS-Natural-erroreneos 2</name>
-    <type>TextFileOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sbs-natural-fallidos.log</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>861</xloc>
-      <yloc>725</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step_error_handling>
       <error>
         <source_step>Json J</source_step>
-        <target_step>log-SBS-Juridica-erroreneos 2</target_step>
+        <target_step>Calculate J 2</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -2245,7 +2141,7 @@
       </error>
       <error>
         <source_step>Json N</source_step>
-        <target_step>log-SBS-Natural-erroreneos 2</target_step>
+        <target_step>Calculate J 2 2</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
