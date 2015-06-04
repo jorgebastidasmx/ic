@@ -10,16 +10,6 @@
     <directory>&#x2f;</directory>
     <parameters>
         <parameter>
-            <name>JURIDICA_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;172.23.155.101&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busqueda_empresas_1&#x2f;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>NATURAL_SERVICE_CC</name>
-            <default_value>http&#x3a;&#x2f;&#x2f;172.23.155.101&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;busquedaPersonas&#x2f;9&#x2f;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
             <name>PATH_FILES</name>
             <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;</default_value>
             <description/>

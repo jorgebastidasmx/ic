@@ -380,7 +380,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <sql>SELECT DISTINCT&#xd;&#xa;s.COD_SUJE, s.TXT_ICI, s.TIP_TIPO_DOCU, s.NUM_NUME_DOCU, s.DES_DESC, s.TXT_NOMB, s.TXT_APEL, s.TXT_NOMB_COMP&#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE s&#xd;&#xa;INNER JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE cs ON s.COD_SUJE &#x3d; cs.COD_SUJE&#xd;&#xa;WHERE s.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;AND cs.cod_clie IN &#x28;24,11&#x29;&#xd;&#xa;ORDER BY COD_SUJE ASC&#xd;&#xa;</sql>
+    <sql>SELECT DISTINCT&#xd;&#xa;s.COD_SUJE, s.TXT_ICI, s.TIP_TIPO_DOCU, s.NUM_NUME_DOCU, s.DES_DESC, s.TXT_NOMB, s.TXT_APEL, s.TXT_NOMB_COMP&#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE s&#xd;&#xa;INNER JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE cs ON s.COD_SUJE &#x3d; cs.COD_SUJE&#xd;&#xa;WHERE s.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;ORDER BY COD_SUJE ASC&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
