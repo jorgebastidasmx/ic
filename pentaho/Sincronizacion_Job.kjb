@@ -11,6 +11,16 @@
   <modified_user>-</modified_user>
   <modified_date>2015&#x2f;06&#x2f;02 10&#x3a;19&#x3a;45.328</modified_date>
     <parameters>
+        <parameter>
+            <name>FILE</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>PATH_FILES</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
   <connection>
     <name>EPM</name>
@@ -108,7 +118,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;EPM266_P1.ktr</filename>
+      <filename>&#x24;&#x7b;PATH_FILES&#x7d;&#x2f;EPM266_P1.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -141,7 +151,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;Internal.Job.Filename.Directory&#x7d;&#x2f;EPM266_P2.ktr</filename>
+      <filename>&#x24;&#x7b;PATH_FILES&#x7d;&#x2f;EPM266_P2.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
