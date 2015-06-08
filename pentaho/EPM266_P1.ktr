@@ -14,6 +14,11 @@
             <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;SINCRONIZACION&#x5c;SINCRONIZACION</default_value>
             <description/>
         </parameter>
+        <parameter>
+            <name>SCHEMA_EPM</name>
+            <default_value>EPM_MSG</default_value>
+            <description/>
+        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -82,7 +87,7 @@
     <name>EPM</name>
     <server/>
     <type>ORACLE</type>
-    <access>, </access>
+    <access>JNDI</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -105,24 +110,23 @@
   <order>
   <hop> <from>SELECT EPMC_CLIE BY COD_ENTI</from><to>NO_TIENE_CLIENTE_ASIGNADO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>NO_TIENE_CLIENTE_ASIGNADO</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>FINAL_FLAG</to><enabled>Y</enabled> </hop>
-  <hop> <from>FINAL_FLAG</from><to>SEQUENCIA_EPMC_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_EPMC_USUA</from><to>EPMC_USUA</to><enabled>Y</enabled> </hop>
-  <hop> <from>FINAL_FLAG 2</from><to>Update_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup 2</from><to>Filter rows 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows 3</from><to>Database lookup 7</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup 7</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>EPMC_PERF</from><to>SEQUENCIA_PERF_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_PERF_USUA</from><to>EPMC_PERF_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_PERF_USUA 2</from><to>EPMC_PERF_USUA 2</to><enabled>Y</enabled> </hop>
   <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>Database lookup 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows 8</from><to>EPMC_PERF</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>FINAL_FLAG 2</to><enabled>Y</enabled> </hop>
   <hop> <from>EPMC_USUA</from><to>Database lookup EPMC_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup EPMC_USUA</from><to>Filter rows 8</to><enabled>Y</enabled> </hop>
   <hop> <from>Get rows from result</from><to>SELECT EPMC_CLIE BY COD_ENTI</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows 8</from><to>Database lookup 3</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup 3</from><to>SEQUENCIA_PERF_USUA 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup 7</from><to>FINAL_FLAG</to><enabled>Y</enabled> </hop>
+  <hop> <from>FINAL_FLAG</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>SEQUENCIA_EPMC_USUA</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>Update_USUA</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Database lookup 2</name>
@@ -140,7 +144,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <table>EPMC_CLIE</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -182,7 +186,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <table>EPMC_PERF_USUA</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -208,8 +212,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1130</xloc>
-      <yloc>138</yloc>
+      <xloc>1309</xloc>
+      <yloc>271</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -230,7 +234,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <table>EPMC_USUA</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -278,7 +282,7 @@
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <table>EPMC_PERF</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
@@ -322,7 +326,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <schema>EPM_MSG</schema>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -368,7 +372,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <schema>EPM_MSG</schema>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF_USUA</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -418,7 +422,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <schema>EPM_MSG</schema>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF_USUA</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -450,8 +454,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1784</xloc>
-      <yloc>133</yloc>
+      <xloc>1635</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -468,7 +472,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM</connection>
-    <schema>EPM_MSG</schema>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_USUA</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -557,41 +561,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>673</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FINAL_FLAG 2</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>FINAL_FLAG0</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>670</xloc>
-      <yloc>205</yloc>
+      <xloc>500</xloc>
+      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -607,8 +578,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>FINAL_FLAG</send_true_to>
-<send_false_to>FINAL_FLAG 2</send_false_to>
+<send_true_to>SEQUENCIA_EPMC_USUA</send_true_to>
+<send_false_to>Update_USUA</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -830,7 +801,7 @@
       <valuename>SEQUENCIA_EPMC_USUA</valuename>
       <use_database>Y</use_database>
       <connection>EPM</connection>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_EPMC_USUA</seqname>
       <use_counter>N</use_counter>
       <counter_name/>
@@ -888,7 +859,7 @@
       <valuename>SEQUENCIA_PERF_USUA</valuename>
       <use_database>Y</use_database>
       <connection>EPM</connection>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_PERF_USUA</seqname>
       <use_counter>N</use_counter>
       <counter_name/>
@@ -897,8 +868,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1472</xloc>
-      <yloc>325</yloc>
+      <xloc>1483</xloc>
+      <yloc>161</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -921,7 +892,7 @@
     <error_ignored>N</error_ignored>
     <ignore_flag_field/>
     <lookup>
-      <schema>EPM_MSG</schema>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <table>EPMC_USUA</table>
       <key>
         <name>COD_USUA</name>
@@ -931,13 +902,13 @@
         </key>
       <value>
         <name>FLAG</name>
-        <rename>FINAL_FLAG0</rename>
+        <rename>FINAL_FLAG1</rename>
         </value>
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>670</xloc>
-      <yloc>319</yloc>
+      <xloc>717</xloc>
+      <yloc>210</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
