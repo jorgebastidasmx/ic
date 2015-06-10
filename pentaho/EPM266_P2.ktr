@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>FILE</name>
-            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;SINCRONIZACION&#x5c;SINCRONIZACION</default_value>
+            <default_value/>
             <description/>
         </parameter>
     </parameters>
@@ -82,7 +82,7 @@
     <name>EPM</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -106,7 +106,7 @@
     <name>EPM_ACL</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM_ACL</database>
     <port>1521</port>
     <username/>
@@ -143,7 +143,7 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>484</xloc>
+      <xloc>481</xloc>
       <yloc>74</yloc>
       <draw>Y</draw>
       </GUI>
@@ -193,7 +193,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM_ACL</connection>
-    <sql>select &#xd;&#xa;	CONCAT&#x28; CONCAT&#x28; CONCAT&#x28; t.DES_PRIM_NOMB, &#x27; &#x27;  &#x29;, t.DES_APEL_PATE &#x29;, &#x27; &#x27; &#x29; AS txt_nombre, up.COD_USUA as COD_USUA, &#xd;&#xa;	up.COD_USU_PERF as COD_USU_PERF, up.COD_PERF as COD_PERF, p.COD_TIPO_PERF as COD_TIPO_PERF,  p.DES_NOMB_PERF as DES_NOMB_PERF,&#xd;&#xa;	p.COD_ENTI as COD_ENTI,e.DES_ENTI&#xd;&#xa;FROM CAMD_USUA_PERF up&#xd;&#xa;    INNER JOIN CAMC_PERF p on &#x28;up.COD_PERF &#x3d; p.COD_PERF&#x29;&#xd;&#xa;    INNER JOIN CAMC_ENTI e on &#x28;p.COD_ENTI &#x3d; e.COD_ENTI&#x29;&#xd;&#xa;    INNER JOIN CAMD_TIPO t2 on &#x28;p.COD_TIPO_PERF &#x3d; t2.COD_TIPO&#x29; &#xd;&#xa;	INNER JOIN camc_usua t ON up.cod_usua&#x3d;t.cod_usua&#xd;&#xa;  WHERE up.cod_esta&#x3d;2&#xd;&#xa;  order by up.COD_USUA</sql>
+    <sql> select &#xd;&#xa;  CONCAT&#x28; CONCAT&#x28; CONCAT&#x28; t.DES_PRIM_NOMB, &#x27; &#x27;  &#x29;, t.DES_APEL_PATE &#x29;, &#x27; &#x27; &#x29; AS txt_nombre, &#xd;&#xa;  up.COD_USUA as COD_USUA, &#xd;&#xa;  t2.COD_TIPO as COD_PERF,&#xd;&#xa;  t2.DES_TIPO as DES_NOMB_PERF,&#xd;&#xa;  p.COD_ENTI as COD_ENTI,&#xd;&#xa;  e.DES_ENTI&#xd;&#xa;FROM SEGURIDAD.CAMD_USUA_PERF up&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMC_PERF p on &#x28;up.COD_PERF &#x3d; p.COD_PERF&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.camd_prod_perf pp ON &#x28;p.COD_PERF &#x3d; pp.COD_PERF&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMC_ENTI e on &#x28;p.COD_ENTI &#x3d; e.COD_ENTI&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.camc_usua t ON up.cod_usua&#x3d;t.cod_usua&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMD_TIPO t2 on &#x28;t.cod_tipo_usua &#x3d; t2.cod_tipo&#x29;&#xd;&#xa;  WHERE up.cod_esta&#x3d;2&#xd;&#xa;  and   pp.COD_PROD &#x3d; 303&#xd;&#xa;  order by up.COD_USUA</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -202,7 +202,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>347</xloc>
-      <yloc>74</yloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

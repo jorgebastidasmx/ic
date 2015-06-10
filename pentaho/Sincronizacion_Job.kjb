@@ -26,7 +26,7 @@
     <name>EPM</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -50,7 +50,7 @@
     <name>EPM_ACL</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>, </access>
     <database>EPM_ACL</database>
     <port>1521</port>
     <username/>
@@ -109,8 +109,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>136</xloc>
-      <yloc>214</yloc>
+      <xloc>118</xloc>
+      <yloc>124</yloc>
       </entry>
     <entry>
       <name>Transformation</name>
@@ -142,8 +142,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>434</xloc>
-      <yloc>211</yloc>
+      <xloc>415</xloc>
+      <yloc>122</yloc>
       </entry>
     <entry>
       <name>Transformation 2</name>
@@ -175,8 +175,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>298</xloc>
-      <yloc>213</yloc>
+      <xloc>280</xloc>
+      <yloc>123</yloc>
       </entry>
   </entries>
   <hops>
