@@ -26,7 +26,7 @@
     <name>EPM</name>
     <server/>
     <type>ORACLE</type>
-    <access>, </access>
+    <access>Native</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -50,7 +50,7 @@
     <name>EPM_ACL</name>
     <server/>
     <type>ORACLE</type>
-    <access>, </access>
+    <access>Native</access>
     <database>EPM_ACL</database>
     <port>1521</port>
     <username/>
@@ -195,8 +195,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
