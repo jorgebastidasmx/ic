@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>PATH_FILES</name>
-            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;pentaho&#x2f;</default_value>
+            <default_value>D&#x3a;&#x5c;dev&#x5c;git&#x5c;ic&#x5c;pentaho</default_value>
             <description>Ruta donde estan los JOBS</description>
         </parameter>
         <parameter>
@@ -111,7 +111,6 @@
   <hop> <from>QUERY_BITACORA_FILE_TO_PROCESS</from><to>PROCESS CSV FILES</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ FOR INSERT</from><to>INSERT SUJETO_SEGM_CLIENTE</to><enabled>Y</enabled> </hop>
   <hop> <from>BUSQUEDA SUJETOS</from><to>SUJETOS EXISTENTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>DELETE SUJETOS SEGMENTO</from><to>BUSQUEDA SUJETOS</to><enabled>Y</enabled> </hop>
   <hop> <from>PROCESS FILE NAME</from><to>SPLIT FILE NAME</to><enabled>Y</enabled> </hop>
   <hop> <from>SUJETOS EXISTENTES</from><to>WRITE RESULT NUEVOS</to><enabled>Y</enabled> </hop>
   <hop> <from>SUJETOS EXISTENTES</from><to>BUSQUEDA ID INTERNO</to><enabled>Y</enabled> </hop>
@@ -126,7 +125,6 @@
   <hop> <from>INSERT SUJETO_SEGM_CLIENTE 3</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT SUJETO_SEGM_CLIENTE</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT SUJETO_SEGM_CLIENTE 2</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add constants</from><to>Update</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER PJ</from><to>SAVE_CONSTANTES</to><enabled>Y</enabled> </hop>
   <hop> <from>VAL_TIPO_DOCUMENTO</from><to>PROCESS FILE NAME</to><enabled>Y</enabled> </hop>
   <hop> <from>WRITE RESULT NUEVOS</from><to>INSERT-NEW-SUJETOS</to><enabled>Y</enabled> </hop>
@@ -141,6 +139,13 @@
   <hop> <from>Modified Java Script Value</from><to>SAVE ERROR</to><enabled>Y</enabled> </hop>
   <hop> <from>PROCESS CSV FILES</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>
   <hop> <from>Block this step until steps finish</from><to>VAL_TIPO_DOCUMENTO</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants</from><to>SEQ ID_LOG 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT LOG EXISTENTE</from><to>Update</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get System Info</from><to>BUSQUEDA SUJETOS</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ ID_LOG 2</from><to>INSERT LOG EXISTENTE</to><enabled>Y</enabled> </hop>
+  <hop> <from>DELETE SUJETOS SEGMENTO</from><to>CONSULTA USUARIOS</to><enabled>Y</enabled> </hop>
+  <hop> <from>CONSULTA USUARIOS</from><to>CONSULTA USUARIO ADMIN</to><enabled>Y</enabled> </hop>
+  <hop> <from>CONSULTA USUARIO ADMIN</from><to>Get System Info</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -162,6 +167,18 @@
         <decimal/>
         <group/>
         <nullif>P</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>TIPOLOGALTA</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>LOG_ALTA_SUJETO_PH</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -316,6 +333,18 @@
         <decimal/>
         <group/>
         <nullif>I</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>USUA_ADMIN</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>29</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -822,8 +851,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>116</xloc>
-      <yloc>230</yloc>
+      <xloc>108</xloc>
+      <yloc>220</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -880,8 +909,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>118</xloc>
-      <yloc>85</yloc>
+      <xloc>108</xloc>
+      <yloc>102</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1221,7 +1250,7 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1812</xloc>
+      <xloc>2056</xloc>
       <yloc>243</yloc>
       <draw>Y</draw>
       </GUI>
@@ -1305,6 +1334,212 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>845</xloc>
       <yloc>404</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>INSERT LOG EXISTENTE</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_LOG</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>ID</column_name>
+          <stream_name>ID_LOG</stream_name>
+        </field>
+        <field>
+          <column_name>TIPO</column_name>
+          <stream_name>TIPOLOGALTA</stream_name>
+        </field>
+        <field>
+          <column_name>COD_CLIE</column_name>
+          <stream_name>COD_CLIE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_SUJE</column_name>
+          <stream_name>COD_SUJE</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>COD_USUA_1</stream_name>
+        </field>
+        <field>
+          <column_name>FEC_REGISTRO</column_name>
+          <stream_name>FEC_REGISTRO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2055</xloc>
+      <yloc>56</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQ ID_LOG 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>ID_LOG</valuename>
+      <use_database>Y</use_database>
+      <connection>EPM_MSG</connection>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <seqname>SQ_EPTD_LOG_0001</seqname>
+      <use_counter>N</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1796</xloc>
+      <yloc>243</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>FEC_REGISTRO</name>
+        <type>system date &#x28;variable&#x29;</type>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>667</xloc>
+      <yloc>122</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>CONSULTA USUARIOS</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <table>EPMC_USUA</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_CLIE</name>
+        <field>COD_CLIE</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_USUA</name>
+        <rename>COD_USUA</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>455</xloc>
+      <yloc>53</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>CONSULTA USUARIO ADMIN</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <table>EPMC_PERF_USUA</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_USUA</name>
+        <field>COD_USUA</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>USUA_ADMIN</name>
+        <field>COD_PERF</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_USUA</name>
+        <rename>COD_USUA_1</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>590</xloc>
+      <yloc>11</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
