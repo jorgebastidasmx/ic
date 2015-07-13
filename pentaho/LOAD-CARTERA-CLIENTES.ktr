@@ -131,14 +131,13 @@
   <hop> <from>Get System Info</from><to>BUSQUEDA SUJETOS</to><enabled>Y</enabled> </hop>
   <hop> <from>MSG PROCESADO</from><to>SEQ ID_LOG 2</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT LOG EXISTENTE</from><to>Update</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constantes 2 2</from><to>CONSULTA USUARIOS</to><enabled>Y</enabled> </hop>
-  <hop> <from>CONSULTA USUARIOS</from><to>CONSULTA USUARIO ADMIN</to><enabled>Y</enabled> </hop>
-  <hop> <from>CONSULTA USUARIO ADMIN</from><to>Get System Info</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ ID_LOG 2</from><to>INSERT LOG EXISTENTE</to><enabled>Y</enabled> </hop>
   <hop> <from>QUERY_BITACORA_FILE_TO_PROCESS</from><to>Constantes</to><enabled>Y</enabled> </hop>
   <hop> <from>Constantes</from><to>DATOS DE CARGA</to><enabled>Y</enabled> </hop>
   <hop> <from>DATOS DE CARGA</from><to>Update 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Update 2</from><to>PROCESS CSV FILES</to><enabled>Y</enabled> </hop>
+  <hop> <from>CONSULTA USUARIO ADMIN 2</from><to>Get System Info</to><enabled>Y</enabled> </hop>
+  <hop> <from>Constantes 2 2</from><to>CONSULTA USUARIO ADMIN 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>BUSQUEDA ID INTERNO</name>
@@ -232,96 +231,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>799</xloc>
       <yloc>400</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>CONSULTA USUARIO ADMIN</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <table>EPMC_PERF_USUA</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>COD_USUA</name>
-        <field>COD_USUA</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>USUA_ADMIN</name>
-        <field>COD_PERF</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_USUA</name>
-        <rename>COD_USUA_1</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>679</xloc>
-      <yloc>194</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>CONSULTA USUARIOS</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <table>EPMC_USUA</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>COD_CLIE</name>
-        <field>COD_CLIE</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>COD_USUA</name>
-        <rename>COD_USUA</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>533</xloc>
-      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1359,6 +1268,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>920</xloc>
       <yloc>540</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>CONSULTA USUARIO ADMIN 2</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPMC_USUA  U&#xd;&#xa;JOIN EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <parameter>
+      <field>
+        <name>COD_CLIE</name>
+        <type>Integer</type>
+      </field>
+      <field>
+        <name>USUA_ADMIN</name>
+        <type>Integer</type>
+      </field>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>603</xloc>
+      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
