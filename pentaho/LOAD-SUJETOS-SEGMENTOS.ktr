@@ -11,12 +11,12 @@
     <parameters>
         <parameter>
             <name>PATH_FILES</name>
-            <default_value>&#x2f;Users&#x2f;indiegente&#x2f;Documents&#x2f;multiplica&#x2f;ic&#x2f;pentaho&#x2f;</default_value>
+            <default_value/>
             <description>Ruta donde estan los JOBS</description>
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG</default_value>
+            <default_value/>
             <description>Nombre esquema oracle</description>
         </parameter>
     </parameters>
@@ -751,7 +751,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;TXT_ICI &#x3d;&#x3d;null&#x29;&#x7b;&#xd;&#xa;msgpersonalizado &#x3d; &#x27;Usuario sin codigo ICI&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>msgpersonalizado</name>
         <rename>msgpersonalizado</rename>
         <type>String</type>
@@ -766,8 +766,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1303</xloc>
-      <yloc>769</yloc>
+      <xloc>1304</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -934,8 +934,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1520</xloc>
-      <yloc>765</yloc>
+      <xloc>1518</xloc>
+      <yloc>768</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
