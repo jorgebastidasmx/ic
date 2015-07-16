@@ -236,6 +236,40 @@
     </step>
 
   <step>
+    <name>CONSULTA USUARIO ADMIN 2</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>EPM_MSG</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPMC_USUA  U&#xd;&#xa;JOIN EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <parameter>
+      <field>
+        <name>COD_CLIE</name>
+        <type>Integer</type>
+      </field>
+      <field>
+        <name>USUA_ADMIN</name>
+        <type>Integer</type>
+      </field>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>603</xloc>
+      <yloc>116</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Constantes</name>
     <type>Constant</type>
     <description/>
@@ -766,7 +800,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;&#xd;&#xa;if&#x28;TXT_ICI &#x3d;&#x3d;null&#x29;&#x7b;&#xd;&#xa;msgpersonalizado &#x3d; &#x27;Usuario sin codigo ICI&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>msgpersonalizado</name>
         <rename>msgpersonalizado</rename>
         <type>String</type>
@@ -1268,40 +1302,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>920</xloc>
       <yloc>540</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>CONSULTA USUARIO ADMIN 2</name>
-    <type>DBJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>EPM_MSG</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPMC_USUA  U&#xd;&#xa;JOIN EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>Y</replace_vars>
-    <parameter>
-      <field>
-        <name>COD_CLIE</name>
-        <type>Integer</type>
-      </field>
-      <field>
-        <name>USUA_ADMIN</name>
-        <type>Integer</type>
-      </field>
-    </parameter>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>603</xloc>
-      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
