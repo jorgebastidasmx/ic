@@ -451,9 +451,9 @@
     <connection>EPM_MSG</connection>
     <execute_each_row>Y</execute_each_row>
     <single_statement>N</single_statement>
-    <replace_variables>N</replace_variables>
+    <replace_variables>Y</replace_variables>
     <quoteString>N</quoteString>
-    <sql>DELETE FROM EPTD_SEGM_SUJE_CLIE WHERE COD_SEGM &#x3d; &#x3f;</sql>
+    <sql>DELETE FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_SEGM_SUJE_CLIE WHERE COD_SEGM &#x3d; &#x3f;</sql>
     <set_params>Y</set_params>
     <insert_field/>
     <update_field/>
