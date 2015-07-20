@@ -16,8 +16,8 @@ DIRLOG=/opt/tools/Pentaho/EPM/LOAD_SCORE/JOB/log/
 #Ruta de la carpeta donde se generan los TXT de sujetos para la carga de score
 PATH_FILES=$DIRJOB_GENERAR_SCORE
 
-PARAMS="-param:COD_PAIS=1 -param:FILE=$DIRJOB_GENERAR_SCORE -param:SCHEMA_EPM=EPM_MSG -param:KTR-LOAD=CREATE-FILES.ktr -param:KTR-SBS=SBS.ktr -param:KTR-SCORE=SCORE-1.ktr -param:KTR-SICOM=SICOM.ktr -param:KTR-RISK-PREDICTOR=SCORE-RISK-PREDICTOR.ktr -param:PATH=$PATH_FILES" 
-PARAMS_TEST="-param:COD_PAIS=1 -param:JURIDICA=juridica.txt -param:NATURAL=natural.txt -param:FILE=$DIRJOB_GENERAR_SCORE -param:SCHEMA_EPM=EPM_MSG -param:KTR-LOAD=CREATE-FILES.ktr -param:KTR-SBS=SBS.ktr -param:KTR-SCORE=SCORE-1.ktr -param:KTR-SICOM=SICOM.ktr -param:KTR-RISK-PREDICTOR=SCORE-RISK-PREDICTOR.ktr -param:PATH=$PATH_FILES" 
+PARAMS="-param:COD_PAIS=1 -param:FILE=$DIRJOB_GENERAR_SCORE -param:SCHEMA_EPM=EPM_MSG -param:KTR-LOAD=CREATE-FILES-DIARIO.ktr -param:KTR-SCORE=SCORE-1.ktr -param:KTR-RISK-PREDICTOR=SCORE-RISK-PREDICTOR.ktr  -param:MICROFINANZAS_2_0.ktr -param:PATH=$PATH_FILES" 
+PARAMS_TEST="-param:COD_PAIS=1 -param:JURIDICA=juridica.txt -param:NATURAL=natural.txt -param:FILE=$DIRJOB_GENERAR_SCORE -param:SCHEMA_EPM=EPM_MSG -param:KTR-LOAD=CREATE-FILES-DIARIO.ktr -param:KTR-SCORE=SCORE-1.ktr -param:KTR-RISK-PREDICTOR=SCORE-RISK-PREDICTOR.ktr -param:PATH=$PATH_FILES" 
 
 echo $PARAMS
 echo "Inicio proceso carga Scores `date`" >> $DIRLOG/Process_LoadScore.log

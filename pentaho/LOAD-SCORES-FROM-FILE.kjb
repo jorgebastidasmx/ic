@@ -62,6 +62,30 @@
             <description/>
         </parameter>
     </parameters>
+  <connection>
+    <name>EPM_MSG</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPM</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
     <slaveservers>
     </slaveservers>
 <job-log-table><connection/>
@@ -103,108 +127,6 @@
       <nr>0</nr>
       <xloc>198</xloc>
       <yloc>245</yloc>
-      </entry>
-    <entry>
-      <name>SBS</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PAH&#x7d;&#x24;&#x7b;KTR-SBS&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>FILE</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE&#x7d;</value>
-            </parameter>            <parameter>            <name>JURIDICA</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_JURIDICA&#x7d;</value>
-            </parameter>            <parameter>            <name>NATURAL</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
-            </parameter>            <parameter>            <name>SCHEMA_EPM</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;SCHEMA-EPM&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_PAIS</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_TIPO_SCOR</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_TIPO_SCOR&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>577</xloc>
-      <yloc>126</yloc>
-      </entry>
-    <entry>
-      <name>SICOM</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PAH&#x7d;&#x24;&#x7b;KTR-SICOM&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>FILE</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE&#x7d;</value>
-            </parameter>            <parameter>            <name>JURIDICA</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_JURIDICA&#x7d;</value>
-            </parameter>            <parameter>            <name>NATURAL</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_PAIS</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
-            </parameter>            <parameter>            <name>SCHEMA_EPM</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;SCHEMA-EPM&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_TIPO_SCOR</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_TIPO_SCOR&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>579</xloc>
-      <yloc>199</yloc>
       </entry>
     <entry>
       <name>SCORE Microfinanzas y Empresas</name>
@@ -254,8 +176,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>579</xloc>
-      <yloc>272</yloc>
+      <xloc>583</xloc>
+      <yloc>137</yloc>
       </entry>
     <entry>
       <name>SCORE Risk Predictor</name>
@@ -299,29 +221,56 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>579</xloc>
-      <yloc>349</yloc>
+      <xloc>589</xloc>
+      <yloc>246</yloc>
+      </entry>
+    <entry>
+      <name>SCORE Microfinanzas 2</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-MICROFINANZAS&#x7d;</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
+            <parameter>            <name>FILE</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;FILE&#x7d;</value>
+            </parameter>            <parameter>            <name>NATURAL</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
+            </parameter>            <parameter>            <name>COD_PAIS</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
+            </parameter>            <parameter>            <name>SCHEMA_EPM</name>
+            <stream_name/>
+            <value>&#x24;&#x7b;SCHEMA-EPM&#x7d;</value>
+            </parameter>      </parameters>      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>583</xloc>
+      <yloc>354</yloc>
       </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>SBS</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>SICOM</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>START</from>
       <to>SCORE Microfinanzas y Empresas</to>
@@ -334,6 +283,15 @@
     <hop>
       <from>START</from>
       <to>SCORE Risk Predictor</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>SCORE Microfinanzas 2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

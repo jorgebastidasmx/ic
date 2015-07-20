@@ -248,7 +248,7 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPMC_USUA  U&#xd;&#xa;JOIN EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;</sql>
+    <sql>SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_USUA  U&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
