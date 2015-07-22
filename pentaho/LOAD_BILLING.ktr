@@ -232,10 +232,18 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql> SELECT F.COD_CLIE,F.COD_SUJE,F.COD_TIPO_SCOR,F.TIP_TIPO_SUJE,C.COD_ENTI FROM &#x28;&#xd;&#xa;  SELECT  SS.COD_CLIE, &#xd;&#xa;          SS.COD_SUJE, &#xd;&#xa;          SS.COD_TIPO_SCOR,&#xd;&#xa;          SS.TIP_TIPO_SUJE,&#xd;&#xa;          L.ID FROM &#x28;SELECT DISTINCT CTS.COD_TIPO_SCOR,CTS.ID,CTS.TIP_TIPO_SUJE,CS.COD_CLIE, S.COD_SUJE&#xd;&#xa;  FROM EPTD_SCOR S&#xd;&#xa;  JOIN EPMC_CLIE_SUJE CS&#xd;&#xa;  ON S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;  JOIN EPTD_CLIE_TIPO_SCOR CTS&#xd;&#xa;  ON CTS.COD_CLIE &#x3d; CS.COD_CLIE&#xd;&#xa;  JOIN EPMC_SUJE SU&#xd;&#xa;  ON CS.COD_SUJE &#x3d; SU.COD_SUJE&#xd;&#xa;  WHERE S.FEC_FECH_SCOR  BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;  --AND CTS.COD_TIPO_SCOR &#x3d; S.COD_TIPO_SCOR&#xd;&#xa;  AND SU.TIP_TIPO_SUJE &#x3d; CTS.TIP_TIPO_SUJE&#xd;&#xa;  ORDER BY S.COD_SUJE DESC&#xd;&#xa;  &#x29; SS&#xd;&#xa;  LEFT OUTER JOIN EPTD_FACT_LOG L &#xd;&#xa;  ON  SS.COD_CLIE &#x3d; L.COD_CLIE &#xd;&#xa;  AND SS.COD_SUJE &#x3d; L.COD_SUJE&#xd;&#xa;&#x29; F JOIN EPMC_CLIE C&#xd;&#xa;ON C.COD_CLIE &#x3d; F.COD_CLIE&#xd;&#xa;WHERE F.ID IS NULL</sql>
+    <sql>SELECT   -- SCOR.COD_SCOR, &#xd;&#xa;          SCOR.COD_CLIE, &#xd;&#xa;          SCOR.COD_SUJE, &#xd;&#xa;          SCOR.COD_TIPO_SCOR,&#xd;&#xa;          SCOR.TIP_TIPO_SUJE,&#xd;&#xa;          C.COD_ENTI&#xd;&#xa;          &#xd;&#xa;FROM &#xd;&#xa;&#x28;&#xd;&#xa;          SELECT    DISTINCT&#xd;&#xa;                    CS.COD_CLIE,&#xd;&#xa;                    CS.COD_SUJE,&#xd;&#xa;                    CTS.COD_TIPO_SCOR,&#xd;&#xa;                    CTS.TIP_TIPO_SUJE&#xd;&#xa;          FROM      EPTD_SCOR S&#xd;&#xa;          JOIN      EPMC_CLIE_SUJE CS&#xd;&#xa;          ON        S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;          JOIN      EPTD_CLIE_TIPO_SCOR CTS&#xd;&#xa;          ON        CTS.COD_CLIE &#x3d; CS.COD_CLIE&#xd;&#xa;          JOIN      EPMC_SUJE SU&#xd;&#xa;          ON        CS.COD_SUJE &#x3d; SU.COD_SUJE&#xd;&#xa;          WHERE     S.FEC_FECH_SCOR BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;          AND       SU.TIP_TIPO_SUJE &#x3d; CTS.TIP_TIPO_SUJE&#xd;&#xa;          AND       S.FEC_FECH_SCOR BETWEEN CTS.FEC_ACT_INI AND CTS.FEC_ACT_FIN&#xd;&#xa;          --ORDER BY  CS.COD_SUJE ASC&#xd;&#xa;&#x29; SCOR&#xd;&#xa;LEFT OUTER JOIN&#xd;&#xa;-- facturacion del mes&#xd;&#xa;&#x28;         SELECT    ID,&#xd;&#xa;                    COD_TIPO_SCOR,&#xd;&#xa;                    TIP_TIPO_SUJE,&#xd;&#xa;                    COD_CLIE,&#xd;&#xa;                    COD_SUJE--,&#xd;&#xa;                    --COD_SCOR&#xd;&#xa;          FROM      EPTD_FACT_LOG&#xd;&#xa;          WHERE     FEC_REGISTRO BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#xd;&#xa;&#x29; FACT&#xd;&#xa;ON  SCOR.COD_TIPO_SCOR &#x3d; FACT.COD_TIPO_SCOR&#xd;&#xa;AND SCOR.TIP_TIPO_SUJE &#x3d; FACT.TIP_TIPO_SUJE&#xd;&#xa;AND SCOR.COD_CLIE &#x3d; FACT.COD_CLIE&#xd;&#xa;AND SCOR.COD_SUJE &#x3d; FACT.COD_SUJE&#xd;&#xa;--AND SCOR.COD_SCOR &#x3d; FACT.COD_SCOR&#xd;&#xa;JOIN EPMC_CLIE C&#xd;&#xa;ON   C.COD_CLIE &#x3d; SCOR.COD_CLIE&#xd;&#xa;WHERE FACT.ID IS NULL&#xd;&#xa;</sql>
     <outer_join>N</outer_join>
     <replace_vars>N</replace_vars>
     <parameter>
+      <field>
+        <name>FEC_INICIO_MES</name>
+        <type>Timestamp</type>
+      </field>
+      <field>
+        <name>FEC_FIN_MES</name>
+        <type>Timestamp</type>
+      </field>
       <field>
         <name>FEC_INICIO_MES</name>
         <type>Timestamp</type>
