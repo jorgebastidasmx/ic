@@ -159,6 +159,10 @@
   <hop> <from>FILTER COUNT JUR</from><to>VAL DOCUMENT</to><enabled>Y</enabled> </hop>
   <hop> <from>VAL DOCUMENT</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT NAT</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT CLIENTE_SUJETO NAT</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT JUR</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT CLIENTE_SUJETO JUR</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CONSTANTES</name>
@@ -781,7 +785,7 @@
     <name>INSERT CLIENTE_SUJETO JUR</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -831,7 +835,7 @@
     <name>INSERT CLIENTE_SUJETO NAT</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -881,7 +885,7 @@
     <name>INSERT JUR</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -971,7 +975,7 @@
     <name>INSERT NAT</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1479,6 +1483,374 @@
       </GUI>
     </step>
 
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage/>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1032</xloc>
+      <yloc>19</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT CLIENTE_SUJETO NAT</logmessage>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_SEQ</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1369</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 3</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT JUR</logmessage>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>tipSuje</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1099</xloc>
+      <yloc>470</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 4</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT CLIENTE_SUJETO JUR</logmessage>
+    <fields>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>tipSuje</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_SEQ</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1439</xloc>
+      <yloc>456</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
       <error>
         <source_step>GET DATOS SUJETO</source_step>
@@ -1495,6 +1867,54 @@
       <error>
         <source_step>GET DATOS SUJETO 2</source_step>
         <target_step>OUTPUT PERSONA JURIDICA</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT CLIENTE_SUJETO JUR</source_step>
+        <target_step>Write to log 4</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT CLIENTE_SUJETO NAT</source_step>
+        <target_step>Write to log 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT JUR</source_step>
+        <target_step>Write to log 3</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT NAT</source_step>
+        <target_step>Write to log</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
