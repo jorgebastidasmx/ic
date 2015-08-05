@@ -108,42 +108,49 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>SEQ FOR INSERT</from><to>INSERT SUJETO_SEGM_CLIENTE</to><enabled>Y</enabled> </hop>
-  <hop> <from>BUSQUEDA SUJETOS</from><to>SUJETOS EXISTENTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>DELETE SUJETOS SEGMENTO</from><to>BUSQUEDA SUJETOS</to><enabled>Y</enabled> </hop>
-  <hop> <from>PROCESS FILE NAME</from><to>SPLIT FILE NAME</to><enabled>Y</enabled> </hop>
-  <hop> <from>SUJETOS EXISTENTES</from><to>WRITE RESULT NUEVOS</to><enabled>Y</enabled> </hop>
-  <hop> <from>SUJETOS EXISTENTES</from><to>BUSQUEDA ID INTERNO</to><enabled>Y</enabled> </hop>
-  <hop> <from>BUSQUEDA ID INTERNO</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>SEQ FOR INSERT</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>SEQ COD_CLIE_SUJE</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ COD_CLIE_SUJE</from><to>INSERT EPMC_CLIE_SUJE</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT EPMC_CLIE_SUJE</from><to>SEQ FOR INSERT 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ FOR INSERT 2</from><to>INSERT SUJETO_SEGM_CLIENTE 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER PJ</from><to>SEQ FOR INSERT 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ FOR INSERT 3</from><to>INSERT SUJETO_SEGM_CLIENTE 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 3</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT SUJETO_SEGM_CLIENTE</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 2</from><to>Add constants</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants</from><to>Update</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER PJ</from><to>SAVE_CONSTANTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>VAL_TIPO_DOCUMENTO</from><to>PROCESS FILE NAME</to><enabled>Y</enabled> </hop>
-  <hop> <from>WRITE RESULT NUEVOS</from><to>INSERT-NEW-SUJETOS</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT-NEW-SUJETOS</from><to>FILTER PN</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT-NEW-SUJETOS</from><to>FILTER PJ</to><enabled>Y</enabled> </hop>
-  <hop> <from>SPLIT FILE NAME</from><to>Constantes</to><enabled>Y</enabled> </hop>
+  <hop> <from>BUSQUEDA ID INTERNO</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>BUSQUEDA SUJETOS</from><to>SUJETOS EXISTENTES</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish</from><to>VAL_TIPO_DOCUMENTO</to><enabled>Y</enabled> </hop>
   <hop> <from>Constantes</from><to>DELETE SUJETOS SEGMENTO</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER PN</from><to>SEQ FOR INSERT 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Constantes 2</from><to>DATOS DE CARGA</to><enabled>Y</enabled> </hop>
+  <hop> <from>DATOS DE CARGA</from><to>Update 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>DELETE SUJETOS SEGMENTO</from><to>BUSQUEDA SUJETOS</to><enabled>Y</enabled> </hop>
+  <hop> <from>DELETE SUJETOS SEGMENTO</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER PJ</from><to>SAVE_CONSTANTES</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER PJ</from><to>SEQ FOR INSERT 3</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER PN</from><to>SAVE_CONSTANTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>SAVE_CONSTANTES</from><to>GET_ID_BITACORA_LOG</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER PN</from><to>SEQ FOR INSERT 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>SEQ COD_CLIE_SUJE</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>SEQ FOR INSERT</to><enabled>Y</enabled> </hop>
   <hop> <from>GET_ID_BITACORA_LOG</from><to>Modified Java Script Value</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT EPMC_CLIE_SUJE</from><to>SEQ FOR INSERT 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT EPMC_CLIE_SUJE</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE</from><to>Write to log 7</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 2</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 2</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 3</from><to>Add constants</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT SUJETO_SEGM_CLIENTE 3</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT-NEW-SUJETOS</from><to>FILTER PJ</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT-NEW-SUJETOS</from><to>FILTER PN</to><enabled>Y</enabled> </hop>
   <hop> <from>Modified Java Script Value</from><to>SAVE ERROR</to><enabled>Y</enabled> </hop>
   <hop> <from>PROCESS CSV FILES</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>
-  <hop> <from>Block this step until steps finish</from><to>VAL_TIPO_DOCUMENTO</to><enabled>Y</enabled> </hop>
-  <hop> <from>DATOS DE CARGA</from><to>Update 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Update 2</from><to>PROCESS CSV FILES</to><enabled>Y</enabled> </hop>
+  <hop> <from>PROCESS FILE NAME</from><to>SPLIT FILE NAME</to><enabled>Y</enabled> </hop>
   <hop> <from>QUERY_BITACORA_FILE_TO_PROCESS</from><to>Constantes 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Constantes 2</from><to>DATOS DE CARGA</to><enabled>Y</enabled> </hop>
+  <hop> <from>SAVE ERROR</from><to>Write to log 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>SAVE_CONSTANTES</from><to>GET_ID_BITACORA_LOG</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ COD_CLIE_SUJE</from><to>INSERT EPMC_CLIE_SUJE</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ FOR INSERT</from><to>INSERT SUJETO_SEGM_CLIENTE</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ FOR INSERT 2</from><to>INSERT SUJETO_SEGM_CLIENTE 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ FOR INSERT 3</from><to>INSERT SUJETO_SEGM_CLIENTE 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>SPLIT FILE NAME</from><to>Constantes</to><enabled>Y</enabled> </hop>
+  <hop> <from>SUJETOS EXISTENTES</from><to>BUSQUEDA ID INTERNO</to><enabled>Y</enabled> </hop>
+  <hop> <from>SUJETOS EXISTENTES</from><to>WRITE RESULT NUEVOS</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update 2</from><to>PROCESS CSV FILES</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update 2</from><to>Write to log 6</to><enabled>Y</enabled> </hop>
+  <hop> <from>VAL_TIPO_DOCUMENTO</from><to>PROCESS FILE NAME</to><enabled>Y</enabled> </hop>
+  <hop> <from>WRITE RESULT NUEVOS</from><to>INSERT-NEW-SUJETOS</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -172,8 +179,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1665</xloc>
-      <yloc>243</yloc>
+      <xloc>1631</xloc>
+      <yloc>302</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -220,8 +227,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>841</xloc>
-      <yloc>135</yloc>
+      <xloc>807</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -268,8 +275,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>666</xloc>
-      <yloc>263</yloc>
+      <xloc>632</xloc>
+      <yloc>322</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -293,8 +300,8 @@
       </steps>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>123</xloc>
-      <yloc>401</yloc>
+      <xloc>89</xloc>
+      <yloc>460</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -326,8 +333,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>369</xloc>
-      <yloc>111</yloc>
+      <xloc>335</xloc>
+      <yloc>170</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -383,8 +390,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>124</xloc>
-      <yloc>92</yloc>
+      <xloc>90</xloc>
+      <yloc>151</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -431,8 +438,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>123</xloc>
-      <yloc>176</yloc>
+      <xloc>89</xloc>
+      <yloc>235</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -441,7 +448,7 @@
     <name>DELETE SUJETOS SEGMENTO</name>
     <type>ExecSQL</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -464,8 +471,8 @@
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>457</xloc>
-      <yloc>264</yloc>
+      <xloc>423</xloc>
+      <yloc>323</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -493,8 +500,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1272</xloc>
-      <yloc>404</yloc>
+      <xloc>1238</xloc>
+      <yloc>463</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -522,8 +529,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1295</xloc>
-      <yloc>662</yloc>
+      <xloc>1261</xloc>
+      <yloc>721</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -551,8 +558,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1021</xloc>
-      <yloc>132</yloc>
+      <xloc>987</xloc>
+      <yloc>191</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -580,8 +587,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1041</xloc>
-      <yloc>768</yloc>
+      <xloc>1007</xloc>
+      <yloc>827</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -590,7 +597,7 @@
     <name>INSERT EPMC_CLIE_SUJE</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -630,8 +637,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1340</xloc>
-      <yloc>18</yloc>
+      <xloc>1306</xloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -640,7 +647,7 @@
     <name>INSERT SUJETO_SEGM_CLIENTE</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -680,8 +687,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1338</xloc>
-      <yloc>243</yloc>
+      <xloc>1304</xloc>
+      <yloc>302</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -690,7 +697,7 @@
     <name>INSERT SUJETO_SEGM_CLIENTE 2</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -730,8 +737,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1504</xloc>
-      <yloc>145</yloc>
+      <xloc>1470</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -740,7 +747,7 @@
     <name>INSERT SUJETO_SEGM_CLIENTE 3</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -780,8 +787,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1507</xloc>
-      <yloc>396</yloc>
+      <xloc>1473</xloc>
+      <yloc>455</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -838,8 +845,8 @@
     <allow_multiple_output>Y</allow_multiple_output>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1065</xloc>
-      <yloc>403</yloc>
+      <xloc>1031</xloc>
+      <yloc>462</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -859,7 +866,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var msgpersonalizado &#x3d; &#x27;Usuario no encontrado&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xa;var LNEA&#x3d;0&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;TXT_ICI &#x3d;&#x3d;null&#x29;&#x7b;&#xd;&#xa;msgpersonalizado &#x3d; &#x27;Usuario sin codigo ICI&#x3a; Tipo Documento&#x3d;&#x27; &#x2b; TIP_TIPO_DOCU &#x2b; &#x27;,Nro Documento&#x3d;&#x27; &#x2b; NUM_NUME_DOCU&#x3b;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>msgpersonalizado</name>
         <rename>msgpersonalizado</rename>
         <type>String</type>
@@ -874,8 +881,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1304</xloc>
-      <yloc>768</yloc>
+      <xloc>1270</xloc>
+      <yloc>827</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -930,8 +937,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>119</xloc>
-      <yloc>318</yloc>
+      <xloc>85</xloc>
+      <yloc>377</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -962,8 +969,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>292</xloc>
-      <yloc>476</yloc>
+      <xloc>258</xloc>
+      <yloc>535</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -988,8 +995,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>123</xloc>
-      <yloc>7</yloc>
+      <xloc>89</xloc>
+      <yloc>66</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1042,8 +1049,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1518</xloc>
-      <yloc>768</yloc>
+      <xloc>1484</xloc>
+      <yloc>827</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1075,8 +1082,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1046</xloc>
-      <yloc>663</yloc>
+      <xloc>1012</xloc>
+      <yloc>722</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1104,8 +1111,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1080</xloc>
-      <yloc>18</yloc>
+      <xloc>1046</xloc>
+      <yloc>77</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1133,8 +1140,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1091</xloc>
-      <yloc>242</yloc>
+      <xloc>1057</xloc>
+      <yloc>301</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1162,8 +1169,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1504</xloc>
-      <yloc>20</yloc>
+      <xloc>1470</xloc>
+      <yloc>79</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1191,8 +1198,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1412</xloc>
-      <yloc>536</yloc>
+      <xloc>1378</xloc>
+      <yloc>595</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1261,8 +1268,8 @@
         <trimtype>none</trimtype>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>297</xloc>
-      <yloc>241</yloc>
+      <xloc>263</xloc>
+      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1290,8 +1297,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>841</xloc>
-      <yloc>263</yloc>
+      <xloc>807</xloc>
+      <yloc>322</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1329,8 +1336,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1812</xloc>
-      <yloc>243</yloc>
+      <xloc>1778</xloc>
+      <yloc>302</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1339,7 +1346,7 @@
     <name>Update 2</name>
     <type>Update</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1368,8 +1375,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>122</xloc>
-      <yloc>247</yloc>
+      <xloc>88</xloc>
+      <yloc>306</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1398,8 +1405,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>122</xloc>
-      <yloc>478</yloc>
+      <xloc>88</xloc>
+      <yloc>537</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1450,16 +1457,657 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>845</xloc>
-      <yloc>404</yloc>
+      <xloc>811</xloc>
+      <yloc>463</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores DELETE SUJETOS SEGMENTO&#xd;&#xa;</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>544</xloc>
+      <yloc>206</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT EPMC_CLIE_SUJE</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_ID</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1304</xloc>
+      <yloc>179</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 3</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT SUJETO_SEGM_CLIENTE 2	</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_ID</name>
+        </field>
+      <field>
+        <name>COD_SEGM_CLIE_SUJE_ID</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1625</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 4</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT SUJETO_SEGM_CLIENTE 3&#xd;&#xa;</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>NUEVO_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>NUEVO_COD_SEGM_CLIE_SUJE</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1621</xloc>
+      <yloc>454</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 5</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores SAVE ERROR</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>NUEVO_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>MSG</name>
+        </field>
+      <field>
+        <name>ID_BITACORALOG</name>
+        </field>
+      <field>
+        <name>msgpersonalizado</name>
+        </field>
+      <field>
+        <name>LNEA</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1617</xloc>
+      <yloc>828</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 6</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores Update 2</logmessage>
+    <fields>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>FEC_ENVIO</name>
+        </field>
+      <field>
+        <name>ESTADOENVIO</name>
+        </field>
+      <field>
+        <name>TIPOENVIO</name>
+        </field>
+      <field>
+        <name>C</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>227</xloc>
+      <yloc>186</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 7</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT_SEGM_CLIENTE</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>COD_SEGM_CLIE_SUJE</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1304</xloc>
+      <yloc>406</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
       <error>
+        <source_step>DELETE SUJETOS SEGMENTO</source_step>
+        <target_step>Write to log</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
         <source_step>INSERT EPMC_CLIE_SUJE</source_step>
-        <target_step/>
+        <target_step>Write to log 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT SUJETO_SEGM_CLIENTE</source_step>
+        <target_step>Write to log 7</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT SUJETO_SEGM_CLIENTE 2</source_step>
+        <target_step>Write to log 3</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>INSERT SUJETO_SEGM_CLIENTE 3</source_step>
+        <target_step>Write to log 4</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>SAVE ERROR</source_step>
+        <target_step>Write to log 5</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Update 2</source_step>
+        <target_step>Write to log 6</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

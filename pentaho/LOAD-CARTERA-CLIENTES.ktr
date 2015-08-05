@@ -134,6 +134,10 @@
   <hop> <from>Constantes</from><to>DATOS DE CARGA</to><enabled>Y</enabled> </hop>
   <hop> <from>QUERY_BITACORA_FILE_TO_PROCESS</from><to>Constantes</to><enabled>Y</enabled> </hop>
   <hop> <from>DATOS DE CARGA</from><to>Update 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>PROCESS CSV FILES</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>SAVE ERROR LOG</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT EPMC_CLIE_SUJE</from><to>Write to log</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>BUSQUEDA ID INTERNO</name>
@@ -495,7 +499,7 @@
     <name>INSERT EPMC_CLIE_SUJE</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -672,7 +676,7 @@
     <name>PROCESS CSV FILES</name>
     <type>CsvInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1124,7 +1128,450 @@
       </GUI>
     </step>
 
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores INSERT EPMC_CLIE_SUJE</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_ID</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1667</xloc>
+      <yloc>97</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores SAVE ERROR LOG</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>ID_BITACORALOG</name>
+        </field>
+      <field>
+        <name>msgpersonalizado</name>
+        </field>
+      <field>
+        <name>LNEA</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2136</xloc>
+      <yloc>397</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 3</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores Update</logmessage>
+    <fields>
+      <field>
+        <name>TIP_TIPO_DOCU</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>TIPDOC</name>
+        </field>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>MILLIS</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      <field>
+        <name>FINALRESULT</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_ID</name>
+        </field>
+      <field>
+        <name>COD_PAIS</name>
+        </field>
+      <field>
+        <name>NAT</name>
+        </field>
+      <field>
+        <name>JUR</name>
+        </field>
+      <field>
+        <name>FRESULT</name>
+        </field>
+      <field>
+        <name>PARAM</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>TIPDOCURL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      <field>
+        <name>status</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>TXT_NOMB_COMP</name>
+        </field>
+      <field>
+        <name>COUNT_PERSONAS</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>COD_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>COD_CLIE_SUJE_SEQ</name>
+        </field>
+      <field>
+        <name>PARAM_J</name>
+        </field>
+      <field>
+        <name>URL_J</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DENO</name>
+        </field>
+      <field>
+        <name>TXT_DENO</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DENO</name>
+        </field>
+      <field>
+        <name>TIP_TIPO_DIRE</name>
+        </field>
+      <field>
+        <name>TXT_SITU_DIRE</name>
+        </field>
+      <field>
+        <name>COUNT_EMPRESAS</name>
+        </field>
+      <field>
+        <name>P</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2111</xloc>
+      <yloc>232</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 4</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores Update 2</logmessage>
+    <fields>
+      <field>
+        <name>COD_SEGM</name>
+        </field>
+      <field>
+        <name>COD_CLIE</name>
+        </field>
+      <field>
+        <name>NOM_ARCHIVO</name>
+        </field>
+      <field>
+        <name>FEC_ENVIO</name>
+        </field>
+      <field>
+        <name>ESTADOENVIO</name>
+        </field>
+      <field>
+        <name>TIPOENVIO</name>
+        </field>
+      <field>
+        <name>C</name>
+        </field>
+      <field>
+        <name>COD_CLIE_1</name>
+        </field>
+      <field>
+        <name>ID_CARGA</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>353</xloc>
+      <yloc>421</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step_error_handling>
+      <error>
+        <source_step>INSERT EPMC_CLIE_SUJE</source_step>
+        <target_step>Write to log</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>PROCESS CSV FILES</source_step>
+        <target_step>Write to log 4</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>SAVE ERROR LOG</source_step>
+        <target_step>Write to log 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>Update</source_step>
+        <target_step>Write to log 3</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
