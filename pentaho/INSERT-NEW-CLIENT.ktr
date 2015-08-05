@@ -31,7 +31,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value/>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -127,14 +127,12 @@
   <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>MOD URL JUR</from><to>REST ICI JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT NAT</from><to>SEQ CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ SUJETO 2</from><to>INSERT JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT JUR</from><to>SEQ CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO</from><to>INSERT CLIENTE_SUJETO NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO 2</from><to>INSERT CLIENTE_SUJETO JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>GET DATOS SUJETO 2</from><to>FILTER COUNT JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER COUNT JUR</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>GET DATOS SUJETO</from><to>FILTER COUNT NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER COUNT NAT</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>INIT MAPPING</from><to>CONSTANTES</to><enabled>Y</enabled> </hop>
@@ -158,6 +156,9 @@
   <hop> <from>Set field value</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT CLIENTE_SUJETO JUR</from><to>Set field value 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Set field value 2</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER COUNT JUR</from><to>VAL DOCUMENT</to><enabled>Y</enabled> </hop>
+  <hop> <from>VAL DOCUMENT</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CONSTANTES</name>
@@ -222,8 +223,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>191</xloc>
-      <yloc>226</yloc>
+      <xloc>156</xloc>
+      <yloc>228</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -328,7 +329,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>SEQ SUJETO 2</send_true_to>
+<send_true_to>VAL DOCUMENT</send_true_to>
 <send_false_to>OUTPUT PERSONA JURIDICA</send_false_to>
     <compare>
 <condition>
@@ -820,8 +821,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1365</xloc>
-      <yloc>362</yloc>
+      <xloc>1452</xloc>
+      <yloc>369</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -927,7 +928,7 @@
         </field>
         <field>
           <column_name>TIP_TIPO_SUJE</column_name>
-          <stream_name>JUR</stream_name>
+          <stream_name>tipSuje</stream_name>
         </field>
         <field>
           <column_name>COD_PAIS</column_name>
@@ -953,11 +954,15 @@
           <column_name>TXT_SITU_DIRE</column_name>
           <stream_name>TXT_SITU_DIRE</stream_name>
         </field>
+        <field>
+          <column_name>TXT_NOMB_COMP</column_name>
+          <stream_name>DES_DESC</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>365</yloc>
+      <xloc>1104</xloc>
+      <yloc>372</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1290,8 +1295,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1171</xloc>
-      <yloc>364</yloc>
+      <xloc>1258</xloc>
+      <yloc>371</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1348,8 +1353,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>897</xloc>
-      <yloc>363</yloc>
+      <xloc>984</xloc>
+      <yloc>370</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1408,6 +1413,36 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>850</xloc>
       <yloc>297</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>VAL DOCUMENT</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var tipSuje&#x3b;&#xd;&#xa;var num_documento &#x3d; NUM_NUME_DOCU&#x3b;&#xd;&#xa;if&#x28;num_documento &#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;	if&#x28;num_documento.substring&#x28;0,2&#x29; &#x21;&#x3d; &#x27;20&#x27;&#x29;&#x7b;&#xd;&#xa;		tipSuje &#x3d; 1&#x3b;&#xd;&#xa;	&#x7d;else&#x7b;&#xd;&#xa;		tipSuje &#x3d; 2&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>tipSuje</name>
+        <rename>tipSuje</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>876</xloc>
+      <yloc>366</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
