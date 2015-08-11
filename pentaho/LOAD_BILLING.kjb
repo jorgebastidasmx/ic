@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>LOAD_SBS_SICOM</name>
+  <name>LOAD_BILLING</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -22,42 +22,7 @@
             <description/>
         </parameter>
         <parameter>
-            <name>FILE_JURIDICA</name>
-            <default_value>juridica.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FILE_NATURAL</name>
-            <default_value>natural.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-CLEAN-CACHE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-LOAD</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-RISK-PREDICTOR</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-SBS</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-SCORE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>KTR-SICOM</name>
+            <name>KTR-BILLING</name>
             <default_value/>
             <description/>
         </parameter>
@@ -139,12 +104,12 @@
       <yloc>175</yloc>
       </entry>
     <entry>
-      <name>SBS</name>
+      <name>BILLING</name>
       <description/>
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-SBS&#x7d;</filename>
+      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-BILLING&#x7d;</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -183,56 +148,8 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>540</xloc>
-      <yloc>116</yloc>
-      </entry>
-    <entry>
-      <name>SICOM</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-SICOM&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>FILE</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE&#x7d;</value>
-            </parameter>            <parameter>            <name>JURIDICA</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_JURIDICA&#x7d;</value>
-            </parameter>            <parameter>            <name>NATURAL</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_PAIS</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
-            </parameter>            <parameter>            <name>SCHEMA_EPM</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;SCHEMA_EPM&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>537</xloc>
-      <yloc>229</yloc>
+      <xloc>475</xloc>
+      <yloc>176</yloc>
       </entry>
     <entry>
       <name>LOAD</name>
@@ -282,110 +199,11 @@
       <xloc>303</xloc>
       <yloc>176</yloc>
       </entry>
-    <entry>
-      <name>CLEAN CACHE</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-CLEAN-CACHE&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>529</xloc>
-      <yloc>441</yloc>
-      </entry>
-    <entry>
-      <name>DECOMICRO</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-DECOMICRO&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>FILE</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE&#x7d;</value>
-            </parameter>            <parameter>            <name>JURIDICA</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_JURIDICA&#x7d;</value>
-            </parameter>            <parameter>            <name>NATURAL</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_PAIS</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
-            </parameter>            <parameter>            <name>SCHEMA_EPM</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;SCHEMA_EPM&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>540</xloc>
-      <yloc>327</yloc>
-      </entry>
   </entries>
   <hops>
     <hop>
       <from>LOAD</from>
-      <to>SBS</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>LOAD</from>
-      <to>SICOM</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>LOAD</from>
-      <to>CLEAN CACHE</to>
+      <to>BILLING</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -400,15 +218,6 @@
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>LOAD</from>
-      <to>DECOMICRO</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
     </hop>
   </hops>
   <notepads>
