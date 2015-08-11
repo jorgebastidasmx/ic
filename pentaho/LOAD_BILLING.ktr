@@ -11,7 +11,7 @@
     <parameters>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG</default_value>
+            <default_value/>
             <description/>
         </parameter>
     </parameters>

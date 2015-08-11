@@ -177,6 +177,14 @@
         <name>FEC_FIN_MES</name>
         <type>Timestamp</type>
       </field>
+      <field>
+        <name>FEC_INICIO_MES</name>
+        <type>Timestamp</type>
+      </field>
+      <field>
+        <name>FEC_FIN_MES</name>
+        <type>Timestamp</type>
+      </field>
     </parameter>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
