@@ -149,11 +149,11 @@
   <order>
   <hop> <from>FILTER</from><to>Juridica</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER</from><to>Natural</to><enabled>Y</enabled> </hop>
-  <hop> <from>Buscar sujetos sin score en mes</from><to>FILTER</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get parameters</from><to>Buscar sujetos sin score en mes</to><enabled>Y</enabled> </hop>
+  <hop> <from>Buscar sujetos sin rating en mes</from><to>FILTER</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get parameters</from><to>Buscar sujetos sin rating en mes</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Buscar sujetos sin score en mes</name>
+    <name>Buscar sujetos sin rating en mes</name>
     <type>DBJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -165,7 +165,7 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>&#xd;&#xa;SELECT &#xd;&#xa;S.COD_SUJE, &#xd;&#xa;S.TXT_ICI, &#xd;&#xa;S.TIP_TIPO_DOCU, &#xd;&#xa;S.NUM_NUME_DOCU, &#xd;&#xa;S.DES_DESC, &#xd;&#xa;S.TXT_NOMB, &#xd;&#xa;S.TXT_APEL, &#xd;&#xa;S.TXT_NOMB_COMP FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE S&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE CS&#xd;&#xa;ON S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;WHERE S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    EPTD_RAT1&#xd;&#xa;WHERE   FEC_FECH&#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29; AND&#xd;&#xa;S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    EPTD_RAT2&#xd;&#xa;WHERE   FEC_FECH&#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29;&#xd;&#xa;AND S.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;</sql>
+    <sql>&#xd;&#xa;SELECT &#xd;&#xa;S.COD_SUJE, &#xd;&#xa;S.TXT_ICI, &#xd;&#xa;S.TIP_TIPO_DOCU, &#xd;&#xa;S.NUM_NUME_DOCU, &#xd;&#xa;S.DES_DESC, &#xd;&#xa;S.TXT_NOMB, &#xd;&#xa;S.TXT_APEL, &#xd;&#xa;S.TXT_NOMB_COMP FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE S&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE CS&#xd;&#xa;ON S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;WHERE S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_RAT1&#xd;&#xa;WHERE   FEC_FECH&#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29; AND&#xd;&#xa;S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_RAT2&#xd;&#xa;WHERE   FEC_FECH&#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29; AND&#xd;&#xa;S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_RAT3&#xd;&#xa;WHERE   FEC_FECH&#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29;&#xd;&#xa;AND S.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
@@ -183,6 +183,14 @@
       </field>
       <field>
         <name>FEC_FIN_MES</name>
+        <type>Timestamp</type>
+      </field>
+      <field>
+        <name>FEC_FIN_MES</name>
+        <type>Timestamp</type>
+      </field>
+      <field>
+        <name>FEC_INICIO_MES</name>
         <type>Timestamp</type>
       </field>
     </parameter>

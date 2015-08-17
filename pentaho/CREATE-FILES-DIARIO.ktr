@@ -165,7 +165,7 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>&#xd;&#xa;SELECT &#xd;&#xa;S.COD_SUJE, &#xd;&#xa;S.TXT_ICI, &#xd;&#xa;S.TIP_TIPO_DOCU, &#xd;&#xa;S.NUM_NUME_DOCU, &#xd;&#xa;S.DES_DESC, &#xd;&#xa;S.TXT_NOMB, &#xd;&#xa;S.TXT_APEL, &#xd;&#xa;S.TXT_NOMB_COMP FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE S&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE CS&#xd;&#xa;ON S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;WHERE S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    EPTD_SCOR &#xd;&#xa;WHERE   FEC_FECH_SCOR &#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29;&#xd;&#xa;AND S.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;</sql>
+    <sql>&#xd;&#xa;SELECT &#xd;&#xa;S.COD_SUJE, &#xd;&#xa;S.TXT_ICI, &#xd;&#xa;S.TIP_TIPO_DOCU, &#xd;&#xa;S.NUM_NUME_DOCU, &#xd;&#xa;S.DES_DESC, &#xd;&#xa;S.TXT_NOMB, &#xd;&#xa;S.TXT_APEL, &#xd;&#xa;S.TXT_NOMB_COMP FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE S&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE CS&#xd;&#xa;ON S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;WHERE S.COD_SUJE NOT IN &#x28;&#xd;&#xa;SELECT  COD_SUJE&#xd;&#xa;FROM    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_SCOR &#xd;&#xa;WHERE   FEC_FECH_SCOR &#xd;&#xa;BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#x29;&#xd;&#xa;AND S.COD_PAIS &#x3d; &#x24;&#x7b;COD_PAIS&#x7d;&#xd;&#xa;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>

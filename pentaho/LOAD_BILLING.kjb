@@ -148,71 +148,14 @@
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>475</xloc>
-      <yloc>176</yloc>
-      </entry>
-    <entry>
-      <name>LOAD</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>filename</specification_method>
-      <trans_object_id/>
-      <filename>&#x24;&#x7b;PATH&#x7d;&#x24;&#x7b;KTR-LOAD&#x7d;</filename>
-      <transname/>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>SCHEMA_EPM</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;SCHEMA_EPM&#x7d;</value>
-            </parameter>            <parameter>            <name>COD_PAIS</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;COD_PAIS&#x7d;</value>
-            </parameter>            <parameter>            <name>FILE</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE&#x7d;</value>
-            </parameter>            <parameter>            <name>NATURAL</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_NATURAL&#x7d;</value>
-            </parameter>            <parameter>            <name>JURIDICA</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FILE_JURIDICA&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>303</xloc>
-      <yloc>176</yloc>
+      <xloc>306</xloc>
+      <yloc>173</yloc>
       </entry>
   </entries>
   <hops>
     <hop>
-      <from>LOAD</from>
-      <to>BILLING</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
-      <to>LOAD</to>
+      <to>BILLING</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
