@@ -14,6 +14,11 @@
             <default_value/>
             <description/>
         </parameter>
+        <parameter>
+            <name>SCHEMA_FACT</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -121,6 +126,30 @@
     </notepad>
   </notepads>
   <connection>
+    <name>EFX_FACTURACION</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>FACT</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>EPM_MSG</name>
     <server/>
     <type>ORACLE</type>
@@ -145,11 +174,9 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Get parameters</from><to>Buscar clientes a facturar</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Factura</from><to>Output Facturacion</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq Billing</from><to>Output Billing</to><enabled>Y</enabled> </hop>
   <hop> <from>Get parameters</from><to>Add constants</to><enabled>Y</enabled> </hop>
-  <hop> <from>Add constants</from><to>Buscar consumos reporte</to><enabled>Y</enabled> </hop>
   <hop> <from>Obt nombre y oficina usuario</from><to>Seq Billing</to><enabled>Y</enabled> </hop>
   <hop> <from>Output Facturacion</from><to>Add constants 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Add constants 2</from><to>Obt nombre y oficina usuario</to><enabled>Y</enabled> </hop>
@@ -165,6 +192,10 @@
   <hop> <from>Output Facturacion</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>Output Billing</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Output Billing 2</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get parameters</from><to>Format dates</to><enabled>Y</enabled> </hop>
+  <hop> <from>Format dates</from><to>Buscar clientes a facturar</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add constants</from><to>Format dates 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Format dates 2</from><to>Buscar consumos reporte</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Add constants</name>
@@ -217,7 +248,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>187</xloc>
+      <xloc>136</xloc>
       <yloc>274</yloc>
       <draw>Y</draw>
       </GUI>
@@ -281,24 +312,24 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT   -- SCOR.COD_SCOR, &#xd;&#xa;          SCOR.COD_CLIE, &#xd;&#xa;          SCOR.COD_SUJE, &#xd;&#xa;          SCOR.COD_TIPO_SCOR,&#xd;&#xa;          SCOR.TIP_TIPO_SUJE,&#xd;&#xa;          C.COD_ENTI&#xd;&#xa;          &#xd;&#xa;FROM &#xd;&#xa;&#x28;&#xd;&#xa;          SELECT    DISTINCT&#xd;&#xa;                    CS.COD_CLIE,&#xd;&#xa;                    CS.COD_SUJE,&#xd;&#xa;                    CTS.COD_TIPO_SCOR,&#xd;&#xa;                    SU.TIP_TIPO_SUJE&#xd;&#xa;          FROM      &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_SCOR S&#xd;&#xa;          JOIN      &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE_SUJE CS&#xd;&#xa;          ON        S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;          &#xd;&#xa;          JOIN      &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_SUJE SU&#xd;&#xa;          ON        CS.COD_SUJE &#x3d; SU.COD_SUJE&#xd;&#xa;          &#xd;&#xa;          LEFT JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_CLIE_TIPO_SCOR CTS&#xd;&#xa;          ON        CTS.COD_CLIE &#x3d; CS.COD_CLIE&#xd;&#xa;          AND       SU.TIP_TIPO_SUJE &#x3d; CTS.TIP_TIPO_SUJE&#xd;&#xa;&#xd;&#xa;          WHERE     S.FEC_FECH_SCOR BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;          --AND       S.FEC_FECH_SCOR BETWEEN CTS.FEC_ACT_INI AND CTS.FEC_ACT_FIN&#xd;&#xa;          --ORDER BY  CS.COD_SUJE ASC&#xd;&#xa;&#x29; SCOR&#xd;&#xa;LEFT OUTER JOIN&#xd;&#xa;-- facturacion del mes&#xd;&#xa;&#x28;         SELECT    ID,&#xd;&#xa;                    COD_TIPO_SCOR,&#xd;&#xa;                    TIP_TIPO_SUJE,&#xd;&#xa;                    COD_CLIE,&#xd;&#xa;                    COD_SUJE--,&#xd;&#xa;                    --COD_SCOR&#xd;&#xa;          FROM      &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_FACT_LOG&#xd;&#xa;          WHERE     FEC_REGISTRO BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#xd;&#xa;&#x29; FACT&#xd;&#xa;ON  SCOR.COD_CLIE &#x3d; FACT.COD_CLIE&#xd;&#xa;AND SCOR.COD_SUJE &#x3d; FACT.COD_SUJE&#xd;&#xa;--AND SCOR.COD_SCOR &#x3d; FACT.COD_SCOR&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE C&#xd;&#xa;ON   C.COD_CLIE &#x3d; SCOR.COD_CLIE&#xd;&#xa;WHERE FACT.ID IS NULL</sql>
+    <sql>SELECT    SCOR.COD_CLIE, &#xd;&#xa;          SCOR.COD_SUJE, &#xd;&#xa;          SCOR.COD_TIPO_SCOR,&#xd;&#xa;          SCOR.TIP_TIPO_SUJE,&#xd;&#xa;          C.COD_ENTI&#xd;&#xa;          &#xd;&#xa;FROM &#xd;&#xa;&#x28;&#xd;&#xa;          SELECT    DISTINCT&#xd;&#xa;                    CS.COD_CLIE,&#xd;&#xa;                    CS.COD_SUJE,&#xd;&#xa;                    CTS.COD_TIPO_SCOR,&#xd;&#xa;                    SU.TIP_TIPO_SUJE&#xd;&#xa;          FROM      EPM_MSG.EPTD_SCOR S&#xd;&#xa;          JOIN      EPM_MSG.EPMC_CLIE_SUJE CS&#xd;&#xa;          ON        S.COD_SUJE &#x3d; CS.COD_SUJE&#xd;&#xa;          &#xd;&#xa;          JOIN      EPM_MSG.EPMC_SUJE SU&#xd;&#xa;          ON        CS.COD_SUJE &#x3d; SU.COD_SUJE&#xd;&#xa;          &#xd;&#xa;          LEFT JOIN      EPM_MSG.EPTD_CLIE_TIPO_SCOR CTS&#xd;&#xa;          ON        CTS.COD_CLIE &#x3d; CS.COD_CLIE&#xd;&#xa;          AND       SU.TIP_TIPO_SUJE &#x3d; CTS.TIP_TIPO_SUJE&#xd;&#xa;&#xd;&#xa;          WHERE     S.FEC_FECH_SCOR BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#xd;&#xa;&#x29; SCOR&#xd;&#xa;LEFT OUTER JOIN&#xd;&#xa;-- facturacion del mes&#xd;&#xa;&#x28;         SELECT    ID,&#xd;&#xa;                    COD_TIPO_SCOR,&#xd;&#xa;                    TIP_TIPO_SUJE,&#xd;&#xa;                    COD_CLIE,&#xd;&#xa;                    COD_SUJE--,&#xd;&#xa;          FROM      EPM_MSG.EPTD_FACT_LOG&#xd;&#xa;          WHERE     FEC_REGISTRO BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;&#xd;&#xa;&#x29; FACT&#xd;&#xa;ON  SCOR.COD_CLIE &#x3d; FACT.COD_CLIE&#xd;&#xa;AND SCOR.COD_SUJE &#x3d; FACT.COD_SUJE&#xd;&#xa;JOIN EPM_MSG.EPMC_CLIE C&#xd;&#xa;ON   C.COD_CLIE &#x3d; SCOR.COD_CLIE&#xd;&#xa;WHERE FACT.ID IS NULL</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
       <field>
-        <name>FEC_INICIO_MES</name>
+        <name>FEC_INICIO</name>
         <type>Timestamp</type>
       </field>
       <field>
-        <name>FEC_FIN_MES</name>
+        <name>FEC_FIN</name>
         <type>Timestamp</type>
       </field>
       <field>
-        <name>FEC_INICIO_MES</name>
+        <name>FEC_INICIO</name>
         <type>Timestamp</type>
       </field>
       <field>
-        <name>FEC_FIN_MES</name>
+        <name>FEC_FIN</name>
         <type>Timestamp</type>
       </field>
     </parameter>
@@ -323,16 +354,16 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT  L.ID,&#xd;&#xa;		L.COD_CLIE, &#xd;&#xa;        L.COD_SUJE,&#xd;&#xa;		L.COD_PROD_FACT,&#xd;&#xa;		C.COD_ENTI&#xd;&#xa;FROM    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPTD_LOG L&#xd;&#xa;JOIN    &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_CLIE C&#xd;&#xa;ON 		L.COD_CLIE &#x3d; C.COD_CLIE&#xd;&#xa;WHERE   L.FEC_REGISTRO BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;AND 	L.FLG_FACT IS NULL</sql>
+    <sql>SELECT  L.ID,&#xd;&#xa;		L.COD_CLIE, &#xd;&#xa;        L.COD_SUJE,&#xd;&#xa;		L.COD_PROD_FACT,&#xd;&#xa;		C.COD_ENTI&#xd;&#xa;FROM    EPTD_LOG L&#xd;&#xa;JOIN    EPMC_CLIE C&#xd;&#xa;ON 		L.COD_CLIE &#x3d; C.COD_CLIE&#xd;&#xa;WHERE   L.FEC_REGISTRO BETWEEN &#x3f; AND &#x3f;&#xd;&#xa;AND 	L.FLG_FACT IS NULL&#xd;&#xa;AND 	L.TIPO &#x3d; &#x27;LOG_REPORTE_LITE&#x27;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
       <field>
-        <name>FEC_INICIO_MES</name>
+        <name>FEC_INICIO</name>
         <type>Timestamp</type>
       </field>
       <field>
-        <name>FEC_FIN_MES</name>
+        <name>FEC_FIN</name>
         <type>Timestamp</type>
       </field>
     </parameter>
@@ -374,6 +405,106 @@
     </step>
 
   <step>
+    <name>Format dates</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>FEC_FIN_MES</name>
+        <rename>FEC_FIN</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd&#x2f;MM&#x2f;yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>FEC_INICIO_MES</name>
+        <rename>FEC_INICIO</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd&#x2f;MM&#x2f;yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>245</xloc>
+      <yloc>95</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Format dates 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>FEC_FIN_MES</name>
+        <rename>FEC_FIN</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd&#x2f;MM&#x2f;yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>FEC_INICIO_MES</name>
+        <rename>FEC_INICIO</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>dd&#x2f;MM&#x2f;yyyy</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>242</xloc>
+      <yloc>276</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Get parameters</name>
     <type>SystemInfo</type>
     <description/>
@@ -404,8 +535,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>188</xloc>
-      <yloc>95</yloc>
+      <xloc>137</xloc>
+      <yloc>91</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -423,7 +554,7 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT 	COD_USUA, &#xd;&#xa;		NOM_USUA, &#xd;&#xa;		COD_OFI &#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_USUA WHERE COD_USUA &#x3d; &#x28;&#xd;&#xa;SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_USUA  U&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;&#x29;</sql>
+    <sql>SELECT 	COD_USUA, &#xd;&#xa;		NOM_USUA, &#xd;&#xa;		COD_OFI &#xd;&#xa;FROM EPMC_USUA WHERE COD_USUA &#x3d; &#x28;&#xd;&#xa;SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPMC_USUA  U&#xd;&#xa;JOIN EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;&#x29;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
@@ -457,7 +588,7 @@
            </partitioning>
     <connection>EPM_MSG</connection>
     <rowlimit>0</rowlimit>
-    <sql>SELECT 	COD_USUA, &#xd;&#xa;		NOM_USUA, &#xd;&#xa;		COD_OFI &#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_USUA WHERE COD_USUA &#x3d; &#x28;&#xd;&#xa;SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_USUA  U&#xd;&#xa;JOIN &#x24;&#x7b;SCHEMA_EPM&#x7d;.EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;&#x29;</sql>
+    <sql>SELECT 	COD_USUA, &#xd;&#xa;		NOM_USUA, &#xd;&#xa;		COD_OFI &#xd;&#xa;FROM EPM_MSG.EPMC_USUA WHERE COD_USUA &#x3d; &#x28;&#xd;&#xa;SELECT MIN&#x28;U.COD_USUA&#x29; COD_USUA_1&#xd;&#xa;FROM EPM_MSG.EPMC_USUA  U&#xd;&#xa;JOIN EPM_MSG.EPMC_PERF_USUA P&#xd;&#xa;ON U.COD_USUA &#x3d; P.COD_USUA&#xd;&#xa;WHERE U.COD_CLIE &#x3d; &#x3f;&#xd;&#xa;AND P.COD_PERF &#x3d; &#x3f;&#xd;&#xa;&#x29;</sql>
     <outer_join>N</outer_join>
     <replace_vars>Y</replace_vars>
     <parameter>
@@ -489,9 +620,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>BILLING</table>
+    <connection>EFX_FACTURACION</connection>
+    <schema>&#x24;&#x7b;SCHEMA_FACT&#x7d;</schema>
+    <table>efmc_cont_cons</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -563,9 +694,9 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM_MSG</connection>
-    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-    <table>BILLING</table>
+    <connection>EFX_FACTURACION</connection>
+    <schema>&#x24;&#x7b;SCHEMA_FACT&#x7d;</schema>
+    <table>efmc_cont_cons</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -701,9 +832,9 @@
            </partitioning>
       <valuename>ID_BILLING</valuename>
       <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_BILLING</seqname>
+      <connection>EFX_FACTURACION</connection>
+      <schema>&#x24;&#x7b;SCHEMA_FACT&#x7d;</schema>
+      <seqname>SQ_EFMC_CONT_CONS_0001</seqname>
       <use_counter>N</use_counter>
       <counter_name/>
       <start_at>1</start_at>
@@ -730,9 +861,9 @@
            </partitioning>
       <valuename>ID_BILLING</valuename>
       <use_database>Y</use_database>
-      <connection>EPM_MSG</connection>
-      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
-      <seqname>SQ_BILLING</seqname>
+      <connection>EFX_FACTURACION</connection>
+      <schema>&#x24;&#x7b;SCHEMA_FACT&#x7d;</schema>
+      <seqname>SQ_EFMC_CONT_CONS_0001</seqname>
       <use_counter>N</use_counter>
       <counter_name/>
       <start_at>1</start_at>
@@ -946,10 +1077,10 @@
       <logmessage>Manejo de errores Output Billing</logmessage>
     <fields>
       <field>
-        <name>FEC_INICIO_MES</name>
+        <name>FEC_INICIO</name>
         </field>
       <field>
-        <name>FEC_FIN_MES</name>
+        <name>FEC_FIN</name>
         </field>
       <field>
         <name>FEC_ACTUAL</name>
