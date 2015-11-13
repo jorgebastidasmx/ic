@@ -9,6 +9,16 @@
     <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
+        <parameter>
+            <name>CLIE</name>
+            <default_value>cliente.csv</default_value>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>COD_CLIE</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>

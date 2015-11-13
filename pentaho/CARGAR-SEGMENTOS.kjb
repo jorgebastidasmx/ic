@@ -12,11 +12,6 @@
   <modified_date>2015&#x2f;10&#x2f;05 12&#x3a;45&#x3a;35.097</modified_date>
     <parameters>
         <parameter>
-            <name>COD_CLIE</name>
-            <default_value/>
-            <description>Codigo de Cliente</description>
-        </parameter>
-        <parameter>
             <name>COD_SEGM</name>
             <default_value/>
             <description>Codigo de Segmento</description>
@@ -30,16 +25,6 @@
             <name>NOM_ARCHIVO</name>
             <default_value/>
             <description>Nombre de Archivo</description>
-        </parameter>
-        <parameter>
-            <name>PATH_FILES</name>
-            <default_value/>
-            <description>Ruta donde estan los JOBS</description>
-        </parameter>
-        <parameter>
-            <name>SCHEMA_EPM</name>
-            <default_value/>
-            <description>Nombre esquema oracle</description>
         </parameter>
     </parameters>
   <connection>

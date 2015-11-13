@@ -12,16 +12,6 @@
   <modified_date>2015&#x2f;04&#x2f;23 17&#x3a;07&#x3a;25.114</modified_date>
     <parameters>
         <parameter>
-            <name>CLIE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>COD_CLIE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
             <name>COD_PAIS</name>
             <default_value/>
             <description/>

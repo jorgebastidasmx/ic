@@ -13,17 +13,17 @@
     <parameters>
         <parameter>
             <name>KTR-LOAD-CLIENTES-SEGMENTOS</name>
-            <default_value/>
+            <default_value>LOAD-SUJETOS-SEGMENTOS.kjb</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>PATH_FILES</name>
-            <default_value/>
+            <default_value>D&#x3a;&#x5c;dev&#x5c;projects&#x5c;epm-pentahos&#x5c;</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value/>
+            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>

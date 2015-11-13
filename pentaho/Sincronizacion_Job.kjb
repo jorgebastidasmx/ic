@@ -12,6 +12,11 @@
   <modified_date>2015&#x2f;06&#x2f;02 10&#x3a;19&#x3a;45.328</modified_date>
     <parameters>
         <parameter>
+            <name>COD_PAIS</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
             <name>FILE</name>
             <default_value/>
             <description/>
