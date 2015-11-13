@@ -87,7 +87,7 @@
     <name>Alertas</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>Alertas</database>
     <port>1521</port>
     <username/>
@@ -111,7 +111,7 @@
     <name>Coletters</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>Coletters</database>
     <port>1521</port>
     <username/>
@@ -132,10 +132,34 @@
     </attributes>
   </connection>
   <connection>
-    <name>EPM</name>
+    <name>Conexion</name>
+    <server>&#x24;&#x7b;hostName.origen.Collector&#x7d;</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>Conexion</database>
+    <port>&#x24;&#x7b;portNumber.origen.Collector&#x7d;</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;portNumber.origen.Collector&#x7d;</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>epm</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -156,11 +180,11 @@
     </attributes>
   </connection>
   <connection>
-    <name>EPM_ACL</name>
+    <name>epm2</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
-    <database>EPM_ACL</database>
+    <access>Native</access>
+    <database>EPMACTUA</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -183,7 +207,7 @@
     <name>EPM_MSG</name>
     <server/>
     <type>ORACLE</type>
-    <access>JNDI</access>
+    <access>Native</access>
     <database>EPM</database>
     <port>1521</port>
     <username/>
@@ -203,46 +227,142 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>EPMANTIGUO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMANTIGUO</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMANTIGUO3</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMANTIGUO3</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMNUEVO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMNUEVO</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Database lookup</from><to>Filter rows</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup 2</from><to>Filter rows 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup 3</from><to>SEQUENCIA_PERF_USUA 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup 7</from><to>FINAL_FLAG</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup EPMC_COD_USUA2</from><to>Database lookup</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup EPMC_PERF</from><to>Filter rows 8</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup EPMC_PERF 2</from><to>Filter rows 8 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF</from><to>SEQUENCIA_PERF_USUA</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF</from><to>Write to log 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF 3</from><to>SEQUENCIA_PERF_USUA 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF 3</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF 3 2</from><to>Update 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF_USUA</from><to>Write to log 7</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF_USUA 2</from><to>Write to log 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_PERF_USUA 3</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_USUA</from><to>Database lookup EPMC_PERF</to><enabled>Y</enabled> </hop>
-  <hop> <from>EPMC_USUA</from><to>Write to log 2 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>FINAL_FLAG</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>EPMC_PERF 3 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>UpdatePerf</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>SEQUENCIA_EPMC_USUA</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>Update_USUA</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 3</from><to>Database lookup 7</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 8</from><to>Database lookup 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 8</from><to>EPMC_PERF</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 8 3</from><to>EPMC_PERF 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get rows from result</from><to>SELECT EPMC_CLIE BY COD_ENTI</to><enabled>Y</enabled> </hop>
-  <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>Database lookup 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>USUARIOS SIN CLIENTE</to><enabled>Y</enabled> </hop>
-  <hop> <from>SELECT EPMC_CLIE BY COD_ENTI</from><to>NO_TIENE_CLIENTE_ASIGNADO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_EPMC_USUA</from><to>EPMC_USUA</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 3</from><to>Database lookup 7</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF</from><to>SEQUENCIA_PERF_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_PERF_USUA</from><to>EPMC_PERF_USUA</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_PERF_USUA 2</from><to>EPMC_PERF_USUA 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>Database lookup 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 8</from><to>EPMC_PERF</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_USUA</from><to>Database lookup EPMC_PERF</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get rows from result</from><to>SELECT EPMC_CLIE BY COD_ENTI</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 8</from><to>Database lookup 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup 3</from><to>SEQUENCIA_PERF_USUA 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup 7</from><to>FINAL_FLAG</to><enabled>Y</enabled> </hop>
+  <hop> <from>FINAL_FLAG</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>SEQUENCIA_EPMC_USUA</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>Update_USUA</to><enabled>Y</enabled> </hop>
+  <hop> <from>SELECT EPMC_CLIE BY COD_ENTI</from><to>NO_TIENE_CLIENTE_ASIGNADO 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>NO_TIENE_CLIENTE_ASIGNADO 2</from><to>USUARIOS SIN CLIENTE</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup 2</from><to>Filter rows 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPMC_PERF 2</from><to>Filter rows 8 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF 3</from><to>SEQUENCIA_PERF_USUA 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 8 3</from><to>EPMC_PERF 3</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQUENCIA_PERF_USUA 3</from><to>EPMC_PERF_USUA 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Update 2</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>UpdatePerf</from><to>Database lookup EPMC_PERF 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>UpdatePerf</from><to>Write to log 8</to><enabled>Y</enabled> </hop>
   <hop> <from>Update_USUA</from><to>Database lookup EPMC_COD_USUA2</to><enabled>Y</enabled> </hop>
+  <hop> <from>UpdatePerf</from><to>Database lookup EPMC_PERF 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>EPMC_PERF 3 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF 3 2</from><to>Update 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>UpdatePerf</to><enabled>Y</enabled> </hop>
   <hop> <from>Update_USUA</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update 2</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF 3</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA 3</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF</from><to>Write to log 6</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA 2</from><to>Write to log 5</to><enabled>Y</enabled> </hop>
+  <hop> <from>UpdatePerf</from><to>Write to log 8</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_USUA</from><to>Write to log 9</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPMC_COD_USUA2</from><to>Database lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Update 2</from><to>Database lookup EPTD_USUA_CORR</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPTD_USUA_CORR</from><to>Filter rows 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4</from><to>USUARIO Y CORREO YA ESTAN REGISTRADOS</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA</from><to>Write to log 7</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPMC_PERF</from><to>Filter rows 8</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA</from><to>SEQUENCIA_USUA_CORR</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA 2</from><to>SEQUENCIA_USUA_CORR 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQUENCIA_USUA_CORR 2</from><to>EPTD_USUA_CORR 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPTD_USUA_CORR 2</from><to>Write to log 5 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQUENCIA_USUA_CORR</from><to>EPTD_USUA_CORR</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPTD_USUA_CORR</from><to>Write to log 7 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4</from><to>SEQUENCIA_USUA_CORR 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPTD_USUA_CORR 2</from><to>Filter rows 4 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 8 3</from><to>Database lookup EPTD_USUA_CORR 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4 2</from><to>SEQUENCIA_USUA_CORR 4 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4 2</from><to>USUARIO Y CORREO YA ESTAN REGISTRADOS 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup EPTD_USUA_CORR 3</from><to>Filter rows 4 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPMC_PERF_USUA 3</from><to>Database lookup EPTD_USUA_CORR 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4 3</from><to>SEQUENCIA_USUA_CORR 4 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 4 3</from><to>USUARIO Y CORREO YA ESTAN REGISTRADOS 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQUENCIA_USUA_CORR 4</from><to>EPTD_USUA_CORR 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPTD_USUA_CORR 4</from><to>Write to log 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQUENCIA_USUA_CORR 4 2</from><to>EPTD_USUA_CORR 4 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPTD_USUA_CORR 4 2</from><to>Write to log 8 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQUENCIA_USUA_CORR 4 3</from><to>EPTD_USUA_CORR 4 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>EPTD_USUA_CORR 4 3</from><to>Write to log 4 3</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Database lookup</name>
@@ -255,7 +375,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -280,8 +400,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>775</xloc>
-      <yloc>301</yloc>
+      <xloc>852</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -297,7 +417,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -322,8 +442,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>307</xloc>
-      <yloc>340</yloc>
+      <xloc>384</xloc>
+      <yloc>301</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -339,7 +459,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -370,8 +490,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1230</xloc>
-      <yloc>301</yloc>
+      <xloc>1307</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -387,7 +507,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -418,8 +538,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>235</yloc>
+      <xloc>497</xloc>
+      <yloc>196</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -435,7 +555,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -460,8 +580,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>585</xloc>
-      <yloc>301</yloc>
+      <xloc>662</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -477,7 +597,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -508,8 +628,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1065</xloc>
-      <yloc>75</yloc>
+      <xloc>1142</xloc>
+      <yloc>36</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -525,7 +645,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -556,8 +676,152 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>948</xloc>
-      <yloc>488</yloc>
+      <xloc>1025</xloc>
+      <yloc>449</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup EPTD_USUA_CORR</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <table>EPTD_USUA_CORR</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>COD_USUA_1</name>
+        <field>COD_USUA</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CORREO</name>
+        <field>TXT_CORR</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_USUA_CORR</name>
+        <rename>CODUSUACORR_N</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>858</xloc>
+      <yloc>821</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup EPTD_USUA_CORR 2</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <table>EPTD_USUA_CORR</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>NEW_COD_USUA</name>
+        <field>COD_USUA</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CORREO</name>
+        <field>TXT_CORR</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_USUA_CORR</name>
+        <rename>CODUSUACORR_N</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1106</xloc>
+      <yloc>633</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Database lookup EPTD_USUA_CORR 3</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+      <table>EPTD_USUA_CORR</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>NEW_COD_USUA</name>
+        <field>COD_USUA</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>CORREO</name>
+        <field>TXT_CORR</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>COD_USUA_CORR</name>
+        <rename>CODUSUACORR_N</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1718</xloc>
+      <yloc>563</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -573,7 +837,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF</table>
     <commit>1000</commit>
@@ -602,8 +866,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1403</xloc>
-      <yloc>75</yloc>
+      <xloc>1480</xloc>
+      <yloc>36</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -619,7 +883,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF</table>
     <commit>1000</commit>
@@ -648,8 +912,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1126</xloc>
-      <yloc>595</yloc>
+      <xloc>1196</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -665,7 +929,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF</table>
     <commit>1000</commit>
@@ -694,8 +958,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>776</xloc>
-      <yloc>546</yloc>
+      <xloc>853</xloc>
+      <yloc>507</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -704,14 +968,14 @@
     <name>EPMC_PERF_USUA</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF_USUA</table>
     <commit>1000</commit>
@@ -744,8 +1008,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1702</xloc>
-      <yloc>74</yloc>
+      <xloc>1779</xloc>
+      <yloc>35</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -754,14 +1018,14 @@
     <name>EPMC_PERF_USUA 2</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF_USUA</table>
     <commit>1000</commit>
@@ -794,8 +1058,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1601</xloc>
-      <yloc>305</yloc>
+      <xloc>1678</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -804,14 +1068,14 @@
     <name>EPMC_PERF_USUA 3</name>
     <type>TableOutput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_PERF_USUA</table>
     <commit>1000</commit>
@@ -844,8 +1108,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1425</xloc>
-      <yloc>594</yloc>
+      <xloc>1487</xloc>
+      <yloc>563</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -861,7 +1125,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPMC_USUA</table>
     <commit>1000</commit>
@@ -903,11 +1167,269 @@
           <column_name>NUM_PERI</column_name>
           <stream_name>NUMPERI</stream_name>
         </field>
+        <field>
+          <column_name>COD_OFI</column_name>
+          <stream_name>COD_OFIC</stream_name>
+        </field>
+        <field>
+          <column_name>NOM_USUA</column_name>
+          <stream_name>TXT_LOGI</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>919</xloc>
-      <yloc>77</yloc>
+      <xloc>996</xloc>
+      <yloc>38</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EPTD_USUA_CORR</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_USUA_CORR</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_USUA_CORR</column_name>
+          <stream_name>SEQUENCIA_USUA_CORR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>SEQUENCIA_EPMC_USUA</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CORR</column_name>
+          <stream_name>CORREO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2086</xloc>
+      <yloc>34</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EPTD_USUA_CORR 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_USUA_CORR</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_USUA_CORR</column_name>
+          <stream_name>SEQUENCIA_USUA_CORR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>SEQUENCIA_EPMC_USUA</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CORR</column_name>
+          <stream_name>CORREO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2008</xloc>
+      <yloc>266</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EPTD_USUA_CORR 4</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_USUA_CORR</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_USUA_CORR</column_name>
+          <stream_name>SEQUENCIA_USUA_CORR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>COD_USUA_1</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CORR</column_name>
+          <stream_name>CORREO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1316</xloc>
+      <yloc>906</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EPTD_USUA_CORR 4 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_USUA_CORR</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_USUA_CORR</column_name>
+          <stream_name>SEQUENCIA_USUA_CORR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>NEW_COD_USUA</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CORR</column_name>
+          <stream_name>CORREO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1575</xloc>
+      <yloc>721</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>EPTD_USUA_CORR 4 3</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
+    <table>EPTD_USUA_CORR</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>COD_USUA_CORR</column_name>
+          <stream_name>SEQUENCIA_USUA_CORR</stream_name>
+        </field>
+        <field>
+          <column_name>COD_USUA</column_name>
+          <stream_name>NEW_COD_USUA</stream_name>
+        </field>
+        <field>
+          <column_name>TXT_CORR</column_name>
+          <stream_name>CORREO</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2176</xloc>
+      <yloc>648</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -951,8 +1473,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>423</xloc>
-      <yloc>155</yloc>
+      <xloc>500</xloc>
+      <yloc>116</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -980,8 +1502,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>779</xloc>
-      <yloc>423</yloc>
+      <xloc>856</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1009,8 +1531,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>80</yloc>
+      <xloc>497</xloc>
+      <yloc>41</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1038,8 +1560,95 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>419</xloc>
-      <yloc>340</yloc>
+      <xloc>496</xloc>
+      <yloc>301</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 4</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>SEQUENCIA_USUA_CORR 4</send_true_to>
+<send_false_to>USUARIO Y CORREO YA ESTAN REGISTRADOS</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>CODUSUACORR_N</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1027</xloc>
+      <yloc>821</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 4 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>SEQUENCIA_USUA_CORR 4 2</send_true_to>
+<send_false_to>USUARIO Y CORREO YA ESTAN REGISTRADOS 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>CODUSUACORR_N</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1275</xloc>
+      <yloc>633</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 4 3</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>SEQUENCIA_USUA_CORR 4 3</send_true_to>
+<send_false_to>USUARIO Y CORREO YA ESTAN REGISTRADOS 3</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>CODUSUACORR_N</leftvalue>
+ <function>IS NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1887</xloc>
+      <yloc>563</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1067,8 +1676,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1228</xloc>
-      <yloc>78</yloc>
+      <xloc>1305</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1085,7 +1694,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>EPMC_PERF 3</send_true_to>
-<send_false_to/>
+<send_false_to>Database lookup EPTD_USUA_CORR 2</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -1096,8 +1705,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>951</xloc>
-      <yloc>598</yloc>
+      <xloc>1028</xloc>
+      <yloc>559</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1115,8 +1724,8 @@
            </partitioning>
     <fields>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>89</xloc>
-      <yloc>112</yloc>
+      <xloc>162</xloc>
+      <yloc>76</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1144,8 +1753,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
-      <yloc>337</yloc>
+      <xloc>165</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1161,7 +1770,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <execute_each_row>Y</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
@@ -1177,8 +1786,8 @@
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
-      <yloc>225</yloc>
+      <xloc>165</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1196,7 +1805,7 @@
            </partitioning>
       <valuename>SEQUENCIA_EPMC_USUA</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_EPMC_USUA</seqname>
       <use_counter>N</use_counter>
@@ -1206,8 +1815,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>755</xloc>
-      <yloc>77</yloc>
+      <xloc>832</xloc>
+      <yloc>38</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1225,7 +1834,7 @@
            </partitioning>
       <valuename>SEQUENCIA_PERF_USUA</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_PERF_USUA</seqname>
       <use_counter>N</use_counter>
@@ -1235,8 +1844,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1540</xloc>
-      <yloc>78</yloc>
+      <xloc>1617</xloc>
+      <yloc>39</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1254,7 +1863,7 @@
            </partitioning>
       <valuename>SEQUENCIA_PERF_USUA</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_PERF_USUA</seqname>
       <use_counter>N</use_counter>
@@ -1264,8 +1873,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1425</xloc>
-      <yloc>305</yloc>
+      <xloc>1502</xloc>
+      <yloc>266</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1283,7 +1892,7 @@
            </partitioning>
       <valuename>SEQUENCIA_PERF_USUA</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_PERF_USUA</seqname>
       <use_counter>N</use_counter>
@@ -1293,8 +1902,195 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1263</xloc>
-      <yloc>598</yloc>
+      <xloc>1339</xloc>
+      <yloc>562</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQUENCIA_USUA_CORR</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT NVL&#x28;MAX&#x28;COD_USUA_CORR&#x29;,0&#x29;&#x2b;1 AS SEQUENCIA_USUA_CORR FROM EPM_MSG.EPTD_USUA_CORR</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1931</xloc>
+      <yloc>35</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQUENCIA_USUA_CORR 2</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT NVL&#x28;MAX&#x28;COD_USUA_CORR&#x29;,0&#x29;&#x2b;1 AS SEQUENCIA_USUA_CORR FROM EPM_MSG.EPTD_USUA_CORR</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1852</xloc>
+      <yloc>234</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQUENCIA_USUA_CORR 4</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT NVL&#x28;MAX&#x28;COD_USUA_CORR&#x29;,0&#x29;&#x2b;1 AS SEQUENCIA_USUA_CORR FROM EPM_MSG.EPTD_USUA_CORR</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1149</xloc>
+      <yloc>905</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQUENCIA_USUA_CORR 4 2</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT NVL&#x28;MAX&#x28;COD_USUA_CORR&#x29;,0&#x29;&#x2b;1 AS SEQUENCIA_USUA_CORR FROM EPM_MSG.EPTD_USUA_CORR</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1397</xloc>
+      <yloc>717</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SEQUENCIA_USUA_CORR 4 3</name>
+    <type>DBJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>epm</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT NVL&#x28;MAX&#x28;COD_USUA_CORR&#x29;,0&#x29;&#x2b;1 AS SEQUENCIA_USUA_CORR FROM EPM_MSG.EPTD_USUA_CORR</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>N</replace_vars>
+    <parameter>
+    </parameter>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2009</xloc>
+      <yloc>647</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>USUARIO Y CORREO YA ESTAN REGISTRADOS</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1030</xloc>
+      <yloc>1008</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>USUARIO Y CORREO YA ESTAN REGISTRADOS 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1278</xloc>
+      <yloc>820</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>USUARIO Y CORREO YA ESTAN REGISTRADOS 3</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1890</xloc>
+      <yloc>750</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1318,7 +2114,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -1345,8 +2141,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>84</xloc>
-      <yloc>440</yloc>
+      <xloc>161</xloc>
+      <yloc>401</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1355,14 +2151,14 @@
     <name>Update 2</name>
     <type>Update</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
     <use_batch>N</use_batch>
@@ -1384,8 +2180,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>781</xloc>
-      <yloc>675</yloc>
+      <xloc>858</xloc>
+      <yloc>636</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1401,7 +2197,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
     <use_batch>N</use_batch>
@@ -1423,8 +2219,8 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>946</xloc>
-      <yloc>420</yloc>
+      <xloc>1023</xloc>
+      <yloc>381</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1440,7 +2236,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <skip_lookup>N</skip_lookup>
     <commit>100</commit>
     <use_batch>N</use_batch>
@@ -1462,8 +2258,49 @@
       </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>581</xloc>
-      <yloc>160</yloc>
+      <xloc>658</xloc>
+      <yloc>121</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores Update_USUA</logmessage>
+    <fields>
+      <field>
+        <name>epmc_clie_cod_clie</name>
+        </field>
+      <field>
+        <name>COD_USUA</name>
+        </field>
+      <field>
+        <name>FLAG</name>
+        </field>
+      <field>
+        <name>FINAL_FLAG1</name>
+        </field>
+      <field>
+        <name>NUMPERI</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>844</xloc>
+      <yloc>121</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1509,8 +2346,64 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>778</xloc>
-      <yloc>765</yloc>
+      <xloc>730</xloc>
+      <yloc>636</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 2 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores EPTD_USUA_CORR 4</logmessage>
+    <fields>
+      <field>
+        <name>epmc_clie_cod_clie</name>
+        </field>
+      <field>
+        <name>COD_USUA</name>
+        </field>
+      <field>
+        <name>FLAG</name>
+        </field>
+      <field>
+        <name>FINAL_FLAG1</name>
+        </field>
+      <field>
+        <name>NUMPERI</name>
+        </field>
+      <field>
+        <name>NEW_COD_USUA</name>
+        </field>
+      <field>
+        <name>COD_PERF</name>
+        </field>
+      <field>
+        <name>CORREO</name>
+        </field>
+      <field>
+        <name>COD_USUA_1</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_USUA_CORR</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1316</xloc>
+      <yloc>1012</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1562,8 +2455,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1129</xloc>
-      <yloc>700</yloc>
+      <xloc>1195</xloc>
+      <yloc>466</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1618,8 +2511,70 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1430</xloc>
-      <yloc>699</yloc>
+      <xloc>1486</xloc>
+      <yloc>453</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 4 3</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores EPMC_PERF_USUA_3	</logmessage>
+    <fields>
+      <field>
+        <name>epmc_clie_cod_clie</name>
+        </field>
+      <field>
+        <name>COD_USUA</name>
+        </field>
+      <field>
+        <name>FLAG</name>
+        </field>
+      <field>
+        <name>FINAL_FLAG1</name>
+        </field>
+      <field>
+        <name>NUMPERI</name>
+        </field>
+      <field>
+        <name>NEW_COD_USUA</name>
+        </field>
+      <field>
+        <name>COD_PERF</name>
+        </field>
+      <field>
+        <name>DES_NOMB_PERF</name>
+        </field>
+      <field>
+        <name>COD_PERF_1</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_PERF_USUA</name>
+        </field>
+      <field>
+        <name>CORREO</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_USUA_CORR</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2179</xloc>
+      <yloc>783</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1674,8 +2629,70 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1602</xloc>
-      <yloc>417</yloc>
+      <xloc>1679</xloc>
+      <yloc>378</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 5 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores EPTD_USUA_CORR 2</logmessage>
+    <fields>
+      <field>
+        <name>epmc_clie_cod_clie</name>
+        </field>
+      <field>
+        <name>COD_USUA</name>
+        </field>
+      <field>
+        <name>FLAG</name>
+        </field>
+      <field>
+        <name>FINAL_FLAG1</name>
+        </field>
+      <field>
+        <name>NUMPERI</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_EPMC_USUA</name>
+        </field>
+      <field>
+        <name>DES_NOMB_PERF</name>
+        </field>
+      <field>
+        <name>COD_PERF</name>
+        </field>
+      <field>
+        <name>COD_PERUSU</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_PERF_USUA</name>
+        </field>
+      <field>
+        <name>CORREO</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_USUA_CORR</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2008</xloc>
+      <yloc>386</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1724,8 +2741,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1399</xloc>
-      <yloc>182</yloc>
+      <xloc>1476</xloc>
+      <yloc>143</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1777,8 +2794,67 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1702</xloc>
-      <yloc>175</yloc>
+      <xloc>1779</xloc>
+      <yloc>136</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log 7 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_detailed</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>Manejo de errores EPTD_USUA_CORR</logmessage>
+    <fields>
+      <field>
+        <name>epmc_clie_cod_clie</name>
+        </field>
+      <field>
+        <name>COD_USUA</name>
+        </field>
+      <field>
+        <name>FLAG</name>
+        </field>
+      <field>
+        <name>FINAL_FLAG1</name>
+        </field>
+      <field>
+        <name>NUMPERI</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_EPMC_USUA</name>
+        </field>
+      <field>
+        <name>DES_NOMB_PERF</name>
+        </field>
+      <field>
+        <name>COD_PERF</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_PERF_USUA</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_USUA_CORR</name>
+        </field>
+      <field>
+        <name>CORREO</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2088</xloc>
+      <yloc>171</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1824,14 +2900,14 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1082</xloc>
-      <yloc>421</yloc>
+      <xloc>1159</xloc>
+      <yloc>382</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write to log</name>
+    <name>Write to log 8 2</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -1841,11 +2917,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
+      <loglevel>log_level_detailed</loglevel>
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Manejo de errores Update USUA&#xd;&#xa;</logmessage>
+      <logmessage>Manejo de errores UpdatePerf</logmessage>
     <fields>
       <field>
         <name>epmc_clie_cod_clie</name>
@@ -1854,22 +2930,37 @@
         <name>COD_USUA</name>
         </field>
       <field>
+        <name>FLAG</name>
+        </field>
+      <field>
         <name>FINAL_FLAG1</name>
         </field>
       <field>
         <name>NUMPERI</name>
         </field>
+      <field>
+        <name>NEW_COD_USUA</name>
+        </field>
+      <field>
+        <name>COD_PERF</name>
+        </field>
+      <field>
+        <name>CORREO</name>
+        </field>
+      <field>
+        <name>SEQUENCIA_USUA_CORR</name>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>156</yloc>
+      <xloc>1576</xloc>
+      <yloc>853</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Write to log 2 2</name>
+    <name>Write to log 9</name>
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
@@ -1879,7 +2970,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_basic</loglevel>
+      <loglevel>log_level_detailed</loglevel>
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
@@ -1906,8 +2997,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>917</xloc>
-      <yloc>204</yloc>
+      <xloc>995</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1975,7 +3066,67 @@
       </error>
       <error>
         <source_step>EPMC_USUA</source_step>
+        <target_step>Write to log 9</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>EPTD_USUA_CORR</source_step>
+        <target_step>Write to log 7 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>EPTD_USUA_CORR 2</source_step>
+        <target_step>Write to log 5 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>EPTD_USUA_CORR 4</source_step>
         <target_step>Write to log 2 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>EPTD_USUA_CORR 4 2</source_step>
+        <target_step>Write to log 8 2</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>EPTD_USUA_CORR 4 3</source_step>
+        <target_step>Write to log 4 3</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

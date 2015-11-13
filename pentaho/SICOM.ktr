@@ -16,7 +16,7 @@
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
+            <default_value/>
             <description/>
         </parameter>
         <parameter>
@@ -36,7 +36,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG</default_value>
+            <default_value/>
             <description/>
         </parameter>
     </parameters>
@@ -104,8 +104,8 @@
   <notepads>
   </notepads>
   <connection>
-    <name>EPM</name>
-    <server>localhost</server>
+    <name>epm</name>
+    <server/>
     <type>ORACLE</type>
     <access>JNDI</access>
     <database>EPM</database>
@@ -132,10 +132,6 @@
   <hop> <from>Natural URL</from><to>Natural - SICOM</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica SICOM</from><to>Json J</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural - SICOM</from><to>Json N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json J</from><to>Fix Empty J</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fix Empty J</from><to>Group by - J</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json N</from><to>Fix Empty N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Fix Empty N</from><to>Group by - N</to><enabled>Y</enabled> </hop>
   <hop> <from>Natural</from><to>SO N</to><enabled>Y</enabled> </hop>
   <hop> <from>Juridica</from><to>SO J</to><enabled>Y</enabled> </hop>
   <hop> <from>SO J</from><to>FILTER - J</to><enabled>Y</enabled> </hop>
@@ -143,21 +139,25 @@
   <hop> <from>SO N</from><to>FILTER - N</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N</from><to>SICOM Natural URL</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq N</from><to>Output N</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate N</from><to>Seq N</to><enabled>Y</enabled> </hop>
   <hop> <from>Seq J</from><to>Output J</to><enabled>Y</enabled> </hop>
-  <hop> <from>Calculate J</from><to>Seq J</to><enabled>Y</enabled> </hop>
   <hop> <from>SICOM Juridica URL</from><to>Juridica URL</to><enabled>Y</enabled> </hop>
   <hop> <from>SICOM Natural URL</from><to>Natural URL</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J</from><to>sicom-juridica-fallidos</to><enabled>Y</enabled> </hop>
   <hop> <from>Group by - J</from><to>FILTER - J 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J 2</from><to>Calculate J</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - J 2</from><to>sicom-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N</from><to>sicom-natural-fallidos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json N</from><to>Fix Empty N</to><enabled>Y</enabled> </hop>
+  <hop> <from>Fix Empty N</from><to>Group by - N</to><enabled>Y</enabled> </hop>
   <hop> <from>Group by - N</from><to>FILTER - N 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json J</from><to>Fix Empty J</to><enabled>Y</enabled> </hop>
+  <hop> <from>Fix Empty J</from><to>Group by - J</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J 2</from><to>Calculate J</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate J</from><to>Seq J</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER - N 2</from><to>Calculate N</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER - N 2</from><to>sicom-natural-fallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json J</from><to>sicom-juridica-fallidos 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>Json N</from><to>sicom-natural-fallidos 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Calculate N</from><to>Seq N</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J</from><to>Write to log JUR 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json J</from><to>Write to log JUR 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - J 2</from><to>Write to log JUR 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N</from><to>Write to log NAT 1</to><enabled>Y</enabled> </hop>
+  <hop> <from>Json N</from><to>Write to log NAT 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>FILTER - N 2</from><to>Write to log NAT 3</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Calculate J</name>
@@ -174,20 +174,8 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var SCORES &#x3d; &#x5b;&#x22;NO REPORTA&#x22;, &#x22;MOROSO&#x22;, &#x22;CASTIGADO&#x22;, &#x22;PROTESTADO&#x22;, &#x22;JUDICIAL&#x22;, &#x22;SIN CALIFICACION&#x22;&#x5d;&#x3b;&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;var currentDate &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var res_fecha&#x3d;null&#x3b;&#xd;&#xa;var res_categoria&#x3d;null&#x3b;&#xd;&#xa;var res_numorde&#x3d;null&#x3b;&#xd;&#xa;&#xd;&#xa;var fechas &#x3d; G_FECHA.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;var categorias &#x3d; G_CATEGORIA.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;for &#x28;var i&#x3d;0&#x3b; i&#x3c;fechas.length&#x3b; i&#x2b;&#x2b;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;	var t &#x3d; fechas&#x5b;i&#x5d;.trim&#x28;&#x29;.split&#x28;&#x22;&#x2f;&#x22;&#x29;&#x3b;	&#xd;&#xa;	var d &#x3d; new Date&#x28; t&#x5b;2&#x5d;, t&#x5b;1&#x5d; - 1, t&#x5b;0&#x5d;, &#x27;00&#x27;, &#x27;00&#x27;, &#x27;00&#x27;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;	if &#x28;res_fecha&#x3d;&#x3d;null&#x29; &#x7b;&#xd;&#xa;        res_fecha &#x3d; d&#x3b;&#xd;&#xa;		res_categoria &#x3d; categorias&#x5b;i&#x5d;&#x3b;&#xd;&#xa;    &#x7d; else &#x7b;&#xd;&#xa;		if &#x28; res_fecha &#x3c; d &#x29; &#x7b;&#xd;&#xa;			res_fecha &#x3d; d&#x3b;&#xd;&#xa;			res_categoria &#x3d; categorias&#x5b;i&#x5d;&#x3b;&#xd;&#xa;		&#x7d;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28; currentDate.getFullYear&#x28;&#x29; &#x21;&#x3d; res_fecha.getFullYear&#x28;&#x29; &#x29; &#x7b;&#xd;&#xa;	res_categoria &#x3d; getVariable&#x28;&#x22;NO_PRESENTA&#x22;,&#x22;&#x22;&#x29;&#x3b;&#xd;&#xa;&#x7d; else &#x7b;	&#xd;&#xa;	if &#x28; currentDate.getMonth&#x28;&#x29; &#x21;&#x3d; res_fecha.getMonth&#x28;&#x29; &#x29; &#x7b;&#xd;&#xa;		res_categoria &#x3d; getVariable&#x28;&#x22;NO_PRESENTA&#x22;,&#x22;&#x22;&#x29;&#x3b;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;res_fecha &#x3d; currentDate&#x3b;&#xd;&#xa;res_numorde &#x3d; SCORES.indexOf&#x28;res_categoria&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>res_fecha</name>
-        <rename>res_fecha</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>res_categoria</name>
-        <rename>res_categoria</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>COD_PAIS</name>
+        <jsScript_script>var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;var currentDate &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var res_fecha&#x3d;null&#x3b;&#xd;&#xa;var res_categoria&#x3d;null&#x3b;&#xd;&#xa;var res_numorde&#x3d;null&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var fechas &#x3d; G_FECHA.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;var codigos &#x3d; G_CODIGOHOST.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;for &#x28;var i&#x3d;0&#x3b; i&#x3c;fechas.length&#x3b; i&#x2b;&#x2b;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;	var t &#x3d; fechas&#x5b;i&#x5d;.trim&#x28;&#x29;.split&#x28;&#x22;&#x2f;&#x22;&#x29;&#x3b;	&#xd;&#xa;	var d &#x3d; new Date&#x28; t&#x5b;2&#x5d;, t&#x5b;1&#x5d; - 1, t&#x5b;0&#x5d;, &#x27;00&#x27;, &#x27;00&#x27;, &#x27;00&#x27;&#x29;&#x3b;&#xd;&#xa;	if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0001&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0005&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;2&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;MOROSO&#x27;&#x3b; &#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0004&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0008&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;3&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;CASTIGADO&#x27;&#x3b; &#xd;&#xa;	&#x7d;&#xd;&#xa; 	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0002&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0007&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;4&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;PROTESTADO&#x27;&#x3b; 	&#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0003&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0006&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0009&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;5&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;JUDICIAL&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;.trim&#x28;&#x29;&#x3d;&#x3d;&#x27;-&#x27;.trim&#x28;&#x29;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;1&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;NO PRESENTA&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;	else&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;5&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;JUDICIAL&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#xd;&#xa;	if &#x28;res_fecha&#x3d;&#x3d;null&#x29; &#x7b;&#xd;&#xa;        res_fecha &#x3d; d&#x3b;&#xd;&#xa;		res_numorde &#x3d; a&#x3b;&#xd;&#xa;		res_categoria &#x3d; z&#x3b;&#xd;&#xa;    &#x7d; else &#x7b;&#xd;&#xa;		if &#x28; Number&#x28;res_numorde&#x29; &#x3c; Number&#x28;a&#x29; &#x29; &#x7b;&#xd;&#xa;			res_numorde &#x3d; a&#x3b;&#xd;&#xa;			res_categoria &#x3d; z&#x3b;			&#xd;&#xa;		&#x7d;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;res_fecha &#x3d; currentDate&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>COD_PAIS</name>
         <rename>COD_PAIS</rename>
         <type>String</type>
         <length>-1</length>
@@ -199,10 +187,22 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>res_categoria</name>
+        <rename>res_categoria</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>res_fecha</name>
+        <rename>res_fecha</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>870</xloc>
-      <yloc>249</yloc>
+      <xloc>1008</xloc>
+      <yloc>209</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -222,20 +222,8 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var SCORES &#x3d; &#x5b;&#x22;NO REPORTA&#x22;, &#x22;MOROSO&#x22;, &#x22;CASTIGADO&#x22;, &#x22;PROTESTADO&#x22;, &#x22;JUDICIAL&#x22;, &#x22;SIN CALIFICACION&#x22;&#x5d;&#x3b;&#xd;&#xa;var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;var currentDate &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var res_fecha&#x3d;null&#x3b;&#xd;&#xa;var res_condicion&#x3d;null&#x3b;&#xd;&#xa;var res_numorde&#x3d;null&#x3b;&#xd;&#xa;&#xd;&#xa;var fechas &#x3d; G_FECHA_REPORTE.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;var condiciones &#x3d; G_CONDICION.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;for &#x28;var i&#x3d;0&#x3b; i&#x3c;fechas.length&#x3b; i&#x2b;&#x2b;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;	var t &#x3d; fechas&#x5b;i&#x5d;.trim&#x28;&#x29;.split&#x28;&#x22;&#x2f;&#x22;&#x29;&#x3b;	&#xd;&#xa;	var d &#x3d; new Date&#x28; t&#x5b;2&#x5d;, t&#x5b;1&#x5d; - 1, t&#x5b;0&#x5d;, &#x27;00&#x27;, &#x27;00&#x27;, &#x27;00&#x27;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;	if &#x28;res_fecha&#x3d;&#x3d;null&#x29; &#x7b;&#xd;&#xa;        res_fecha &#x3d; d&#x3b;&#xd;&#xa;		res_condicion &#x3d; condiciones&#x5b;i&#x5d;&#x3b;&#xd;&#xa;    &#x7d; else &#x7b;&#xd;&#xa;		if &#x28; res_fecha &#x3c; d &#x29; &#x7b;&#xd;&#xa;			res_fecha &#x3d; d&#x3b;&#xd;&#xa;			res_condicion &#x3d; condiciones&#x5b;i&#x5d;&#x3b;&#xd;&#xa;		&#x7d;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28; currentDate.getFullYear&#x28;&#x29; &#x21;&#x3d; res_fecha.getFullYear&#x28;&#x29; &#x29; &#x7b;&#xd;&#xa;	res_condicion &#x3d; getVariable&#x28;&#x22;NO_PRESENTA&#x22;,&#x22;&#x22;&#x29;&#x3b;&#xd;&#xa;&#x7d; else &#x7b;&#xd;&#xa;	&#xd;&#xa;	if &#x28; currentDate.getMonth&#x28;&#x29; &#x21;&#x3d; res_fecha.getMonth&#x28;&#x29; &#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;		res_condicion &#x3d; getVariable&#x28;&#x22;NO_PRESENTA&#x22;,&#x22;&#x22;&#x29;&#x3b;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;res_fecha &#x3d; currentDate&#x3b;&#xd;&#xa;res_numorde &#x3d; SCORES.indexOf&#x28;res_condicion&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>res_fecha</name>
-        <rename>res_fecha</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>res_condicion</name>
-        <rename>res_condicion</rename>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>COD_PAIS</name>
+        <jsScript_script>var COD_PAIS &#x3d; getVariable&#x28;&#x22;COD_PAIS&#x22;,1&#x29;&#x3b;&#xd;&#xa;var currentDate &#x3d; new Date&#x28;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var res_fecha&#x3d;null&#x3b;&#xd;&#xa;var res_categoria&#x3d;null&#x3b;&#xd;&#xa;var res_numorde&#x3d;null&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var fechas &#x3d; G_FECHA_REPORTE.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;var codigos &#x3d; G_CODIGOHOST.split&#x28;&#x22;,&#x22;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;for &#x28;var i&#x3d;0&#x3b; i&#x3c;fechas.length&#x3b; i&#x2b;&#x2b;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;	var t &#x3d; fechas&#x5b;i&#x5d;.trim&#x28;&#x29;.split&#x28;&#x22;&#x2f;&#x22;&#x29;&#x3b;	&#xd;&#xa;	var d &#x3d; new Date&#x28; t&#x5b;2&#x5d;, t&#x5b;1&#x5d; - 1, t&#x5b;0&#x5d;, &#x27;00&#x27;, &#x27;00&#x27;, &#x27;00&#x27;&#x29;&#x3b;&#xd;&#xa;	if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0001&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0005&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;2&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;MOROSO&#x27;&#x3b; &#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0004&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0008&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;3&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;CASTIGADO&#x27;&#x3b; &#xd;&#xa;	&#x7d;&#xd;&#xa; 	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0002&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0007&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;4&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;PROTESTADO&#x27;&#x3b; 	&#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0003&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0006&#x27; &#x7c;&#x7c; codigos&#x5b;i&#x5d;&#x3d;&#x3d;&#x27;0009&#x27;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;5&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;JUDICIAL&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;	else if&#x28;codigos&#x5b;i&#x5d;.trim&#x28;&#x29;&#x3d;&#x3d;&#x27;-&#x27;.trim&#x28;&#x29;&#x29;&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;1&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;NO PRESENTA&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;	else&#xd;&#xa;	&#x7b;&#xd;&#xa;		var a&#x3d;5&#x3b;&#xd;&#xa;		var z&#x3d;&#x27;JUDICIAL&#x27;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#xd;&#xa;	if &#x28;res_fecha&#x3d;&#x3d;null&#x29; &#x7b;&#xd;&#xa;        res_fecha &#x3d; d&#x3b;&#xd;&#xa;		res_numorde &#x3d; a&#x3b;&#xd;&#xa;		res_categoria &#x3d; z&#x3b;&#xd;&#xa;    &#x7d; else &#x7b;&#xd;&#xa;		if &#x28; Number&#x28;res_numorde&#x29; &#x3c; Number&#x28;a&#x29; &#x29; &#x7b;&#xd;&#xa;			res_numorde &#x3d; a&#x3b;&#xd;&#xa;			res_categoria &#x3d; z&#x3b;			&#xd;&#xa;		&#x7d;	&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;res_fecha &#x3d; currentDate&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>COD_PAIS</name>
         <rename>COD_PAIS</rename>
         <type>String</type>
         <length>-1</length>
@@ -247,10 +235,22 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>res_categoria</name>
+        <rename>res_categoria</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>res_fecha</name>
+        <rename>res_fecha</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>878</xloc>
-      <yloc>549</yloc>
+      <xloc>1053</xloc>
+      <yloc>587</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -267,7 +267,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>SICOM Juridica URL</send_true_to>
-<send_false_to>sicom-juridica-fallidos</send_false_to>
+<send_false_to>Write to log JUR 1</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -278,8 +278,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>194</xloc>
-      <yloc>189</yloc>
+      <xloc>254</xloc>
+      <yloc>201</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -296,19 +296,19 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Calculate J</send_true_to>
-<send_false_to>sicom-juridica-fallidos 2</send_false_to>
+<send_false_to>Write to log JUR 3</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
  <leftvalue>G_FECHA</leftvalue>
- <function>IS NOT NULL</function>
+ <function>&#x3c;&#x3e;</function>
  <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+ <value><name>constant</name><type>String</type><text>-</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>797</xloc>
-      <yloc>333</yloc>
+      <xloc>931</xloc>
+      <yloc>345</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -325,7 +325,7 @@
            <schema_name/>
            </partitioning>
 <send_true_to>SICOM Natural URL</send_true_to>
-<send_false_to>sicom-natural-fallidos</send_false_to>
+<send_false_to>Write to log NAT 1</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -336,8 +336,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>213</xloc>
-      <yloc>463</yloc>
+      <xloc>222</xloc>
+      <yloc>580</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -354,19 +354,19 @@
            <schema_name/>
            </partitioning>
 <send_true_to>Calculate N</send_true_to>
-<send_false_to>sicom-natural-fallidos 2</send_false_to>
+<send_false_to>Write to log NAT 3</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
  <leftvalue>G_FECHA_REPORTE</leftvalue>
- <function>IS NOT NULL</function>
+ <function>&#x3c;&#x3e;</function>
  <rightvalue/>
- <value><name>constant</name><type>String</type><text/><length>-1</length><precision>-1</precision><isnull>Y</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+ <value><name>constant</name><type>String</type><text>-</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>864</xloc>
-      <yloc>644</yloc>
+      <xloc>959</xloc>
+      <yloc>664</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -386,7 +386,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var P_PROVEEDOR&#x3d;PROVEEDOR&#x3b;&#xd;&#xa;var P_FECHA&#x3d;FECHA&#x3b;&#xd;&#xa;var P_CATEGORIA&#x3d;CATEGORIA&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;PROVEEDOR&#x29; &#x7b;&#xd;&#xa;	P_PROVEEDOR &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;FECHA&#x29; &#x7b;&#xd;&#xa;	P_FECHA &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CATEGORIA&#x29; &#x7b;&#xd;&#xa;	P_CATEGORIA &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var P_PROVEEDOR&#x3d;PROVEEDOR&#x3b;&#xd;&#xa;var P_FECHA&#x3d;FECHA&#x3b;&#xd;&#xa;var P_CATEGORIA&#x3d;CATEGORIA&#x3b;&#xd;&#xa;var P_CODIGOHOST&#x3d;CODIGOHOST&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;PROVEEDOR &#x7c;&#x7c; PROVEEDOR&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_PROVEEDOR &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;FECHA &#x7c;&#x7c; FECHA&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_FECHA &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CATEGORIA &#x7c;&#x7c; CATEGORIA&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_CATEGORIA &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CODIGOHOST &#x7c;&#x7c; CODIGOHOST&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_CODIGOHOST &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>P_PROVEEDOR</name>
         <rename>P_PROVEEDOR</rename>
         <type>String</type>
@@ -405,10 +405,16 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>P_CODIGOHOST</name>
+        <rename>P_CODIGOHOST</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>694</xloc>
-      <yloc>309</yloc>
+      <xloc>738</xloc>
+      <yloc>299</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -428,7 +434,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var P_ACREEDOR&#x3d;ACREEDOR&#x3b;&#xd;&#xa;var P_FECHA_REPORTE&#x3d;FECHA_REPORTE&#x3b;&#xd;&#xa;var P_CONDICION&#x3d;CONDICION&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;ACREEDOR&#x29; &#x7b;&#xd;&#xa;	P_ACREEDOR &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;FECHA_REPORTE&#x29; &#x7b;&#xd;&#xa;	P_FECHA_REPORTE &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CONDICION&#x29; &#x7b;&#xd;&#xa;	P_CONDICION &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var P_ACREEDOR&#x3d;ACREEDOR&#x3b;&#xd;&#xa;var P_FECHA_REPORTE&#x3d;FECHA_REPORTE&#x3b;&#xd;&#xa;var P_CONDICION&#x3d;CONDICION&#x3b;&#xd;&#xa;var P_CODIGOHOST&#x3d;CODIGOHOST&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;ACREEDOR &#x7c;&#x7c; ACREEDOR&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_ACREEDOR &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;FECHA_REPORTE &#x7c;&#x7c; FECHA_REPORTE&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_FECHA_REPORTE &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CONDICION &#x7c;&#x7c; CONDICION&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_CONDICION &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if &#x28;&#x21;CODIGOHOST &#x7c;&#x7c; CODIGOHOST&#x3d;&#x3d;&#x27;&#x27;&#x29; &#x7b;&#xd;&#xa;	P_CODIGOHOST &#x3d; &#x22;-&#x22;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>P_ACREEDOR</name>
         <rename>P_ACREEDOR</rename>
         <type>String</type>
@@ -447,10 +453,16 @@
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
+      </field>      <field>        <name>P_CODIGOHOST</name>
+        <rename>P_CODIGOHOST</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>735</xloc>
-      <yloc>556</yloc>
+      <xloc>756</xloc>
+      <yloc>557</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -495,11 +507,17 @@
           <type>CONCAT_COMMA</type>
           <valuefield/>
         </field>
+        <field>
+          <aggregate>G_CODIGOHOST</aggregate>
+          <subject>P_CODIGOHOST</subject>
+          <type>CONCAT_COMMA</type>
+          <valuefield/>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>752</xloc>
-      <yloc>238</yloc>
+      <xloc>832</xloc>
+      <yloc>233</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -544,11 +562,17 @@
           <type>CONCAT_COMMA</type>
           <valuefield/>
         </field>
+        <field>
+          <aggregate>G_CODIGOHOST</aggregate>
+          <subject>P_CODIGOHOST</subject>
+          <type>CONCAT_COMMA</type>
+          <valuefield/>
+        </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>802</xloc>
-      <yloc>576</yloc>
+      <xloc>858</xloc>
+      <yloc>608</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -557,7 +581,7 @@
     <name>Json J</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -620,6 +644,19 @@
         <trim_type>none</trim_type>
         <repeat>N</repeat>
       </field>
+      <field>
+        <name>CODIGOHOST</name>
+        <path>&#x24;..&#x5b;&#x2a;&#x5d;.condicionHost</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
     </fields>
     <limit>0</limit>
     <IsInFields>Y</IsInFields>
@@ -635,8 +672,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>619</xloc>
-      <yloc>309</yloc>
+      <xloc>628</xloc>
+      <yloc>378</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -645,7 +682,7 @@
     <name>Json N</name>
     <type>JsonInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -671,7 +708,7 @@
     <fields>
       <field>
         <name>ACREEDOR</name>
-        <path>&#x24;..refNegativas.&#x5b;&#x2a;&#x5d;.acreedor</path>
+        <path>&#x24;..refNegativasHost.&#x5b;&#x2a;&#x5d;.acreedor</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -684,7 +721,7 @@
       </field>
       <field>
         <name>CONDICION</name>
-        <path>&#x24;..refNegativas.&#x5b;&#x2a;&#x5d;.condicion</path>
+        <path>&#x24;..refNegativasHost.&#x5b;&#x2a;&#x5d;.condicion</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -697,7 +734,20 @@
       </field>
       <field>
         <name>FECHA_REPORTE</name>
-        <path>&#x24;..refNegativas.&#x5b;&#x2a;&#x5d;.fecReporte</path>
+        <path>&#x24;..refNegativasHost.&#x5b;&#x2a;&#x5d;.fecReporte</path>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+      </field>
+      <field>
+        <name>CODIGOHOST</name>
+        <path>&#x24;..refNegativasHost.&#x5b;&#x2a;&#x5d;.condicionHost</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -764,7 +814,7 @@
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
     <format>mixed</format>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
@@ -866,8 +916,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>88</xloc>
-      <yloc>186</yloc>
+      <xloc>71</xloc>
+      <yloc>183</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -885,7 +935,7 @@
            </partitioning>
     <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
-    <url>http&#x3a;&#x2f;&#x2f;localhost&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;comp&#x2f;referenciasCom&#x2f;CAS&#x2f;</url>
+    <url/>
     <urlInField>Y</urlInField>
     <dynamicMethod>N</dynamicMethod>
     <methodFieldName>TXT_ICI</methodFieldName>
@@ -909,8 +959,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>431</xloc>
-      <yloc>166</yloc>
+      <xloc>552</xloc>
+      <yloc>259</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -930,7 +980,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var URL &#x3d; JURIDICA_SERVICE_SICOM &#x2b; TXT_ICI&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var URL &#x3d; JURIDICA_SERVICE_SICOM &#x2b; trim&#x28;TXT_ICI&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>URL</name>
         <rename>URL</rename>
         <type>String</type>
@@ -939,8 +989,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>338</xloc>
-      <yloc>165</yloc>
+      <xloc>425</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -980,7 +1030,7 @@
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
     <format>mixed</format>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;NATURAL&#x7d;</name>
@@ -1116,7 +1166,7 @@
            </partitioning>
     <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
-    <url>http&#x3a;&#x2f;&#x2f;localhost&#x2f;efx-lite-ws-peru&#x2f;rest&#x2f;referenciasPago&#x2f;&#x24;&#x7b;ICI&#x7d;</url>
+    <url/>
     <urlInField>Y</urlInField>
     <dynamicMethod>N</dynamicMethod>
     <methodFieldName/>
@@ -1140,8 +1190,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>490</xloc>
-      <yloc>446</yloc>
+      <xloc>552</xloc>
+      <yloc>558</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1161,7 +1211,7 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var URL &#x3d; NATURAL_SERVICE_SICOM &#x2b; TXT_ICI&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var URL &#x3d; NATURAL_SERVICE_SICOM &#x2b; trim&#x28;TXT_ICI&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>URL</name>
         <rename>URL</rename>
         <type>String</type>
@@ -1170,8 +1220,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>363</xloc>
-      <yloc>441</yloc>
+      <xloc>429</xloc>
+      <yloc>474</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1187,7 +1237,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPTD_RAT2</table>
     <commit>500</commit>
@@ -1232,8 +1282,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>993</xloc>
-      <yloc>312</yloc>
+      <xloc>1267</xloc>
+      <yloc>207</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1249,7 +1299,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
     <table>EPTD_RAT2</table>
     <commit>500</commit>
@@ -1277,7 +1327,7 @@
         </field>
         <field>
           <column_name>TXT_VALO</column_name>
-          <stream_name>res_condicion</stream_name>
+          <stream_name>res_categoria</stream_name>
         </field>
         <field>
           <column_name>COD_RAT2</column_name>
@@ -1294,8 +1344,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1015</xloc>
-      <yloc>547</yloc>
+      <xloc>1256</xloc>
+      <yloc>588</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1327,8 +1377,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>276</xloc>
-      <yloc>271</yloc>
+      <xloc>350</xloc>
+      <yloc>302</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1360,8 +1410,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>287</xloc>
-      <yloc>526</yloc>
+      <xloc>353</xloc>
+      <yloc>566</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1433,8 +1483,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>139</xloc>
-      <yloc>216</yloc>
+      <xloc>149</xloc>
+      <yloc>273</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1519,8 +1569,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>152</xloc>
-      <yloc>485</yloc>
+      <xloc>104</xloc>
+      <yloc>575</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1538,7 +1588,7 @@
            </partitioning>
       <valuename>ID_J</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_EPTD_RAT2_0001</seqname>
       <use_counter>N</use_counter>
@@ -1548,8 +1598,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>912</xloc>
-      <yloc>328</yloc>
+      <xloc>1123</xloc>
+      <yloc>210</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1567,7 +1617,7 @@
            </partitioning>
       <valuename>ID_N</valuename>
       <use_database>Y</use_database>
-      <connection>EPM</connection>
+      <connection>epm</connection>
       <schema>&#x24;&#x7b;SCHEMA_EPM&#x7d;</schema>
       <seqname>SQ_EPTD_RAT2_0001</seqname>
       <use_counter>N</use_counter>
@@ -1577,15 +1627,15 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>945</xloc>
-      <yloc>548</yloc>
+      <xloc>1155</xloc>
+      <yloc>587</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>sicom-juridica-fallidos</name>
-    <type>TextFileOutput</type>
+    <name>Write to log JUR 1</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1594,50 +1644,36 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sicom-juridica-fallidos.txt</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;NO TIENEN ICI JUR&#x3d;&#x3d;&#x3d;</logmessage>
     <fields>
-    </fields>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>193</xloc>
-      <yloc>344</yloc>
+      <xloc>254</xloc>
+      <yloc>391</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>sicom-juridica-fallidos 2</name>
-    <type>TextFileOutput</type>
+    <name>Write to log JUR 2</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1646,50 +1682,42 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sicom-juridica-fallidos.txt</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;ERROR AL LEER JSON JUR&#x3d;&#x3d;&#x3d;</logmessage>
     <fields>
-    </fields>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>DES_DESC</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>797</xloc>
-      <yloc>423</yloc>
+      <xloc>759</xloc>
+      <yloc>424</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>sicom-natural-fallidos</name>
-    <type>TextFileOutput</type>
+    <name>Write to log JUR 3</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1698,50 +1726,39 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sicom-natural-fallidos.txt</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;NO TIENEN FECHA DE REPORTE&#x3d;&#x3d;&#x3d;</logmessage>
     <fields>
-    </fields>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>G_FECHA</name>
+        </field>
+      <field>
+        <name>G_CATEGORIA</name>
+        </field>
+      <field>
+        <name>G_CODIGOHOST</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>214</xloc>
-      <yloc>602</yloc>
+      <xloc>1029</xloc>
+      <yloc>427</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>sicom-natural-fallidos 2</name>
-    <type>TextFileOutput</type>
+    <name>Write to log NAT 1</name>
+    <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1750,43 +1767,120 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <enclosure_forced>N</enclosure_forced>
-    <enclosure_fix_disabled>N</enclosure_fix_disabled>
-    <header>Y</header>
-    <footer>N</footer>
-    <format>DOS</format>
-    <compression>None</compression>
-    <encoding/>
-    <endedLine/>
-    <fileNameInField>N</fileNameInField>
-    <fileNameField/>
-    <create_parent_folder>Y</create_parent_folder>
-    <file>
-      <name>&#x24;&#x7b;FILE&#x7d;sicom-natural-fallidos.txt</name>
-      <is_command>N</is_command>
-      <servlet_output>N</servlet_output>
-      <do_not_open_new_file_init>N</do_not_open_new_file_init>
-      <extention>txt</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <add_to_result_filenames>Y</add_to_result_filenames>
-      <pad>N</pad>
-      <fast_dump>N</fast_dump>
-      <splitevery>0</splitevery>
-    </file>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;NO TIENEN ICI NAT&#x3d;&#x3d;&#x3d;</logmessage>
     <fields>
-    </fields>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>867</xloc>
-      <yloc>743</yloc>
+      <xloc>222</xloc>
+      <yloc>726</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log NAT 2</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;ERROR AL LEER JSON NAT&#x3d;&#x3d;&#x3d;</logmessage>
+    <fields>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>NUM_NUME_DOCU</name>
+        </field>
+      <field>
+        <name>TXT_NOMB</name>
+        </field>
+      <field>
+        <name>TXT_APEL</name>
+        </field>
+      <field>
+        <name>URL</name>
+        </field>
+      <field>
+        <name>result</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>660</xloc>
+      <yloc>663</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Write to log NAT 3</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <loglevel>log_level_basic</loglevel>
+      <displayHeader>Y</displayHeader>
+      <limitRows>N</limitRows>
+      <limitRowsNumber>0</limitRowsNumber>
+      <logmessage>&#x3d;&#x3d;&#x3d;NO TIENEN FECHA DE REPORTE NAT&#x3d;&#x3d;&#x3d;</logmessage>
+    <fields>
+      <field>
+        <name>TXT_ICI</name>
+        </field>
+      <field>
+        <name>COD_SUJE</name>
+        </field>
+      <field>
+        <name>G_FECHA_REPORTE</name>
+        </field>
+      <field>
+        <name>G_CONDICION</name>
+        </field>
+      <field>
+        <name>G_CODIGOHOST</name>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1045</xloc>
+      <yloc>742</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1794,7 +1888,7 @@
   <step_error_handling>
       <error>
         <source_step>Json J</source_step>
-        <target_step>sicom-juridica-fallidos 2</target_step>
+        <target_step>Write to log JUR 2</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>
@@ -1806,7 +1900,7 @@
       </error>
       <error>
         <source_step>Json N</source_step>
-        <target_step>sicom-natural-fallidos 2</target_step>
+        <target_step>Write to log NAT 2</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

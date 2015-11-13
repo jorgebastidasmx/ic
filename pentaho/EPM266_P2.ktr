@@ -79,11 +79,107 @@
   <notepads>
   </notepads>
   <connection>
-    <name>EPM</name>
+    <name>Alertas</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>Alertas</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Coletters</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>Coletters</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Conexion</name>
+    <server>&#x24;&#x7b;hostName.origen.Collector&#x7d;</server>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>Conexion</database>
+    <port>&#x24;&#x7b;portNumber.origen.Collector&#x7d;</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;portNumber.origen.Collector&#x7d;</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>epm</name>
     <server/>
     <type>ORACLE</type>
     <access>JNDI</access>
     <database>EPM</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>epm2</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPMACTUA</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -108,6 +204,102 @@
     <type>ORACLE</type>
     <access>JNDI</access>
     <database>EPM_ACL</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPM_MSG</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPM</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMANTIGUO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMANTIGUO</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMANTIGUO3</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMANTIGUO3</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMNUEVO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>Native</access>
+    <database>EPMNUEVO</database>
     <port>1521</port>
     <username/>
     <password>Encrypted </password>
@@ -160,7 +352,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>EPM</connection>
+    <connection>epm</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>Y</single_statement>
     <replace_variables>N</replace_variables>
@@ -193,7 +385,7 @@
            <schema_name/>
            </partitioning>
     <connection>EPM_ACL</connection>
-    <sql> select distinct &#x28;up.COD_USUA&#x29; as COD_USUA_S, &#xd;&#xa;  CONCAT&#x28; CONCAT&#x28; CONCAT&#x28; t.DES_PRIM_NOMB, &#x27; &#x27;  &#x29;, t.DES_APEL_PATE &#x29;, &#x27; &#x27; &#x29; AS txt_nombre, &#xd;&#xa;  t2.COD_TIPO as COD_PERF_S,&#xd;&#xa;  t2.DES_TIPO as DES_NOMB_PERF,&#xd;&#xa;  p.COD_ENTI as COD_ENTI,&#xd;&#xa;  e.DES_ENTI&#xd;&#xa;FROM SEGURIDAD.CAMD_USUA_PERF up&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMC_PERF p on &#x28;up.COD_PERF &#x3d; p.COD_PERF&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.camd_prod_perf pp ON &#x28;p.COD_PERF &#x3d; pp.COD_PERF&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMC_ENTI e on &#x28;p.COD_ENTI &#x3d; e.COD_ENTI&#x29;&#xd;&#xa;  INNER JOIN SEGURIDAD.camc_usua t ON up.cod_usua&#x3d;t.cod_usua&#xd;&#xa;  INNER JOIN SEGURIDAD.CAMD_TIPO t2 on &#x28;t.cod_tipo_usua &#x3d; t2.cod_tipo&#x29;&#xd;&#xa;  WHERE up.cod_esta&#x3d;2&#xd;&#xa;  and   pp.COD_PROD &#x3d; 303  &#xd;&#xa;  order by up.COD_USUA </sql>
+    <sql>select distinct &#x28;up.COD_USUA&#x29; as COD_USUA_S, &#xd;&#xa; t.TXT_MAIL_TRAB as CORREO,&#xd;&#xa; CONCAT&#x28; CONCAT&#x28; CONCAT&#x28; t.DES_PRIM_NOMB, &#x27; &#x27;  &#x29;, t.DES_APEL_PATE &#x29;, &#x27; &#x27; &#x29; AS txt_nombre, &#xd;&#xa; t2.COD_TIPO as COD_PERF_S,&#xd;&#xa; t2.DES_TIPO as DES_NOMB_PERF,&#xd;&#xa; p.COD_ENTI as COD_ENTI,&#xd;&#xa; e.DES_ENTI,&#xd;&#xa;  t.COD_SUB_ENTI  as cod_ofic,&#xd;&#xa;  t.txt_logi as txt_logi&#xd;&#xa;FROM SEGURIDAD.CAMD_USUA_PERF up&#xd;&#xa; INNER JOIN SEGURIDAD.CAMC_PERF p on &#x28;up.COD_PERF &#x3d; p.COD_PERF&#x29;&#xd;&#xa; INNER JOIN SEGURIDAD.camd_prod_perf pp ON &#x28;p.COD_PERF &#x3d; pp.COD_PERF&#x29;&#xd;&#xa; INNER JOIN SEGURIDAD.CAMC_ENTI e on &#x28;p.COD_ENTI &#x3d; e.COD_ENTI&#x29;&#xd;&#xa; INNER JOIN SEGURIDAD.camc_usua t ON up.cod_usua&#x3d;t.cod_usua&#xd;&#xa; INNER JOIN SEGURIDAD.CAMD_TIPO t2 on &#x28;t.cod_tipo_usua &#x3d; t2.cod_tipo&#x29;&#xd;&#xa; WHERE up.cod_esta&#x3d;2&#xd;&#xa; and   pp.COD_PROD &#x3d; 303  &#xd;&#xa; order by up.COD_USUA </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

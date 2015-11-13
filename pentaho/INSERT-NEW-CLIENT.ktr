@@ -42,7 +42,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject>INIT MAPPING</subject></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject>OUTPUT PERSONA NATURAL</subject></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -99,6 +99,102 @@
   <notepads>
   </notepads>
   <connection>
+    <name>Alertas</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>Alertas</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>Coletters</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>Coletters</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>epm</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPM</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPM_ACL</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPM_ACL</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>EPM_MSG</name>
     <server/>
     <type>ORACLE</type>
@@ -122,23 +218,89 @@
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
+  <connection>
+    <name>EPMANTIGUO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPMANTIGUO</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMANTIGUO3</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPMANTIGUO3</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>EPMNUEVO</name>
+    <server/>
+    <type>ORACLE</type>
+    <access>JNDI</access>
+    <database>EPMNUEVO</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
   <hop> <from>MOD URL NAT</from><to>REST ICI NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>VALIDATE TIPO DOC</from><to>MOD URL JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>MOD URL JUR</from><to>REST ICI JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT NAT</from><to>SEQ CLIENTE_SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ SUJETO 2</from><to>INSERT JUR</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT JUR</from><to>SEQ CLIENTE_SUJETO 2</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO</from><to>INSERT CLIENTE_SUJETO NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>SEQ CLIENTE_SUJETO 2</from><to>INSERT CLIENTE_SUJETO JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>GET DATOS SUJETO 2</from><to>FILTER COUNT JUR</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER COUNT JUR</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>GET DATOS SUJETO</from><to>FILTER COUNT NAT</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER COUNT NAT</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>INIT MAPPING</from><to>CONSTANTES</to><enabled>Y</enabled> </hop>
-  <hop> <from>CONSTANTES</from><to>VALIDATE TIPO DOC</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI NAT</from><to>FILTER RESULT</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER RESULT</from><to>GET DATOS SUJETO</to><enabled>Y</enabled> </hop>
   <hop> <from>REST ICI JUR</from><to>FILTER RESULT 1</to><enabled>Y</enabled> </hop>
@@ -150,24 +312,34 @@
   <hop> <from>MOD URL JUR</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER RESULT</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
   <hop> <from>FILTER RESULT 1</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER COUNT NAT</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
-  <hop> <from>FILTER COUNT JUR</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
   <hop> <from>GET DATOS SUJETO</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
   <hop> <from>GET DATOS SUJETO 2</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT CLIENTE_SUJETO NAT</from><to>Set field value</to><enabled>Y</enabled> </hop>
   <hop> <from>Set field value</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT CLIENTE_SUJETO JUR</from><to>Set field value 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Set field value 2</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
+  <hop> <from>SEQ SUJETO</from><to>INSERT NAT</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT NAT</from><to>Write to log</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT CLIENTE_SUJETO NAT</from><to>Write to log 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>INSERT JUR</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
   <hop> <from>INSERT CLIENTE_SUJETO JUR</from><to>Write to log 4</to><enabled>Y</enabled> </hop>
+  <hop> <from>VAL DOCUMENT</from><to>SEQ SUJETO 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>CONSTANTES</from><to>VALIDATE TIPO DOC</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET JSON VALUES</from><to>SEQ SUJETO</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET JSON VALUES</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET JSON VALUES 2</from><to>VAL DOCUMENT</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET DATOS SUJETO</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>GET JSON VALUES</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>OUTPUT PERSONA NATURAL</to><enabled>Y</enabled> </hop>
+  <hop> <from>GET DATOS SUJETO 2</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>GET JSON VALUES 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>OUTPUT PERSONA JURIDICA</to><enabled>Y</enabled> </hop>
+  <hop> <from>INSERT JUR</from><to>Write to log 3</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>CONSTANTES</name>
     <type>Constant</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -226,8 +398,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>191</xloc>
-      <yloc>226</yloc>
+      <xloc>210</xloc>
+      <yloc>183</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -315,90 +487,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>63</xloc>
-      <yloc>110</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER COUNT JUR</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>SEQ SUJETO 2</send_true_to>
-<send_false_to>OUTPUT PERSONA JURIDICA</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>COUNT_EMPRESAS</leftvalue>
-   <function>&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>TXT_ICI</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>775</xloc>
-      <yloc>362</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>FILTER COUNT NAT</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<send_true_to>SEQ SUJETO</send_true_to>
-<send_false_to>OUTPUT PERSONA NATURAL</send_false_to>
-    <compare>
-<condition>
- <negated>N</negated>
- <conditions>
-  <condition>
-   <negated>N</negated>
-   <leftvalue>COUNT_PERSONAS</leftvalue>
-   <function>&#x3e;</function>
-   <rightvalue/>
-   <value><name>constant</name><type>Number</type><text>0.0</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask>&#x23;.&#x23;&#x3b;-&#x23;.&#x23;</mask></value>   </condition>
-  <condition>
-   <negated>N</negated>
-   <operator>AND</operator>
-   <leftvalue>TXT_ICI</leftvalue>
-   <function>IS NOT NULL</function>
-   <rightvalue/>
-   </condition>
-  </conditions>
- </condition>
-    </compare>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>753</xloc>
-      <yloc>118</yloc>
+      <xloc>212</xloc>
+      <yloc>79</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -426,8 +516,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>517</xloc>
-      <yloc>119</yloc>
+      <xloc>516</xloc>
+      <yloc>229</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -455,8 +545,66 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>527</xloc>
-      <yloc>363</yloc>
+      <xloc>539</xloc>
+      <yloc>373</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>GET JSON VALUES</send_true_to>
+<send_false_to>OUTPUT PERSONA NATURAL</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>count</leftvalue>
+ <function>&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>704</xloc>
+      <yloc>227</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>GET JSON VALUES 2</send_true_to>
+<send_false_to>OUTPUT PERSONA JURIDICA</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>count</leftvalue>
+ <function>&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>754</xloc>
+      <yloc>374</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -490,8 +638,8 @@
     </file>
     <fields>
       <field>
-        <name>TXT_ICI</name>
-        <path>&#x24;..ici</path>
+        <name>jsonRow</name>
+        <path>&#x24;..listaPersonas&#x5b;0&#x5d;</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -499,52 +647,13 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>TXT_NOMB_COMP</name>
-        <path>&#x24;..nombreCompleto</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>COUNT_PERSONAS</name>
+        <name>count</name>
         <path>&#x24;..countPersonas</path>
         <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_NOMB</name>
-        <path>&#x24;..nombres</path>
-        <type>None</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_APEL</name>
-        <path>&#x24;..apellidos</path>
-        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -569,8 +678,8 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>637</xloc>
-      <yloc>116</yloc>
+      <xloc>620</xloc>
+      <yloc>228</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -604,8 +713,8 @@
     </file>
     <fields>
       <field>
-        <name>TXT_ICI</name>
-        <path>&#x24;..ici</path>
+        <name>jsonRow</name>
+        <path>&#x24;..listaEmpresas&#x5b;0&#x5d;</path>
         <type>String</type>
         <format/>
         <currency/>
@@ -613,89 +722,11 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
-        <name>DES_DESC</name>
-        <path>&#x24;..descripcion</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIP_TIPO_DENO</name>
-        <path>&#x24;..tipoDenominacion</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_DENO</name>
-        <path>&#x24;..denominacion</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_SITU_DENO</name>
-        <path>&#x24;..situacionDenom</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TIP_TIPO_DIRE</name>
-        <path>&#x24;..tipoDireccion</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>TXT_SITU_DIRE</name>
-        <path>&#x24;..situacionDirec</path>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
-        <name>COUNT_EMPRESAS</name>
+        <name>count</name>
         <path>&#x24;..countEmpresas</path>
         <type>Integer</type>
         <format/>
@@ -722,8 +753,128 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>653</xloc>
-      <yloc>363</yloc>
+      <xloc>644</xloc>
+      <yloc>373</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>GET JSON VALUES</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var ici &#x3d; getFromMap&#x28;&#x27;ici&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var nombreCompleto &#x3d; getFromMap&#x28;&#x27;nombreCompleto&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var nombres &#x3d; getFromMap&#x28;&#x27;nombres&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var apellidos &#x3d; getFromMap&#x28;&#x27;apellidos&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;function getFromMap&#x28;key,listaPersonas&#x29;&#x7b;&#xd;&#xa;&#xd;&#xa;   var map &#x3d; null&#x3b;&#xd;&#xa;  try&#x7b;   &#xd;&#xa;	&#xd;&#xa;map &#x3d; JSON.parse&#x28;jsonRow&#x29;&#x3b;&#xd;&#xa;  &#x7d;&#xd;&#xa;  catch&#x28;e&#x29;&#x7b;&#xd;&#xa;  	return null&#x3b;&#xd;&#xa;  &#x7d;&#xd;&#xa;&#xd;&#xa;	var val &#x3d; null&#x3b;&#xd;&#xa;  if&#x28;map&#x5b;key&#x5d; &#x3d;&#x3d; undefined&#x29;&#x7b;&#xd;&#xa;   val &#x3d;  &#x22;&#x22;&#x3b;&#xd;&#xa;  &#x7d;else&#x7b;&#xd;&#xa; 	val &#x3d; map&#x5b;key&#x5d;&#xd;&#xa;	&#x7d;&#xd;&#xa;  &#xd;&#xa;	return val&#x3b;&#xd;&#xa;&#xd;&#xa;&#x7d;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ici</name>
+        <rename>TXT_ICI</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>nombreCompleto</name>
+        <rename>TXT_NOMB_COMP</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>countPersonas</name>
+        <rename>COUNT_PERSONAS</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>nombres</name>
+        <rename>TXT_NOMB</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>apellidos</name>
+        <rename>TXT_APEL</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>785</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>GET JSON VALUES 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var ici &#x3d; getFromMap&#x28;&#x27;ici&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var descripcion &#x3d; getFromMap&#x28;&#x27;descripcion&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var tipoDenominacion &#x3d; getFromMap&#x28;&#x27;tipoDenominacion&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var denominacion &#x3d; getFromMap&#x28;&#x27;denominacion&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var situacionDenom &#x3d; getFromMap&#x28;&#x27;situacionDenom&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var tipoDireccion &#x3d; getFromMap&#x28;&#x27;tipoDireccion&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;var situacionDirec &#x3d; getFromMap&#x28;&#x27;situacionDirec&#x27;, jsonRow&#x5b;0&#x5d;&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;function getFromMap&#x28;key,listaPersonas&#x29;&#x7b;&#xd;&#xa;&#xd;&#xa;   var map &#x3d; null&#x3b;&#xd;&#xa;  try&#x7b;   &#xd;&#xa;	&#xd;&#xa;map &#x3d; JSON.parse&#x28;jsonRow&#x29;&#x3b;&#xd;&#xa;  &#x7d;&#xd;&#xa;  catch&#x28;e&#x29;&#x7b;&#xd;&#xa;  	return null&#x3b;&#xd;&#xa;  &#x7d;&#xd;&#xa;&#xd;&#xa;	var val &#x3d; null&#x3b;&#xd;&#xa;  if&#x28;map&#x5b;key&#x5d; &#x3d;&#x3d; undefined&#x29;&#x7b;&#xd;&#xa;   val &#x3d;  &#x22;&#x22;&#x3b;&#xd;&#xa;  &#x7d;else&#x7b;&#xd;&#xa; 	val &#x3d; map&#x5b;key&#x5d;&#xd;&#xa;	&#x7d;&#xd;&#xa;  &#xd;&#xa;	return val&#x3b;&#xd;&#xa;&#xd;&#xa;&#x7d;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ici</name>
+        <rename>TXT_ICI</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>descripcion</name>
+        <rename>DES_DESC</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>tipoDenominacion</name>
+        <rename>TIP_TIPO_DENO</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>denominacion</name>
+        <rename>TXT_DENO</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>situacionDenom</name>
+        <rename>TXT_SITU_DENO</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>tipoDireccion</name>
+        <rename>TIP_TIPO_DIRE</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>situacionDirec</name>
+        <rename>TXT_SITU_DIRE</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>847</xloc>
+      <yloc>373</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -732,7 +883,7 @@
     <name>INIT MAPPING</name>
     <type>MappingInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -774,8 +925,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>57</xloc>
-      <yloc>226</yloc>
+      <xloc>98</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -824,8 +975,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1365</xloc>
-      <yloc>362</yloc>
+      <xloc>1062</xloc>
+      <yloc>534</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -874,8 +1025,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1367</xloc>
-      <yloc>114</yloc>
+      <xloc>1048</xloc>
+      <yloc>60</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -923,7 +1074,7 @@
         </field>
         <field>
           <column_name>DES_DESC</column_name>
-          <stream_name>DES_DESC</stream_name>
+          <stream_name>desc</stream_name>
         </field>
         <field>
           <column_name>TXT_ICI</column_name>
@@ -931,7 +1082,7 @@
         </field>
         <field>
           <column_name>TIP_TIPO_SUJE</column_name>
-          <stream_name>JUR</stream_name>
+          <stream_name>tipSuje</stream_name>
         </field>
         <field>
           <column_name>COD_PAIS</column_name>
@@ -957,11 +1108,15 @@
           <column_name>TXT_SITU_DIRE</column_name>
           <stream_name>TXT_SITU_DIRE</stream_name>
         </field>
+        <field>
+          <column_name>TXT_NOMB_COMP</column_name>
+          <stream_name>nomcomp</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>365</yloc>
+      <xloc>1172</xloc>
+      <yloc>378</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1034,8 +1189,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1028</xloc>
-      <yloc>117</yloc>
+      <xloc>1042</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1070,8 +1225,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>323</xloc>
-      <yloc>362</yloc>
+      <xloc>316</xloc>
+      <yloc>374</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1112,8 +1267,8 @@
         <replace>N</replace>
       </field>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>118</yloc>
+      <xloc>319</xloc>
+      <yloc>228</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1131,8 +1286,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>683</xloc>
-      <yloc>251</yloc>
+      <xloc>622</xloc>
+      <yloc>530</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1150,8 +1305,8 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1050</xloc>
-      <yloc>254</yloc>
+      <xloc>639</xloc>
+      <yloc>61</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1193,8 +1348,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>418</xloc>
-      <yloc>366</yloc>
+      <xloc>428</xloc>
+      <yloc>374</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1236,8 +1391,8 @@
       </result>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>413</xloc>
-      <yloc>115</yloc>
+      <xloc>412</xloc>
+      <yloc>225</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1246,7 +1401,7 @@
     <name>SEQ CLIENTE_SUJETO</name>
     <type>Sequence</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1265,8 +1420,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1173</xloc>
-      <yloc>117</yloc>
+      <xloc>1124</xloc>
+      <yloc>136</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1275,7 +1430,7 @@
     <name>SEQ CLIENTE_SUJETO 2</name>
     <type>Sequence</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -1294,8 +1449,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1171</xloc>
-      <yloc>364</yloc>
+      <xloc>1158</xloc>
+      <yloc>470</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1323,8 +1478,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>904</xloc>
-      <yloc>121</yloc>
+      <xloc>925</xloc>
+      <yloc>226</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1352,8 +1507,8 @@
       <max_value>999999999</max_value>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>897</xloc>
-      <yloc>363</yloc>
+      <xloc>1052</xloc>
+      <yloc>379</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1381,8 +1536,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1218</xloc>
-      <yloc>207</yloc>
+      <xloc>919</xloc>
+      <yloc>61</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1410,8 +1565,50 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>850</xloc>
-      <yloc>297</yloc>
+      <xloc>930</xloc>
+      <yloc>530</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>VAL DOCUMENT</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var tipSuje&#x3b;&#xd;&#xa;var desc&#x3b;&#xd;&#xa;var nomcomp&#x3b;&#xd;&#xa;var num_documento &#x3d; NUM_NUME_DOCU&#x3b;&#xd;&#xa;if&#x28;num_documento &#x21;&#x3d;null&#x29;&#x7b;&#xd;&#xa;	if&#x28;num_documento.substring&#x28;0,2&#x29; &#x21;&#x3d; &#x27;20&#x27;&#x29;&#x7b;&#xd;&#xa;		tipSuje &#x3d; 1&#x3b;&#xd;&#xa;		nomcomp &#x3d; DES_DESC&#x3b;&#xd;&#xa;		desc &#x3d; null&#x3b;&#xd;&#xa;	&#x7d;else&#x7b;&#xd;&#xa;		tipSuje &#x3d; 2&#x3b;&#xd;&#xa;		desc &#x3d; DES_DESC&#x3b;&#xd;&#xa;		nomcomp &#x3d; null&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>tipSuje</name>
+        <rename>tipSuje</rename>
+        <type>Number</type>
+        <length>16</length>
+        <precision>2</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>desc</name>
+        <rename>desc</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>nomcomp</name>
+        <rename>nomcomp</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>960</xloc>
+      <yloc>376</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1442,8 +1639,8 @@
 <target_step>MOD URL JUR</target_step>
 </case></cases>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>320</xloc>
-      <yloc>226</yloc>
+      <xloc>209</xloc>
+      <yloc>293</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1463,7 +1660,7 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Manejo de errores INSERT NAT&#xd;&#xa;</logmessage>
+      <logmessage/>
     <fields>
       <field>
         <name>COD_CLIE</name>
@@ -1528,8 +1725,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1026</xloc>
-      <yloc>7</yloc>
+      <xloc>1182</xloc>
+      <yloc>221</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1617,8 +1814,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1364</xloc>
-      <yloc>14</yloc>
+      <xloc>1193</xloc>
+      <yloc>61</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1634,11 +1831,11 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <loglevel>log_level_detailed</loglevel>
+      <loglevel>log_level_basic</loglevel>
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>Manejo de errores INSERT JUR</logmessage>
+      <logmessage/>
     <fields>
       <field>
         <name>COD_CLIE</name>
@@ -1680,6 +1877,12 @@
         <name>status</name>
         </field>
       <field>
+        <name>jsonRow</name>
+        </field>
+      <field>
+        <name>count</name>
+        </field>
+      <field>
         <name>TXT_ICI</name>
         </field>
       <field>
@@ -1701,7 +1904,13 @@
         <name>TXT_SITU_DIRE</name>
         </field>
       <field>
-        <name>COUNT_EMPRESAS</name>
+        <name>tipSuje</name>
+        </field>
+      <field>
+        <name>desc</name>
+        </field>
+      <field>
+        <name>nomcomp</name>
         </field>
       <field>
         <name>COD_SUJE_SEQ</name>
@@ -1709,8 +1918,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1017</xloc>
-      <yloc>470</yloc>
+      <xloc>1272</xloc>
+      <yloc>378</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1796,6 +2005,9 @@
         <name>COUNT_EMPRESAS</name>
         </field>
       <field>
+        <name>tipSuje</name>
+        </field>
+      <field>
         <name>COD_SUJE_SEQ</name>
         </field>
       <field>
@@ -1804,8 +2016,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1367</xloc>
-      <yloc>468</yloc>
+      <xloc>1221</xloc>
+      <yloc>532</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1826,6 +2038,18 @@
       <error>
         <source_step>GET DATOS SUJETO 2</source_step>
         <target_step>OUTPUT PERSONA JURIDICA</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+      <error>
+        <source_step>GET JSON VALUES</source_step>
+        <target_step>OUTPUT PERSONA NATURAL</target_step>
         <is_enabled>Y</is_enabled>
         <nr_valuename/>
         <descriptions_valuename/>

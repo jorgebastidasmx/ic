@@ -16,7 +16,7 @@
         </parameter>
         <parameter>
             <name>FILE</name>
-            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho&#x5c;</default_value>
+            <default_value/>
             <description/>
         </parameter>
         <parameter>
@@ -41,7 +41,7 @@
         </parameter>
         <parameter>
             <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG</default_value>
+            <default_value/>
             <description/>
         </parameter>
     </parameters>
@@ -1085,7 +1085,7 @@
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
     <format>mixed</format>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;JURIDICA&#x7d;</name>
@@ -1258,7 +1258,7 @@
     <rownumByFile>N</rownumByFile>
     <rownum_field/>
     <format>mixed</format>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
       <name>&#x24;&#x7b;FILE&#x7d;&#x2f;&#x24;&#x7b;NATURAL&#x7d;</name>
@@ -2039,7 +2039,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
@@ -2091,7 +2091,7 @@
     <footer>N</footer>
     <format>DOS</format>
     <compression>None</compression>
-    <encoding/>
+    <encoding>UTF-8</encoding>
     <endedLine/>
     <fileNameInField>N</fileNameInField>
     <fileNameField/>
