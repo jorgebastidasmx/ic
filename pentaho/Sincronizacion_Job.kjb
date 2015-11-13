@@ -21,6 +21,11 @@
             <default_value/>
             <description/>
         </parameter>
+        <parameter>
+            <name>SCHEMA_EPM</name>
+            <default_value/>
+            <description/>
+        </parameter>
     </parameters>
   <connection>
     <name>Alertas</name>

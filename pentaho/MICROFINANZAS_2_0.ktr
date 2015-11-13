@@ -10,28 +10,8 @@
     <directory>&#x2f;</directory>
     <parameters>
         <parameter>
-            <name>COD_PAIS</name>
-            <default_value>1</default_value>
-            <description/>
-        </parameter>
-        <parameter>
             <name>COD_TIPO_SCOR_MF_EMPRESA</name>
             <default_value>4</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FILE</name>
-            <default_value>C&#x3a;&#x5c;Users&#x5c;adn4&#x5c;Desktop&#x5c;mx&#x5c;pentaho</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>JURIDICA</name>
-            <default_value>juridica.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>NATURAL</name>
-            <default_value>natural.txt</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -42,11 +22,6 @@
         <parameter>
             <name>POST_PARAM_JURIDICA_MF</name>
             <default_value>&#x7b; &#x22;usuario&#x22;&#x3a; &#x22;APP.EFXLITEORACLE&#x22;, &#x22;clave&#x22;&#x3a; &#x22;Equifax2&#x22;, &#x22;canal&#x22;&#x3a; &#x22;172.23.36.146&#x22;, &#x22;codigoAplicacionHeader&#x22;&#x3a; &#x22;WS_ADVANCED_PRODUCTS_001&#x22;, &#x22;claveAplicacionHeader&#x22;&#x3a; &#x22;123456&#x22;, &#x22;personas&#x22;&#x3a; &#x5b;&#x7b; &#x22;nombres&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoPersona&#x22;&#x3a; &#x22;J&#x22;, &#x22;numeroDocumento&#x22;&#x3a; &#x22;&#x5b;DOC&#x5d;&#x22;, &#x22;apellidoPaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;apellidoMaterno&#x22;&#x3a; &#x22;&#x22;, &#x22;tipoDocumento&#x22;&#x3a; &#x22;6&#x22;, &#x22;etipprod&#x22;&#x3a; &#x22;S18&#x22;, &#x22;nombcomp&#x22;&#x3a; &#x22;s&#x22;, &#x22;numeroIntegrante&#x22;&#x3a; &#x22;1&#x22;, &#x22;razonSocial&#x22;&#x3a;&#x22;&#x5b;RAZON_SOCIAL&#x5d;&#x22; &#x7d;&#x5d; &#x7d;</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>SCHEMA_EPM</name>
-            <default_value>EPM_MSG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -465,7 +440,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -480,7 +455,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -495,7 +470,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
       <field>
@@ -510,7 +485,7 @@
         <position>-1</position>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <repeat>N</repeat>
       </field>
     </fields>

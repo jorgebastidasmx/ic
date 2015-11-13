@@ -9,16 +9,6 @@
     <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
-        <parameter>
-            <name>PATH_FILES</name>
-            <default_value/>
-            <description>Ruta donde estan los JOBS</description>
-        </parameter>
-        <parameter>
-            <name>SCHEMA_EPM</name>
-            <default_value/>
-            <description>Nombre esquema oracle</description>
-        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -1414,7 +1404,7 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>NUM_NUME_DOCU</name>
@@ -1425,7 +1415,7 @@
         <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
      <cluster_schema/>

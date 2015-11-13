@@ -287,7 +287,7 @@
         <decimal>,</decimal>
         <group>.</group>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>10</length>
         <precision>0</precision>
       </field>
@@ -299,7 +299,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>16</length>
         <precision>-1</precision>
       </field>
@@ -311,7 +311,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>45</length>
         <precision>-1</precision>
       </field>
@@ -323,7 +323,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>180</length>
         <precision>-1</precision>
       </field>
@@ -387,7 +387,7 @@
         <decimal>,</decimal>
         <group>.</group>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>10</length>
         <precision>0</precision>
       </field>
@@ -399,7 +399,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>16</length>
         <precision>-1</precision>
       </field>
@@ -411,7 +411,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>45</length>
         <precision>-1</precision>
       </field>
@@ -423,7 +423,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>150</length>
         <precision>-1</precision>
       </field>
@@ -435,7 +435,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>150</length>
         <precision>-1</precision>
       </field>

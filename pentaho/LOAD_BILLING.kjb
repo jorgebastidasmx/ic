@@ -17,11 +17,6 @@
             <description/>
         </parameter>
         <parameter>
-            <name>FILE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
             <name>KTR-BILLING</name>
             <default_value/>
             <description/>

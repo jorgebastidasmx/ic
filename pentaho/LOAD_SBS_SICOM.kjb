@@ -22,13 +22,8 @@
             <description/>
         </parameter>
         <parameter>
-            <name>FILE_JURIDICA</name>
-            <default_value>juridica.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FILE_NATURAL</name>
-            <default_value>natural.txt</default_value>
+            <name>JURIDICA</name>
+            <default_value/>
             <description/>
         </parameter>
         <parameter>
@@ -53,6 +48,11 @@
         </parameter>
         <parameter>
             <name>KTR-SICOM</name>
+            <default_value/>
+            <description/>
+        </parameter>
+        <parameter>
+            <name>NATURAL</name>
             <default_value/>
             <description/>
         </parameter>

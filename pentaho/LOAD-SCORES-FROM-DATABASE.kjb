@@ -22,13 +22,8 @@
             <description/>
         </parameter>
         <parameter>
-            <name>FILE_JURIDICA</name>
-            <default_value>juridica.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>FILE_NATURAL</name>
-            <default_value>natural.txt</default_value>
+            <name>JURIDICA</name>
+            <default_value/>
             <description/>
         </parameter>
         <parameter>
@@ -52,17 +47,12 @@
             <description/>
         </parameter>
         <parameter>
-            <name>KTR-SBS</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
             <name>KTR-SCORE</name>
             <default_value/>
             <description/>
         </parameter>
         <parameter>
-            <name>KTR-SICOM</name>
+            <name>NATURAL</name>
             <default_value/>
             <description/>
         </parameter>
@@ -314,8 +304,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>552</xloc>
-      <yloc>459</yloc>
+      <xloc>766</xloc>
+      <yloc>277</yloc>
       </entry>
     <entry>
       <name>Microfinanzas 2.0</name>
@@ -381,6 +371,15 @@
     </hop>
     <hop>
       <from>LOAD</from>
+      <to>Microfinanzas 2.0</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SCORE Empresas</from>
       <to>CLEAN CACHE</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -389,8 +388,17 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>LOAD</from>
-      <to>Microfinanzas 2.0</to>
+      <from>SCORE Risk Predictor</from>
+      <to>CLEAN CACHE</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Microfinanzas 2.0</from>
+      <to>CLEAN CACHE</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>

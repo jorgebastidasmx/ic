@@ -9,31 +9,6 @@
     <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
-        <parameter>
-            <name>COD_PAIS</name>
-            <default_value>1</default_value>
-            <description>Codigo del Pais</description>
-        </parameter>
-        <parameter>
-            <name>FILE</name>
-            <default_value/>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>JURIDICA</name>
-            <default_value>juridica.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>NATURAL</name>
-            <default_value>natural.txt</default_value>
-            <description/>
-        </parameter>
-        <parameter>
-            <name>SCHEMA_EPM</name>
-            <default_value/>
-            <description>Schema de EPM</description>
-        </parameter>
     </parameters>
     <log>
 <trans-log-table><connection/>
@@ -271,7 +246,7 @@
         <decimal>,</decimal>
         <group>.</group>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>10</length>
         <precision>0</precision>
       </field>
@@ -283,7 +258,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>16</length>
         <precision>-1</precision>
       </field>
@@ -295,7 +270,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>45</length>
         <precision>-1</precision>
       </field>
@@ -307,7 +282,7 @@
         <decimal/>
         <group/>
         <nullif/>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
         <length>180</length>
         <precision>-1</precision>
       </field>
